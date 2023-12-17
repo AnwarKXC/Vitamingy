@@ -1,0 +1,154 @@
+ul(class=" cif justify-between text-center text-2xl maxlg:text-xl font-medium progress-timeline my-[50px] content-steps")
+    li(class="w-full first active  relative") shipping
+    li(class="w-full second  relative") payment
+    li(class="w-full third relative") done
+div(class="flex gap-[5%] maxlg:gap-4 container maxlg:flex-col capitalize " x-data="{data:'user',image:false,edit:false, newAddress:false}")
+    main(class="grow" )
+        h3(class="font-bold text-[2rem] maxlg:text-[1.4rem] mb-6") Ship To My Address
+        div(class=" py-9 px-[16px] bg-white shadow" x-show="data=='user'") 
+            
+            div(class="flex flex-col gap-2 py-2  relative "  )
+                div(class="flex gap-2 py-1  relative font-medium" )
+                    <i class="fa-regular fa-circle-dot text-base mt-[2px]"></i>
+                    div(class="cif flex-wrap gap-[2px]  text-lg maxlg:text-sm relative ")
+                        span(class="") Al Beheira
+                        span - 
+                        span(class="") Abou Al Matamer 
+                        span - 
+                        span(class="") Street:
+                        span(class="") 12312
+                        span - 
+                        span(class="") Building:
+                        span(class="")  12313
+                        span - 
+                        span(class="") Floor Number:
+                        span(class="")  12313
+                        span - 
+                        span(class="")  Flat Number:
+                        span(class="")  12313
+                        span - 
+                        span(class="")  Details:
+                        span(class="") 12313
+                div(class="cif gap-2 py-2  relative cursor-pointer" @click="edit=true"  )
+                    span(class="fa-solid fa-edit") 
+                    span(class="") edit address
+                form(class="fixed inset-0 px-4 bg-secondary/30 z-[50] hidden " :class="{'cent' : edit}" x-show="edit" )
+                    div(class="space-y-3 lg:w-[25%]  lg:py-8 py-4  px-[16px]  min-w-[300px] shadow bg-white rounded-md z-[50]"  x-show="edit" @click.away="edit=false")
+                        h3(class="lg:mb-6 mb-2  text-center font-medium text-xl capitalize") edit Address
+                        div(class="flex flex-col ")   
+                            label(class="mb-2") city:   
+                            select(name="" class="border py-1 text-lg w-full rounded-md  px-4")
+                                option(selected ) mansoura
+                                option hai 
+                                option hai 
+                        div(class="flex flex-col ")   
+                            label(class="mb-2") area:   
+                            select(name="" class="border py-1 text-lg w-full rounded-md  px-4")
+                                option(selected ) aga
+                                option hai 
+                                option hai 
+                        div
+                            label(class="mb-2") building: 
+                            input(class="rounded-md w-full px-4" value="123312" type="text",id="street" name="street" required)
+                        div
+                            label(class="mb-2") street: 
+                            input(class="rounded-md w-full px-4" value="123312" type="text",id="street" name="street" required)
+                        div(class="cif gap-2")
+                            div
+                                label(class="mb-2") Floor Number:
+                                input(class="rounded-md w-full px-4" value="123312"  type="text",id="street" name="street" required)
+                            div
+                                label(class="mb-2") Flat Number:
+                                input(class="rounded-md w-full px-4" value="123312" type="text",id="street" name="street" required)
+                        div
+                            label(class="mb-2") Details:
+                            textarea(  rows="3" class="rounded-md w-full px-4"  type="text",id="street" name="street" required) 123123123
+
+
+                        div.cent.mt-8
+                            button(type="submit" class="py-2 px-6 text-center bg-secondary rounded-full text-white  w-fit font-medium text-sm tracking-wider  uppercase") save
+                div.cif.justify-end.mt-8
+                    button(@click="newAddress=true" class="py-2 px-6 text-center bg-secondary rounded-full text-white  w-fit font-medium text-sm tracking-wider  uppercase") new address
+
+
+
+
+                form(class="fixed inset-0 px-4 bg-secondary/30 z-[50] hidden " :class="{'cent' : newAddress }" x-show=" newAddress" )
+                    div(class="space-y-3 lg:w-[25%]  lg:py-8 py-4  px-[16px]  min-w-[300px] shadow bg-white rounded-md z-[50]"  x-show="newAddress" @click.away=" newAddress=false")
+                        h3(class="lg:mb-6 mb-2  text-center font-medium text-xl capitalize") Add New Address
+                        div(class="flex flex-col ")   
+                            label(class="mb-2") city:   
+                            select(name="" class="border py-1 text-lg w-full rounded-md  px-4")
+                                option(selected hidden) 
+                                option hai 
+                                option hai 
+                        div(class="flex flex-col ")   
+                            label(class="mb-2") area:   
+                            select(name="" class="border py-1 text-lg w-full rounded-md  px-4")
+                                option(selected hidden) 
+                                option hai 
+                                option hai 
+                        div
+                            label(class="mb-2") building: 
+                            input(class="rounded-md w-full px-4"  type="text",id="street" name="street" required)
+                        div
+                            label(class="mb-2") street: 
+                            input(class="rounded-md w-full px-4"  type="text",id="street" name="street" required)
+                        div(class="cif gap-2")
+                            div
+                                label(class="mb-2") Floor Number:
+                                input(class="rounded-md w-full px-4"  type="text",id="street" name="street" required)
+                            div
+                                label(class="mb-2") Flat Number:
+                                input(class="rounded-md w-full px-4"  type="text",id="street" name="street" required)
+                        div
+                            label(class="mb-2") Details:
+                            textarea(  rows="3" class="rounded-md w-full px-4"  type="text",id="street" name="street" required)
+
+
+                        div.cent.mt-8
+                            button(type="submit" class="py-2 px-6 text-center bg-secondary rounded-full text-white  w-fit font-medium text-sm tracking-wider  uppercase") save
+
+
+
+
+
+    side(class="lg:w-[340px] w-full     " )
+        div(class="flex flex-col w-full px-[16px] shadow")
+            div( class="cif justify-between gap-2 py-3  relative border-b border-secondary")
+                span(class="text-xl font-bold") SHOPPING CART
+                a( href="./bag.html" class="font-medium underline") back to bag
+            div(class="flex flex-col divide-y-[1px] w-full  border-b border-secondary")
+                -for(let i=0;i<5;i++)
+                    div(class="flex gap-2 py-2")
+                        div(class="w-[70px]")
+                            img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="min-w-[70px] aspect-square" alt="" data-src="../assets/17-img-6.png")
+                        div(class="grow")
+                            h2(class="text-sm text-black capitalize font-bold") vitamine
+                            div(class="text-sm  capitalize gap-1 flex items-center")
+                                span(class="") 1
+                                span(class="text-[10px] font-bold ") x
+                                span(class="") 50.00 
+
+            div(class="flex flex-col gap-2 py-1 mt-3 relative divide-y-[1px] font-medium")
+
+                div( class="cif justify-between gap-2 py-2  relative ")
+                    span(class="") items 
+                    span(class="") 5
+                button(class="cif justify-between gap-2 py-2  relative " @click="data='order'")
+                    span(class="")  + shipping:
+                    span(class="") 70 egp
+                div( class="cif justify-between gap-2 py-2  relative ")
+                    span(class="") total
+                    span(class="") 7000 egp
+
+        a.cif.w-full.mt-8(href="./payment.html")
+            button( class="py-2 px-6 text-center bg-secondary rounded-md text-white  w-full font-medium text-lg tracking-wider  uppercase") continue with pay
+
+
+
+
+
+
+
+

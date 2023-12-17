@@ -1,0 +1,43 @@
+
+<!--sidebar for mobile-->
+<div class="fixed inset-0 w-full   z-50   capitalize hidden" :class="{'!block':sidebar}" x-show="sidebar">
+  <div class="fixed inset-0  bg-secondary/40 z-30   capitalize hidden" :class="{'!block':sidebar}" x-show="sidebar" @click="sidebar=false"></div>
+  <div class="relative flex flex-col w-[270px] z-[55555] h-full ltr:left-0 rtl:right-0 maxlg:px-4 bg-secondary text-white">
+    <div class="absolute ltr:right-[30px] top-[40px]" @click="sidebar=false"><i class="fa-solid fa-x text-xl"></i></div>
+    <div class="cent flex-col w-full">
+      <div class="rounded-full border-[4px] border-primary aspect-square w-[40%] mt-[45px]"><img class="w-full aspect-square rounded-full" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/img-user.jpg"/></div>
+      <div class="cent gap-2 py-1  relative"><span class="cursor-pointer">vitamingy </span></div>
+      <button class="cent gap-2 py-1  relative" @click="toggleDirLang()"><i class="fa-solid fa-globe text-sm"></i><span class="cursor-pointer" x-text="lang"></span></button>
+    </div>
+    <hr class="h-1 my-4 w-full"/>
+    <nav class=" my-6">
+      <ul class=" flex flex-col   maxlg:justify-between lg:gap-12 gap-3 font-bold text-white h-full text-base"><a href="./"> 
+          <li class="cif  gap-2 active-head">
+             <i class="fa-solid fa-house text-sm w-5"></i><span class="text-base">HOME </span></li></a>
+        <li class="cif flex-col gap-1 relative " x-data="{category:false}" @click="category=!category">
+          <div class=" cif justify-between gap-1 cursor-pointer w-full">
+            <div class=" cif gap-2  cursor-pointer"><i class="fa fa-list-alt text-sm w-5"></i><span>categories </span></div><i class="fa-solid fa-caret-down text-xs"></i>
+          </div>
+          <div class=" w-full py-3 px-5  hidden" :class="{'!block': category}" x-show="category">
+            <div class="flex items-start flex-col gap-2 font-normal text-start capitalize"> <a class="w-full" href="">about us</a><a class="w-full " href="">Contact-Us </a></div>
+          </div>
+        </li>
+        <li class="cif flex-col gap-1 relative max" x-data="{brand:false}" @click="brand=!brand">
+          <div class=" cif justify-between gap-1 cursor-pointer w-full">
+            <div class=" cif gap-2 cursor-pointer"><i class="fa fa-list-alt w-5 text-sm"></i><span>brands</span></div><i class="fa-solid fa-caret-down text-xs"></i>
+          </div>
+          <div class=" w-full py-3 px-5   hidden" :class="{'!block': brand}" x-show="brand">
+            <div class="flex items-start flex-col gap-2 font-normal text-start capitalize"> <a class="w-full" href="">about us</a><a class="w-full " href="">Contact-Us</a></div>
+          </div>
+        </li><a href="./about.html"> 
+          <li class="cif gap-2  "><i class="fa-solid fa-circle-exclamation text-sm w-5"></i><span class="text-base">About Us</span></li></a><a href="./contact-us.html"> 
+          <li class="cif  gap-2  "><i class="fa-solid fa-user text-sm w-5"></i><span class="text-base">myAccount</span></li></a>
+      </ul>
+    </nav>
+    <div class="cent gap-3 mt-6"><a href="http://" target="_blank" rel="noopener noreferrer">
+         <i class="fab  text-base fa-facebook-f"></i></a><a href="http://" target="_blank" rel="noopener noreferrer">
+         <i class="fab  text-base fa-twitter"></i></a><a href="http://" target="_blank" rel="noopener noreferrer">
+         <i class="fab  text-base fa-youtube"></i></a><a href="http://" target="_blank" rel="noopener noreferrer">
+         <i class="fab  text-base fa-instagram"></i></a></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+include mixins/hero-section.pug
+
+
+doctype html
+html(lang="en" dir="ltr" x-data="{ lang: localStorage.getItem('lang') || 'en', dir: localStorage.getItem('dir') || 'ltr', toggleDirLang() { this.lang = this.lang === 'en' ? 'ar' : 'en'; this.dir = this.dir === 'ltr' ? 'rtl' : 'ltr'; this.updateAttributes(); window.location.reload(); }, setToLTR() { this.lang = 'en'; this.dir = 'ltr'; this.updateAttributes(); window.location.reload(); }, setToRTL() { this.lang = 'ar'; this.dir = 'rtl'; this.updateAttributes(); window.location.reload(); }, updateAttributes() { localStorage.setItem('dir', this.dir); localStorage.setItem('lang', this.lang); document.documentElement.dir = this.dir; document.documentElement.lang = this.lang; }}", x-init="() => { document.documentElement.lang = lang; document.documentElement.dir = dir; }")
+	include ./components/head
+	body(x-data="{sidebar:false,showDetails:false,compare:false,wishlist:false, timeout: null}")
+		include ./components/header
+		include ./components/navbar
+		include ./components/sidebar
+		//- +heroSection('username')
+		include ./pages-components/order-details/details-section
+		include ./components/joinOur
+		include ./components/footer
+		include ./components/scripts

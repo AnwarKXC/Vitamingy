@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" x-data="{ lang: localStorage.getItem('lang') || 'en', dir: localStorage.getItem('dir') || 'ltr', toggleDirLang() { this.lang = this.lang === 'en' ? 'ar' : 'en'; this.dir = this.dir === 'ltr' ? 'rtl' : 'ltr'; this.updateAttributes(); window.location.reload(); }, setToLTR() { this.lang = 'en'; this.dir = 'ltr'; this.updateAttributes(); window.location.reload(); }, setToRTL() { this.lang = 'ar'; this.dir = 'rtl'; this.updateAttributes(); window.location.reload(); }, updateAttributes() { localStorage.setItem('dir', this.dir); localStorage.setItem('lang', this.lang); document.documentElement.dir = this.dir; document.documentElement.lang = this.lang; }}" x-init="() =&gt; { document.documentElement.lang = lang; document.documentElement.dir = dir; }">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="../output.css" rel="stylesheet">
+    <link href="../assets/logo.jpg" rel="icon">
+    <title>vitamingy</title><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" ></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  </head>
+  <body x-data="{sidebar:false,showDetails:false,compare:false,wishlist:false, timeout: null}">
+    <header class="shadow-md sticky top-0 maxlg:hidden z-50">
+      <div class=" bg-primary text-white min-h-10 md:cent z-[1000]" x-data="{open1:false,open2:false}" @mouseover.away="open1=false;open2=false">
+        <div class="container md:flex justify-between items-center ">
+          <div class=" py-5 md:py-0 cent text-sm gap-4">
+            <div class="cent gap-2 py-2 hover:text-black relative" @mouseover="open1=true;open2=false"><span class="cursor-pointer" x-text="lang"> </span><i class="fa-solid fa-sort-down text-xs mb-1"></i>
+              <div class="absolute w-32 leading-8 p-4 ltr:left-0 rtl:right-0 text-zinc-500 top-[38px] border  z-50 bg-white  hidden" :class="{'!block':open1}" x-show="open1">
+                <div>
+                  <button @click="setToRTL()">Arabic</button>
+                </div>
+                <div>
+                  <button @click="setToLTR()">English</button>
+                </div>
+              </div>
+            </div><span class="text-zinc-300">|</span>
+            <div class="cent gap-2 py-2 hover:text-black relative" @mouseover="open2=true;open1=false"><span class="cursor-pointer">USD - Dollar </span><i class="fa-solid fa-sort-down text-xs mb-1"></i>
+              <div class="absolute w-32 leading-8 p-4 ltr:left-0 rtl:right-0 text-zinc-500 top-[38px] border  z-50 bg-white  hidden " :class="{'!block':open2}" x-show="open2">
+                <div>
+                  <button> EUR - Euro</button>
+                </div>
+                <div>
+                  <button> EUR - Euro</button>
+                </div>
+              </div>
+            </div><span class="text-zinc-300">|</span>
+            <div class="cursor-pointer">Store Location</div>
+          </div>
+          <div class=" cent gap-6 flex-wrap md:flex-nowrap">
+            <input class="bg-primary placeholder:text-white  outline-none focus:outline-none border-none focus:placeholder:text-white" type="search" name="search" placeholder="Search for products">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <div class="bg-secondary h-10 px-3 cent min-w-[245px] ">
+              <div class="cursor-pointer cent gap-4 hover:invert "><span> <img onerror="this.onerror=null;this.src='../assets/logo.jpg';" src="../assets/phone-call-1-svgrepo-com.svg" alt=""></span><a class="font-semibold text-xl  " href="tel:000000000000">(+800) 1234 56781</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--navbar-->
+    <div class="sticky lg:top-10 top-0 bg-white z-40 shadow-md  maxlg:py-2">
+      <button class="fixed  top-72 !hidden bg-primary w-10 h-10 cent text-white font-bold z-50 " x-on:click="toggleDirLang()">RTL</button>
+      <button class="fixed top-72 !hidden bg-primary w-10 h-10 cent text-white font-bold z-50 " x-on:click="toggleDirLang()">LTR</button>
+      <div class="fixed rtl:left-5 ltr:right-5 bottom-0 p-4 pb-10 z-20 w-20 " x-data="{ isToggled: false, activeIcon: 1,toggle1:true,toggle2:false }" x-init="initIconLoop"><a href="">
+          <div class="relative text-2xl hover:bg-secondary-100 hover:bg-gray-400 bg-primary  text-white w-14 h-14 cent rounded-full rtl:mr-2 ltr:ml-2 mb-2 z-[222222]" x-show="toggle2" :class="{'!flex':toggle2}" style="box-shadow: 0px 0px 20px #23418f1a;display:none"><i class="fa-brands fa-facebook-messenger"></i></div></a><a href="">
+          <div class=" relative text-2xl hover:bg-secondary-100 hover:bg-gray-400 bg-primary  text-white  w-14 h-14 cent rounded-full rtl:mr-2 ltr:ml-2 mb-2 z-[222222]" x-show="toggle2" :class="{'!flex':toggle2}" style="box-shadow: 0px 0px 20px #23418f1a;display:none"><i class="fa-brands fa-whatsapp text-2xl"></i></div></a><a href="">
+          <div class=" relative text-xl hover:bg-secondary-100 hover:bg-gray-400 bg-primary  text-white w-14 h-14 cent rounded-full rtl:mr-2 ltr:ml-2 mb-2 z-[222222]" x-show="toggle2" :class="{'!flex':toggle2}" style="box-shadow: 0px 0px 20px #23418f1a;display:none"><i class="fa-solid fa-phone-flip text-lg"></i></div></a>
+        <div class="rounded-full text-2xl  hover:bg-gray-400 bg-primary  text-white   w-[60px] h-[60px] rtl:mr-1 ltr:ml-1 cent z-[222222] cursor-pointer" @click="toggle2=!toggle2" x-show="toggle1" style="box-shadow: 0px 0px 20px #23418f1a"><i class="fa-solid fa-message" x-show="activeIcon === 1 &amp;&amp; !toggle2 "></i><i class="fa-brands fa-whatsapp hidden" :class="{'!block': activeIcon === 2 &amp;&amp; !toggle2}" x-show="activeIcon === 2 &amp;&amp; !toggle2"></i><i class="fa-brands fa-facebook-messenger hidden" x-show="activeIcon === 3 &amp;&amp; !toggle2" :class="{'!block': activeIcon === 3 &amp;&amp; !toggle2}"></i><i class="fa-solid fa-phone-flip hidden" x-show="activeIcon === 4 &amp;&amp; !toggle2" :class="{'!block': activeIcon === 4 &amp;&amp; !toggle2}"></i><i class="fa-solid fa-x hidden" :class="{'!block': toggle2}" x-show="toggle2"></i></div>
+        <div class="relative   hover:bg-gray-400 bg-primary  text-white  w-7 h-7 cent rounded-full rtl:mr-5 ltr:ml-5 mt-2 z-[222222] cursor-pointer" onclick="scrollToTop()" style="box-shadow: 0px 0px 20px #23418f1a"><i class="fa-solid fa-arrow-up-long"></i></div>
+      </div><script>function initIconLoop() {setInterval(() => {this.activeIcon = (this.activeIcon % 4) + 1; }, 3000);}</script>
+      <div class=" container flex-col gap-2 sm:flex-row flex justify-between items-center" id="LOGO" x-data="{&quot;search&quot;:false}">
+        <div class=" flex justify-between  items-center lg:w-[20%] w-full"><a href="./index.html"> <img class="  w-[50px] lg:w-[60px]" onerror="this.onerror=null;this.src='../assets/logo.jpg';" src="../assets/logo.jpg" alt=""></a>
+          <form class=" text-sm lg:hidden  border border-2 rounded-full " action="submit">
+            <input class=" py-2 rtl:order-last border-none rounded-l-full lg:px-10 px-2 outline-[#FE6601] outline-0.5 " type="text" name="" placeholder="Search for products...">
+            <button class="py-2 px-2 rounded-r-full  ltr:border-l rtl:border-r font-semibold " type="submit">
+               <i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+          <button class=" lg:hidden  text-2xl  " x-on:click="sidebar=true"><i class="fa-solid fa-bars  "></i></button>
+        </div>
+        <nav class="maxlg:px-[5%] maxlg:fixed maxlg:w-full inset-x-0 bottom-0 h-[70px] bg-white z-30" x-data="{megaMenu:false}" @mouseover.away="megaMenu=false">
+          <ul class=" flex items-center justify-center maxlg:justify-between lg:gap-12 font-bold text-secondary tracking-wide h-full text-[15px] uppercase"><a href="./"> 
+              <li class="cent flex-col gap-[2px] hover:text-primary ">
+                 <i class="fa-solid fa-house text-xl lg:hidden"></i><span class="maxlg:text-[10px]">HOME </span></li></a>
+            <div class=" relative" @mouseover="megaMenu=true"> 
+              <button class="cent flex-col gap-[2px] hover:text-primary " aria-label="shop">
+                 <i class="fa-solid fa-bag-shopping text-xl lg:hidden hover:text-primary"></i><span class="maxlg:text-[10px]">SHOP </span></button>
+              <div class="fixed left-0 right-0 bg-primary-300 w-full z-10 pb-8 hidden top-[110px] shadow  rounded-b-md bg-white" :class="{'!block': megaMenu}" x-show="megaMenu">
+                <div class="container mx-auto ">
+                  <div class="CategoryMenu mb-4 mt-12">
+                    <div class="flex flex-col justify-between">
+                      <div class="CategoryMenu__categories grid grid-cols-5">
+                        <div class="SubCategory">
+                          <h3 class="hover:text-primary font-bold mb-2 whitespace-nowrap"><a class="text-lg" href="./filter.html" previewlistener="true">products</a></h3>
+                          <ul class="mt-2 text-sm">
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">skin care</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Dryers</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Medical Equipment</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Shavers</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Styling Equipment</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">
+                                 
+                                Sports</a></li>
+                          </ul>
+                        </div>
+                        <div class="SubCategory">
+                          <h3 class="hover:text-primary font-bold mb-2 whitespace-nowrap"><a class="text-lg" href="./filter.html" previewlistener="true">vitamine</a></h3>
+                          <ul class="mt-2 text-sm">
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">skin care</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Dryers</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Medical Equipment</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Shavers</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Styling Equipment</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">
+                                 
+                                Sports</a></li>
+                          </ul>
+                        </div>
+                        <div class="SubCategory">
+                          <h3 class="hover:text-primary font-bold mb-2 whitespace-nowrap"><a class="text-lg" href="./filter.html" previewlistener="true">Dental Care</a></h3>
+                          <ul class="mt-2 text-sm">
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">skin care</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Dryers</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Medical Equipment</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Shavers</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Styling Equipment</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">
+                                 
+                                Sports</a></li>
+                          </ul>
+                        </div>
+                        <div class="SubCategory">
+                          <h3 class="hover:text-primary font-bold mb-2 whitespace-nowrap"><a class="text-lg" href="./filter.html" previewlistener="true">Skin Care</a></h3>
+                          <ul class="mt-2 text-sm">
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">skin care</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Dryers</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Medical Equipment</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Shavers</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Styling Equipment</a></li>
+                            <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">
+                                 
+                                Sports</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="  pb-6  ">
+                        <h3 class="text-xl font-bold">Great Deals</h3>
+                        <div class="mt-2">Save up to 30% off and Enjoy best products offers and qualities</div>
+                      </div>
+                    </div>
+                  </div><a class="text-primary-500 font-bold flex items-center mt-2 text-lg" href="./filter.html" previewlistener="true">Shop All products</a>
+                </div>
+              </div>
+            </div><a class="hidden lg:block" href="./blog.html"> 
+              <li class="cent gap-1 hover:text-primary "><span class="maxlg:text-[10px]">BLOG </span></li></a><a class="hidden lg:block" href="./about.html"> 
+              <li class="cent gap-1 hover:text-primary "><span class="maxlg:text-[10px]">about us</span></li></a><a class="hidden lg:block" href="./contact-us.html"> 
+              <li class="cent gap-1 hover:text-primary "><span class="maxlg:text-[10px]">contact us</span></li></a>
+            <li class="cent gap-1 relative maxlg:hidden" x-data="{isOpen:false} " @mouseover="isOpen=true" @mouseover.away="isOpen=false">
+              <button class="hover:text-primary cent gap-1 cursor-pointer"><span>PAGES </span><i class="fa-solid fa-caret-down text-xs"></i></button>
+              <div class="absolute w-44 top-6 border p-4 z-50 bg-white right-0 hidden" :class="{'!block': isOpen}" x-show="isOpen">
+                <div class="flex items-start flex-col gap-2 font-normal text-start capitalize"> <a class=" hover:text-primary ltr:hover:translate-x-4 rtl:hover:-translate-x-4 duration-300" href="./about.html">about us</a><a class=" hover:text-primary w-full ltr:hover:translate-x-4 rtl:hover:-translate-x-4 duration-300" href="./contact-us.html">contact us</a><a class=" hover:text-primary ltr:hover:translate-x-4 rtl:hover:-translate-x-4 duration-300" href="./my-account.html">My account </a></div>
+              </div>
+            </li><a class="lg:hidden" href="./contact-us.html"> 
+              <li class="cent flex-col gap-[2px] hover:text-primary "><i class="fa-solid fa-user   text-xl lg:hidden"></i><span class="maxlg:text-[10px]">myAccount</span></li></a><a class="lg:hidden" href="./wishlist.html"> 
+              <li class="cent flex-col gap-[2px] hover:text-primary "><i class="fa-solid fa-heart text-xl lg:hidden"></i><span class="maxlg:text-[10px]"> favorite</span></li></a><a class="lg:hidden" href="./bag.html"> 
+              <li class="cent flex-col gap-[2px] hover:text-primary "><i class="fa-solid fa-bag-shopping text-xl lg:hidden"></i><span class="maxlg:text-[10px]">cart</span></li></a>
+          </ul>
+        </nav>
+        <div class="lg:flex hidden justify-center items-center gap-4 " x-data="{logIn:false}"><a class="hover:text-primary  cent gap-1" href="./my-account.html">
+             <i class="fa-regular fa-user mt-1"></i><span class="text-sm tracking-wider font-normal">Login/Register</span></a>
+          <div class=" gap-1 relative maxlg:hidden   hidden" :class="{'cent':logIn}" x-show="logIn" x-data="{isOpen:false} " @mouseover="isOpen=true" @mouseover.away="isOpen=false">
+            <div class="hover:text-primary cent gap-1 cursor-pointer"><i class="fa-regular fa-user mt-1"></i><span>user name </span></div>
+            <div class="absolute w-44 top-6 border p-4 z-50 bg-white right-0 hidden" :class="{'!block': isOpen}" x-show="isOpen">
+              <div class="flex items-start flex-col gap-2 font-normal text-start capitalize"> <a class=" hover:text-primary ltr:hover:translate-x-4 rtl:hover:-translate-x-4 duration-300" href="./profile.html">Dashboard</a>
+                <button class=" hover:text-primary ltr:hover:translate-x-4 rtl:hover:-translate-x-4 duration-300">Log out</button>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute top-1 rtl:left-0 font-extrabold ltr:right-0 w-[25px] bg-primary rounded-full aspect-square cent text-white text-sm">15</div><a href="./wishlist.html">
+               <i class="fa-regular fa-heart text-3xl  hover:text-primary p-2"></i></a>
+          </div>
+          <div class="relative" x-data="{cart:false}" @mouseover="cart=true" @mouseover.away="cart=false">
+            <div class="absolute top-1 rtl:left-0 font-extrabold ltr:right-0 w-[25px] z-50 bg-primary rounded-full aspect-square cent text-white text-sm">15</div><a class="relative " href="./bag.html"><i class="fa-solid fa-bag-shopping text-3xl hover:text-primary p-2"></i></a>
+            <div class="absolute w-96  top-12 border p-5 z-50 bg-white ltr:right-0 rtl:left-0 border-t-[3px] border-t-primary hidden" :class="{'!block': cart}" x-show="cart">
+              <div class="h-[400px] divide-y-2 overflow-y-auto"><a class="flex gap-2 p-2" href="./product.html">
+                  <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" src="../assets/17-img-6.png"></div>
+                  <div class="grow">
+                    <h2 class="text-sm text-black capitalize font-bold">exported </h2>
+                    <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+                  </div></a><a class="flex gap-2 p-2" href="./product.html">
+                  <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" src="../assets/17-img-6.png"></div>
+                  <div class="grow">
+                    <h2 class="text-sm text-black capitalize font-bold">exported </h2>
+                    <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+                  </div></a><a class="flex gap-2 p-2" href="./product.html">
+                  <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" src="../assets/17-img-6.png"></div>
+                  <div class="grow">
+                    <h2 class="text-sm text-black capitalize font-bold">exported </h2>
+                    <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+                  </div></a><a class="flex gap-2 p-2" href="./product.html">
+                  <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" src="../assets/17-img-6.png"></div>
+                  <div class="grow">
+                    <h2 class="text-sm text-black capitalize font-bold">exported </h2>
+                    <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+                  </div></a><a class="flex gap-2 p-2" href="./product.html">
+                  <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" src="../assets/17-img-6.png"></div>
+                  <div class="grow">
+                    <h2 class="text-sm text-black capitalize font-bold">exported </h2>
+                    <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+                  </div></a>
+              </div>
+              <div class="w-full h-0 border-zinc-300 border-t-[1px] my-4"> </div>
+              <div class="flex justify-between items-center">
+                <p class="font-semibold">SUBTOTAL:</p>
+                <p class="font-semibold">50.00</p>
+              </div>
+              <div class="cent gap-5 mt-2"><a class="py-2 px-6 bg-primary rounded-full text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary" href="./bag.html">VIEW CART</a><a class="py-2 px-6 bg-zinc-400 rounded-full text-white  font-medium text-sm tracking-wider  border-zinc-400 hover:bg-white border-2 hover:text-zinc-400" href="./shipping.html">CHECKOUT</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:hidden sm:cent gap-5 text-2xl hidden"><i class="fa-solid fa-circle-user  hover:text-primary"></i>
+<i class="fa-solid fa-heart hover:text-primary"></i>
+<i class="fa-solid fa-bag-shopping  hover:text-primary"></i>
+        </div>
+      </div>
+    </div>
+    <!--sidebar for mobile-->
+    <div class="fixed inset-0 w-full   z-50   capitalize hidden" :class="{'!block':sidebar}" x-show="sidebar">
+      <div class="fixed inset-0  bg-secondary/40 z-30   capitalize hidden" :class="{'!block':sidebar}" x-show="sidebar" @click="sidebar=false"></div>
+      <div class="relative flex flex-col w-[270px] z-[55555] h-full ltr:left-0 rtl:right-0 maxlg:px-4 bg-secondary text-white">
+        <div class="absolute ltr:right-[30px] top-[40px]" @click="sidebar=false"><i class="fa-solid fa-x text-xl"></i></div>
+        <div class="cent flex-col w-full">
+          <div class="rounded-full border-[4px] border-primary aspect-square w-[40%] mt-[45px]"><img class="w-full aspect-square rounded-full" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/img-user.jpg"></div>
+          <div class="cent gap-2 py-1  relative"><span class="cursor-pointer">vitamingy </span></div>
+          <button class="cent gap-2 py-1  relative" @click="toggleDirLang()"><i class="fa-solid fa-globe text-sm"></i><span class="cursor-pointer" x-text="lang"></span></button>
+        </div>
+        <hr class="h-1 my-4 w-full">
+        <nav class=" my-6">
+          <ul class=" flex flex-col   maxlg:justify-between lg:gap-12 gap-3 font-bold text-white h-full text-base"><a href="./"> 
+              <li class="cif  gap-2 active-head">
+                 <i class="fa-solid fa-house text-sm w-5"></i><span class="text-base">HOME </span></li></a>
+            <li class="cif flex-col gap-1 relative " x-data="{category:false}" @click="category=!category">
+              <div class=" cif justify-between gap-1 cursor-pointer w-full">
+                <div class=" cif gap-2  cursor-pointer"><i class="fa fa-list-alt text-sm w-5"></i><span>categories </span></div><i class="fa-solid fa-caret-down text-xs"></i>
+              </div>
+              <div class=" w-full py-3 px-5  hidden" :class="{'!block': category}" x-show="category">
+                <div class="flex items-start flex-col gap-2 font-normal text-start capitalize"> <a class="w-full" href="">about us</a><a class="w-full " href="">Contact-Us </a></div>
+              </div>
+            </li>
+            <li class="cif flex-col gap-1 relative max" x-data="{brand:false}" @click="brand=!brand">
+              <div class=" cif justify-between gap-1 cursor-pointer w-full">
+                <div class=" cif gap-2 cursor-pointer"><i class="fa fa-list-alt w-5 text-sm"></i><span>brands</span></div><i class="fa-solid fa-caret-down text-xs"></i>
+              </div>
+              <div class=" w-full py-3 px-5   hidden" :class="{'!block': brand}" x-show="brand">
+                <div class="flex items-start flex-col gap-2 font-normal text-start capitalize"> <a class="w-full" href="">about us</a><a class="w-full " href="">Contact-Us</a></div>
+              </div>
+            </li><a href="./about.html"> 
+              <li class="cif gap-2  "><i class="fa-solid fa-circle-exclamation text-sm w-5"></i><span class="text-base">About Us</span></li></a><a href="./contact-us.html"> 
+              <li class="cif  gap-2  "><i class="fa-solid fa-user text-sm w-5"></i><span class="text-base">myAccount</span></li></a>
+          </ul>
+        </nav>
+        <div class="cent gap-3 mt-6"><a href="http://" target="_blank" rel="noopener noreferrer">
+             <i class="fab  text-base fa-facebook-f"></i></a><a href="http://" target="_blank" rel="noopener noreferrer">
+             <i class="fab  text-base fa-twitter"></i></a><a href="http://" target="_blank" rel="noopener noreferrer">
+             <i class="fab  text-base fa-youtube"></i></a><a href="http://" target="_blank" rel="noopener noreferrer">
+             <i class="fab  text-base fa-instagram"></i></a></div>
+      </div>
+    </div>
+    <section>
+      <div class="container  font-bold lg:pt-10 pt-5  px-2 text-primary relative">
+        <div class=" flex mb-10  gap-4 capitalize">
+          <h2 class="text-2xl text-center font-bold">username</h2>
+          <div class="h-full text-2xl">|</div>
+          <div class=" cif lg:text-sm capitalize"><a class=" cif" href="./index.html"><span class="hover:text-primary cent">Home </span></a><span>&nbsp; / &nbsp;</span><a class=" cif" href=""><span> username</span></a></div>
+        </div>
+      </div>
+    </section>
+    <div class="flex gap-[5%] container maxsm:flex-col capitalize" x-data="{image:false}">
+      <side class="lg:w-[340px] sm:w-[222px] w-full  ">
+        <div class="flex flex-col w-full px-[16px] maxlg:pt-6  mt-6 shadow rounded-md lg:mt-24  relative">
+          <div class="cent">
+            <div class="rounded-full border-[4px] z-[30] border-primary aspect-square w-[40%] min-w-[100px] maxsm:text-center  lg:absolute top-[0px]  lg:-translate-y-20"><img class="w-full aspect-square rounded-full" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/img-user.jpg" @click="image=true"></div>
+          </div>
+          <div class="flex flex-col gap-2 py-2  relative border-b-2  border-secondary lg:mt-24"><a class="text-start" href="./profile.html">User Name </a><span>vitamingy@gmail.com </span></div>
+          <h3 class="mt-4 font-medium text-xl">setting</h3>
+          <div class="flex flex-col gap-2 py-2  relative divide-y-[1px] border-b-2  border-secondary px-2">
+            <div class="cif gap-2 py-2  relative " x-data="{language:false}">
+              <div class="cif gap-2   relative "><span class="fa fa-globe info"> </span><span>country</span></div>
+              <div class="cent gap-2  hover:text-black relative" @click="language=true" @click.away="language=false"><span class="cursor-pointer">egypt</span><i class="fa-solid fa-sort-down text-xs mb-1"></i>
+                <div class="absolute w-32 leading-8 p-4 ltr:left-0 rtl:right-0 text-zinc-500 top-[20px] border rounded-md z-50 bg-white  hidden" :class="{'!block':language}" x-show="language">
+                  <div>
+                    <button>egypt</button>
+                  </div>
+                  <div>
+                    <button>libia</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cif gap-4 py-2  relative " x-data="{language:false}" @mouseover.away="language=false">
+              <div class="cif gap-2   relative "><span class="fa-solid fa-language"> </span><span>language </span></div>
+              <div class="cent gap-2  hover:text-black relative " @click="language=true" @click.away="language=false"><span class="cursor-pointer" x-text="lang"> </span><i class="fa-solid fa-sort-down text-xs mb-1"></i>
+                <div class="absolute w-32 leading-8 p-4 ltr:left-0 rtl:right-0 text-zinc-500 top-[20px] border rounded-md z-50 bg-white  hidden" :class="{'!block':language}" x-show="language">
+                  <div>
+                    <button @click="setToRTL()">Arabic</button>
+                  </div>
+                  <div>
+                    <button @click="setToLTR()">English</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-2 py-1 mt-3 relative divide-y-[1px]"><a class="cif gap-2 py-2  relative " href="./wishlist.html"><span class="fa fa-heart info"> </span><span>favorite</span></a><a class="cif gap-2 py-2  relative " href="./orders.html"><span class="fa-solid fa-truck"> </span><span>orders</span></a><a class="cif gap-2 py-2  relative " href="./refunds.html"><span class="fa-solid fa-truck"> </span><span>refunds</span></a><a class="cif gap-2 py-2  relative " href="./bag.html"><span class="fa fa-shopping-basket info"> </span><span>bag</span></a><a class="cif gap-2 py-2  relative " href="./contact-us.html"><span class="fa fa-info-circle info"> </span><span>help</span></a></div>
+          <button class="cif gap-2 py-2  relative "><i class="fa-solid fa-right-from-bracket"></i><span class="font-bold text-[1rem]">log out</span></button>
+        </div>
+      </side>
+      <main class="grow rounded-md  lg:mt-24 mt-6">
+        <div class=" py-9 px-[16px] bg-white "> 
+          <h3 class="font-bold text-[2rem]  mb-6">refunds</h3><a class="flex  mt-4 gap-6 py-1 px-2 relative border rounded-md" href="./refund-details.html">
+            <div class=" sm:h-[150px] h-[120px]  aspect-square"><img class="w-full h-full" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/box2.png"></div>
+            <div class=" sm:space-y-4 space-y-2  text-base font-medium mt-4 py-1  relative ">
+              <div class="flex"> <span>Refund Code:</span><span>#33333</span></div>
+              <div class="flex text-sm"> <span>status:</span><span>cancelled</span></div>
+              <div class="flex text-sm"> <span>2023-12-13 14:45 PM</span></div>
+            </div></a><a class="flex  mt-4 gap-6 py-1 px-2 relative border rounded-md" href="./refund-details.html">
+            <div class=" sm:h-[150px] h-[120px]  aspect-square"><img class="w-full h-full" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/box2.png"></div>
+            <div class=" sm:space-y-4 space-y-2  text-base font-medium mt-4 py-1  relative ">
+              <div class="flex"> <span>Refund Code:</span><span>#33333</span></div>
+              <div class="flex text-sm"> <span>status:</span><span>cancelled</span></div>
+              <div class="flex text-sm"> <span>2023-12-13 14:45 PM</span></div>
+            </div></a><a class="flex  mt-4 gap-6 py-1 px-2 relative border rounded-md" href="./refund-details.html">
+            <div class=" sm:h-[150px] h-[120px]  aspect-square"><img class="w-full h-full" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/box2.png"></div>
+            <div class=" sm:space-y-4 space-y-2  text-base font-medium mt-4 py-1  relative ">
+              <div class="flex"> <span>Refund Code:</span><span>#33333</span></div>
+              <div class="flex text-sm"> <span>status:</span><span>cancelled</span></div>
+              <div class="flex text-sm"> <span>2023-12-13 14:45 PM</span></div>
+            </div></a>
+        </div>
+      </main>
+      <form class="fixed inset-0  bg-secondary/30 z-[50] hidden " :class="{'cent' : image}" x-show="image">
+        <div class=" w-[25%] py-8 px-[1%] min-w-[300px] shadow bg-white rounded-md z-[50]" x-show="image" @click.away="image=false">
+          <h3 class="mb-6 text-center font-medium text-xl">choose image</h3>
+          <div class="cent mt-8">
+            <button class="py-2 px-6 text-center bg-secondary rounded-full text-white  w-fit font-medium text-sm tracking-wider  uppercase" type="submit">submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <section class="container  pt-5  z-20 relative">
+      <div class=" bg-primary  lg:flex justify-between items-center text-white gap-10 p-4 rounded-md lg:px-16 mt-16 z-50">
+        <div class="cent gap-5 flex-nowrap mb-3"><img width="64" height="57" src="https://new-biolife.b-cdn.net/wp-content/uploads/2021/09/17-img-9.png" class="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy">
+          <div>
+            <h1 class="lg:text-3xl text-xl font-bold ">Join Our Newsletter Now</h1><small class="lg:text-xl">Get E-mail updates about our latest shop and special offers.</small>
+          </div>
+        </div>
+        <form class="cent mt-3 scale-90 md:scale-100" action="submit">
+          <input class=" py-3 rtl:order-last  rounded-l-full lg:px-10 px-4 outline-[#FE6601] outline-0.5 " type="email" name="" placeholder="Enter your email">
+          <button class="   py-3 px-4 rounded-r-full bg-secondary  font-semibold " type="submit">SUBSCRIBE</button>
+        </form>
+      </div>
+    </section>
+    <footer class="bg-secondary  -mt-14 text-white text-sm z-10">
+      <div class=" grid grid-cols-2 md:grid-cols-3  lg:grid-cols-5 container leading-7 py-20 gap-2 auto-cols-auto justify-center gap-y-10">
+        <div class="col-span-2  md:col-span-3 lg:col-span-2"> 
+          <div class="rounded-lg w-[50px] lg:w-[60px]"><img class=" rounded-lg w-[50px] lg:w-[60px]" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/logo.jpg" alt=""></div>
+          <div class="mt-2"><a class="text-[#FE6601]  text-xl" href="tel:+">+01 123 456 888</a></div><a class="cursor-pointer block hover:text-primary" href="">7176 Blue Spring Lane Santa Monica, CA 90403</a><a class="hover:text-primary" href="mailto:hello@armania.com"> hello@armania.com</a>
+          <div class="flex gap-8 py-4"><a href="http://" target="_blank" rel="noopener noreferrer">
+               <i class="fab hover:text-primary text-base fa-facebook-f"></i></a><a href="http://" target="_blank" rel="noopener noreferrer">
+               <i class="fab hover:text-primary text-base fa-twitter"></i></a><a href="http://" target="_blank" rel="noopener noreferrer">
+               <i class="fab hover:text-primary text-base fa-youtube"></i></a><a href="http://" target="_blank" rel="noopener noreferrer">
+               <i class="fab hover:text-primary text-base fa-instagram"></i></a></div>
+        </div>
+        <div>
+          <h3 class="text-[#FE6601] pb-5 fontprim tracking-widest">INFORMATION</h3><a class="cursor-pointer block hover:text-primary" href="./terms-and-conditions.html">Terms and Conditions</a><a class="cursor-pointer block hover:text-primary" href="./privacy-policy.html">Privacy Policy</a><a class="cursor-pointer block hover:text-primary" href="./Refund-policy.html">Refund Policy</a>
+        </div>
+        <div> 
+          <h3 class="text-[#FE6601] pb-5 fontprim tracking-widest"> SUPPORT</h3><a class="cursor-pointer block hover:text-primary" href="">Pricing</a><a class="cursor-pointer block hover:text-primary" href="">Features</a><a class="cursor-pointer block hover:text-primary" href="">Customers</a><a class="cursor-pointer block hover:text-primary" href="">One Click Apps</a><a class="cursor-pointer block hover:text-primary" href="">Feed Back</a>
+        </div>
+        <div class="maxmd:col-span-2">
+          <h3 class="text-[#FE6601] pb-5 fontprim tracking-widest"> INSTAGRAM</h3>
+          <div class="grid grid-cols-4 gap-2"><img class=" w-full aspect-square duration-300  hover:scale-110  ease-in-out  smoothing-smooth" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-11-64x64.jpeg" alt=""><img class=" w-full aspect-square duration-300  hover:scale-110  ease-in-out  smoothing-smooth" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-10-64x64.jpeg" alt=""><img class=" w-full aspect-square duration-300  hover:scale-110  ease-in-out  smoothing-smooth" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-12-64x64.jpeg" alt=""><img class=" w-full aspect-square duration-300  hover:scale-110  ease-in-out  smoothing-smooth" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-10-64x64.jpeg" alt=""><img class=" w-full aspect-square duration-300  hover:scale-110  ease-in-out  smoothing-smooth" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-13-64x64.jpeg" alt=""><img class=" w-full aspect-square duration-300  hover:scale-110  ease-in-out  smoothing-smooth" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-14-64x64.jpeg" alt=""><img class=" w-full aspect-square duration-300  hover:scale-110  ease-in-out  smoothing-smooth" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-11.jpeg" alt=""><img class=" w-full aspect-square duration-300  hover:scale-110  ease-in-out  smoothing-smooth" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-16-64x64.jpeg" alt=""></div>
+        </div>
+      </div>
+      <div class="container w-full">
+        <div class="border-b border-zinc-600"></div>
+      </div>
+      <div class="flex justify-between items-center container py-5 text-base">
+        <p class="text-zinc-400">Copyright © <a class=" text-primary" href="https://paymac.net/index.html"> paymac</a><span>Inc. All rights reserved</span></p>
+        <div class="cent gap-4"> <a class=" hover:text-primary" href=""> Terms Of Use</a><span>|</span><a class=" hover:text-primary" href="">Privacy Policy</a></div>
+      </div>
+    </footer>
+    <script src="../swiper.js"> </script>
+    <script src="../index.js"> </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+
+<section>
+  <h2 class=" fontprim text-3xl md:text-6xl text-center">Latest Blog</h2>
+  <p class="text-zinc-500 text-center py-3">The first store to be certified by the Soil Association.</p>
+  <div class="swiper blogSwiper" x-data="{isOpen:false} " @mouseover="isOpen=true" @mouseover.away="isOpen=false">
+    <div class="min-h-[450px] justify-center items-center   my-5 swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="w-full h-ful  border cent overflow-hidden my-4">
+          <div class="w-1/2 overflow-hidden min-h-[450px]"><img class="duration-300  hover:scale-110  ease-in-out  smoothing-smooth min-h-[450px] h-full w-full" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/blogimg-330x450.jpeg" alt=""/></div>
+          <div class=" w-1/2  p-8">
+            <h3 class="font-bold text-2xl">A Brief Guide To The Raw Food Diet This Week</h3>
+            <p class="text-zinc-400 italic pb-7">september 30.2021 by <span class="text-black">Admin </span></p>
+            <p class="text-zinc-400 text-sm pb-7">The best Organic Food blogs from thousands of top Organic food blogs in our index using search and social metrics....</p><a class="border-b-2 border-[#F7AA23] text-zinc-800 font-medium hover:text-[#F7AA23] " href="">Readmore </a>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="w-full h-ful  border cent overflow-hidden my-4">
+          <div class=" w-1/2 overflow-hidden h-full min-h-[450px]"><img class="duration-300  hover:scale-110  ease-in-out  smoothing-smooth min-h-[450px] w-full" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/img_blog-17-1-330x450.jpeg" alt=""/></div>
+          <div class=" w-1/2  p-8">
+            <h3 class="font-bold text-2xl">A Brief Guide To The Raw Food Diet This Week</h3>
+            <p class="text-zinc-400 italic pb-7">september 30.2021 by <span class="text-black">Admin </span></p>
+            <p class="text-zinc-400 text-sm pb-7">The best Organic Food blogs from thousands of top Organic food blogs in our index using search and social metrics....</p><a class="border-b-2 border-[#F7AA23] text-zinc-800 font-medium hover:text-[#F7AA23] " href="">Readmore </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-prev  fa-solid  fa-angle-left text-primary  text-2xl rounded-lg hidden group-hover:flex" id="prev" :class="{'fa-solid fa-angle-right' : dir == 'rtl','fa-solid fa-angle-left' : dir == 'ltr'}" x-show="isOpen"></div>
+    <div class="swiper-button-next fa-solid  fa-angle-right  text-primary  text-2xl rounded-lg hidden group-hover:flex" id="next" :class="{'fa-solid fa-angle-left' : dir == 'rtl','fa-solid fa-angle-right' : dir == 'ltr'}" x-show="isOpen"></div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+
+<section class="py-10 container">
+  <div class="md:flex-row flex-col items-start justify-center flex gap-16 py-10 ">
+    <div class=" w-full">
+      <form class="flex flex-col justify-center gap-4" action="submit">
+        <h2 class="text-center md:text-start font-semibold text-2xl pb-5 ">Login</h2>
+        <div class="flex flex-col gap-1">
+          <label for="username">Username or email address <span class="text-red-700">*</span></label>
+          <input class="rounded-3xl w-full " type="text" name="username" required="required"/>
+        </div>
+        <div class="flex flex-col gap-1">
+          <label for="password">Password <span class="text-red-700">*</span></label>
+          <div class="cent"> 
+            <input class="rounded-3xl w-full" type="password" id="password" name="password" required="required"/><i id="eye"  class="fa-regular fa-eye -ml-8 cursor-pointer hover:text-primary"  x-on:click="toggleDirLang()" ></i>
+          </div>
+        </div>
+        <div class="flex justify-between items-center"> 
+          <div>
+            <input type="checkbox" name="agree"/>
+            <label class="hover:texttop" for="agree"> Remember me </label>
+          </div><a class="text-secondary  hover:text-primary" href="">Lost your password?</a>
+        </div>
+        <button class="py-2 px-6 bg-primary rounded-full text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase" type="submit">Login</button>
+      </form>
+    </div>
+    <div class=" w-full">
+      <form class="flex flex-col justify-center gap-4" action="submit">
+        <h2 class="text-center md:text-start font-semibold text-2xl pb-5 ">SignUp</h2>
+        <div class="flex flex-col gap-1">
+          <label for="email">Email address<span class="text-red-700">*</span></label>
+          <input class="rounded-3xl w-full" type="email" name="email" required="required"/>
+        </div>
+        <div>A link to set a new password will be sent to your email address.</div>
+        <div>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="">privacy policy.</a></div>
+        <button class="py-2 px-6 bg-primary rounded-full text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase" type="submit">SignUp</button>
+      </form>
+    </div>
+  </div>
+</section>

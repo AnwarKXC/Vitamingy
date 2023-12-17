@@ -1,0 +1,110 @@
+include mixins/hero-section.pug 
+
+
+doctype html
+html(lang="en" dir="ltr" x-data="{ lang: localStorage.getItem('lang') || 'en', dir: localStorage.getItem('dir') || 'ltr', toggleDirLang() { this.lang = this.lang === 'en' ? 'ar' : 'en'; this.dir = this.dir === 'ltr' ? 'rtl' : 'ltr'; this.updateAttributes(); window.location.reload(); }, setToLTR() { this.lang = 'en'; this.dir = 'ltr'; this.updateAttributes(); window.location.reload(); }, setToRTL() { this.lang = 'ar'; this.dir = 'rtl'; this.updateAttributes(); window.location.reload(); }, updateAttributes() { localStorage.setItem('dir', this.dir); localStorage.setItem('lang', this.lang); document.documentElement.dir = this.dir; document.documentElement.lang = this.lang; }}", x-init="() => { document.documentElement.lang = lang; document.documentElement.dir = dir; }")
+    include ./components/head
+    body(x-data="{sidebar:false,showDetails:false,compare:false,wishlist:false, timeout: null}")
+        include ./components/header
+        include ./components/navbar
+        include ./components/sidebar
+        include ./components/PopUp
+        include ./components/show-component
+        include ./components/compare-product
+
+        +heroSection('Organic')
+        div(class="flex  gap-[5%] container pt-[60px] maxmd:pt-5 capitalize maxmd:flex-col-reverse")
+            aside(class="maxmd:order-1 real lg:h-fit aside bg-secondary-100 flex flex-col gap-8 maxmd:gap-4 maxmd:w-full w-[25%] min-w-[215px] lg:sticky top-[125px] maxmd:pb-[4%] lg:divide-y-[1px]")
+                form(action="" class="   ", )
+                    div( class="w-full  text-sm flex  border  rounded-full shadow ")
+                        label(for="aside_search", class="sr-only")  Search 
+                        input(type="text", name="aside_search",class=" py-2 rtl:order-last border-none rounded-l-full  px-2 outline-[#FE6601] outline-0.5 ",placeholder="Search for products...")
+                        button(type="submit",class="py-2 px-3 rounded-full border border-white aspect-square hover:border-primary font-semibold  ") 
+                            i( class="fa-solid fa-magnifying-glass")
+                    div(class="lg:hidden w-full mt-3")
+                        div
+                            select#Categories(name="Categories", class="border bg-secondary-100 border-gray-300 shadow  font-medium text-sm rounded-full block w-full p-2.5  outline-none", required)
+                                option(selected, hidden) Categories
+                                -for(let i=0;i<4;i++ )
+                                    option Cosmetic
+
+                div(class="py-4 maxmd:hidden" )
+                    div(class="flex justify-between items-center" )
+                        div(class="flex gap-1 items-center font-bold text-base") 
+                            span Categories
+                    div()
+                        div(class=" mt-4 grid gap-2 text-sm divide-y-[1px]")
+                            -for(let i=0;i<4;i++ )
+                                a(href="" class="w-full cif justify-between py-1 px-2 text-secondary hover:text-primary ")
+                                    span Cosmetic
+                                    span (2)
+                div(class="py-4 maxmd:hidden" )
+                    div(class="flex justify-between items-center" )
+                        div(class="flex gap-1 items-center font-bold text-base") 
+                            span Recent Posts
+                    div()
+                        div(class=" mt-4 grid gap-2 text-sm divide-y-[1px]")
+                            -for(let i=0;i<4;i++ )
+                                a(href="" class="w-full cif flex-col gap-1 py-1 px-2 text-secondary hover:text-primary ")
+                                    span(class="font-medium") Human Molecular Genetics and Genomics — Important Advances
+                                    div(class="w-full cif gap-1 text-secondary/60 text-xs ")
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                        span September 30, 2021
+
+                div(class="py-4 maxmd:hidden" )
+                    div(class="flex justify-between items-center" )
+                        div(class="flex gap-1 items-center font-bold text-base") 
+                            span Product tags
+                    div()
+                        div(class=" mt-4 flex flex-wrap items-center gap-2 text-sm")
+                            -for(let i=0;i<4;i++ )
+                                a(href="" class="w-fit py-1 px-2 text-secondary hover:text-primary rounded-full border-2 border-secondary hover:border-primary")
+                                    span organic(1)
+                                a(href="" class="w-fit py-1 px-2 text-secondary hover:text-primary rounded-full border-2 border-secondary hover:border-primary")
+                                    span vegetables(3)
+                
+
+            main(class="grow" )
+                div(class =" flex flex-col w-full")
+
+                    div(class ="flex justify-center  aspect-[2/1]   mb-1")
+                        img( onerror="this.onerror=null;this.src='../assets/logo.jpg';"   loading="lazy" data-src="../assets/17-img-6.jpeg", alt="" class ="real-content  h-full w-full aspect-[2/1]  rounded-2xl")
+                       
+                    section(class ="share mt-4") 
+                        div(class="w-full gap-2 cif justify-between flex-wrap")
+                            h3(class="text-2xl font-semibold") 10 Foods To Help You Detox Naturally Today
+                            div(class=" cif flex-wrap ")
+                                div(class ="sochil maxmd:mt-0 flex items-center justify-between maxmd:justify-end flex-wrap font-semibold")
+                                    span(class ="text-[#2C3E50] block mx-3  ") share with 
+                                    a(class ="maxvarysm:mb-1" href="whatsapp://send?text= www.google.com") 
+                                        <span class="flex items-center justify-center mx-3 maxmd:mx-1 cursor-pointer w-8 h-8 rounded-full bg-[#2AB540] text-white fa-brands fa-whatsapp"></span>
+                                    a(class ="maxvarysm:mb-1" href="https://telegram.me/share/url?url=<URL>&text=<TEXT>") 
+                                        <span class="flex items-center justify-center mx-3 maxmd:mx-1 cursor-pointer w-8 h-8 rounded-full  text-white   fa-brands fa-telegram  " style ="background-image: linear-gradient(203deg, #37AEE2 0%, #1E96C8 100%)"></span>
+                                    a(class ="maxvarysm:mb-1" href="https://twitter.com/share?url=<www.google.com> ") 
+                                        <span class="flex items-center justify-center mx-3 maxmd:mx-1 cursor-pointer w-8 h-8 rounded-full  bg-[#1DA1F2] text-white  fa-brands fa-twitter"></span>
+                                    a(class ="maxvarysm:mb-1" href="https://www.facebook.com/sharer/sharer.php?u=https://www.google.com/") 
+                                        <span class="flex items-center justify-center mx-3 maxmd:mx-1 cursor-pointer w-8 h-8 rounded-full  bg-[#1877F2]  text-white  fa-brands fa-facebook"></span>
+                                    a(class ="maxvarysm:mb-1" href="https://www.linkedin.com/sharing/share-offsite/?url={https://www.google.com}") 
+                                        <span class="flex items-center justify-center mx-3 maxmd:mx-1 cursor-pointer w-8 h-8 rounded-full  bg-[#1877F2]  text-white   fa-brands fa-linkedin"></span>
+                                    a(class ="maxvarysm:mb-1" href="mailto:info@meta-pos.net")  
+                                        <span class="flex items-center justify-center mx-3 maxmd:mx-1 cursor-pointer w-8 h-8 rounded-full  bg-mainColor  text-white fa-solid fa-envelope "></span>
+                    section(class ="my-6")
+                        
+                        div(class ="content flex justify-between maxmd:flex-col") 
+                            div(class ="real-content  text w-full ") 
+                                p(class ="text-[#666666] text-justify text-base  leading-10") The best Organic Food blogs from thousands of top Organic food blogs in our index using search and social metrics. We’ve carefully selected these websites because they are actively working to educate, inspire, and empower their readers with frequent updates and high-quality information.
+
+                                p(class ="text-[#666666] text-justify text-base  leading-10") Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio. Nunc id leo ultrices, mollis ligula in, finibus tortor. Mauris eu dui ut lectus fermentum eleifend. Pellentesque faucibus sem ante, non malesuada odio varius nec. Suspendisse potenti.
+
+                                p(class ="text-[#666666] text-justify text-base  leading-10") Suspendisse turpis ipsum, tempus in nulla eu, posuere pharetra nibh. In dignissim vitae lorem non mollis. Praesent pretium tellus in tortor viverra condimentum. Nullam dignissim facilisis nisl, accumsan placerat justo ultricies vel. Vivamus finibus mi a neque pretium, ut convallis dui lacinia. Morbi a rutrum velit. Curabitur sagittis quam quis consectetur mattis. Aenean sit amet quam vel turpis interdum sagittis et eget neque. Nunc ante quam, luctus et neque a, interdum iaculis metus. Aliquam vel ante mattis, placerat orci id, vehicula quam. Suspendisse quis eros cursus, viverra urna sed, commodo mauris. Cras diam arcu, fringilla a sem condimentum, viverra facilisis nunc. Curabitur vitae orci id nulla maximus maximus. Nunc pulvinar sollicitudin molestie.
+
+
+
+                                
+                        div(class ="content cif gap-2 mt-3 border-t pt-4 text-xs") 
+                            h3 tags:
+                            a(href="" class="w-fit py-1  px-2 text-secondary hover:text-primary rounded-full border-2 border-secondary/60 hover:border-primary")
+                                span vegetable
+        include ./components/joinOur.pug
+        include ./components/footer
+        include ./components/scripts

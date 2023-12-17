@@ -1,0 +1,105 @@
+
+div( class="px-[5%] py-3  relative my-6")
+    h4(class="text-3xl font-bold") Order Info
+    p(  class="font-medium underline") Order Number # 1660
+div(class="grid grid-cols-3 maxlg:grid-cols-1 gap-4 px-[5%] mx-[5%] rounded-md bg-secondary my-6 py-6 text-white")
+    div(class="space-y-2")
+        div(class="text-2xl") Payment Method
+        div(class="") cash
+    div(class="space-y-2")
+        p( class="text-2xl") Receipient
+        p( class="") User name
+        p( class="") Egypt, Al Beheira
+        div(class="cif flex-wrap gap-[2px]  relative ")
+            span - 
+            span(class="") Abou Al Matamer 
+            span - 
+            span(class="") Street:
+            span(class="") 12312
+            span - 
+            span(class="") Building:
+            span(class="")  12313
+            span - 
+            span(class="") Floor Number:
+            span(class="")  12313
+            span - 
+            span(class="")  Flat Number:
+            span(class="")  12313
+            span - 
+            span(class="")  Details:
+            span(class="") 12313
+        p( class="") Phone: +201028443072
+
+            
+    div(class="space-y-2")
+        div(class="text-2xl") Order Summary
+        div(class="")
+            p( class="") SubTotal ( 2 Items ): 
+                span(class=" font-medium") 4,498 EGP
+            p( class="") Shipping Fees: 
+                span(class=" font-medium") 70 EGP
+            p( class="") Code Fees 
+                span(class=" font-medium") 5 EGP
+            p( class="") Amount to be paid : 
+                span(class=" font-medium") 4,573 EGP
+
+
+
+
+
+div(class="flex gap-[5%] maxlg:gap-4 container maxlg:flex-col capitalize " x-data="{data:'user',image:false,edit:false, refund:false,refund:false}")
+    side(class=" w-full     " )
+        div(class="flex flex-col w-full px-[16px] border shadow ")
+            div( class="cif flex-wrap px-4 justify-between gap-2 py-2  relative border-b-2 border-secondary font-semibold")
+
+                    div( class="flex flex-col gap-2 py-2  relative ")
+                        p(class="") Shipment 1 Of 1
+                        p(class="text-red-500") cancel
+                        p(class="text-green-500 hidden") pending
+                    div( class="flex flex-col  gap-2 py-2  relative ")
+                        p(class="") Shipping By :
+                            span(class="mx-1 text-primary") vitamingy Shipping 
+                        p(class="") Tracking: 
+                            span(class="mx-1 text-primary") #1661
+
+
+            div(class="flex maxlg:flex-col gap-4 pb-4 mt-6")
+                div(class="flex  flex-col divide-y-[1px] rounded-md grow border shadow")
+                    -for(let i=0;i<5;i++)
+                        div(class="flex maxvarysm:flex-col maxvarysm:items-center gap-2 py-2")
+                            div(class="w-[100px]")
+                                img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="min-w-[100px] aspect-square" data-src="../assets/17-img-6.png")
+                            div(class="grow px-2")
+                                h2(class="text-base text-black capitalize font-bold") vitamine vitamine vitamine vitamine vitamine vitamine
+                                div(class="text-sm  capitalize gap-1 flex items-center")
+                                    span(class="") 1
+                                    span(class="text-[10px] font-bold ") x
+                                    span(class="") 50.00 
+
+
+
+                div(class="flex w-[30%] maxlg:w-full  p-4 h-fit sticky top-[125px] flex-col rounded-md gap-2  border shadow  divide-y-[1px] font-medium "  )
+
+
+                    div( class="cif justify-between gap-2 py-2  relative ")
+                        span(class="") items 
+                        span(class="") 5
+                    div(class="cif justify-between gap-2 py-2  relative " )
+                        span(class="")  + shipping:
+                        span(class="") 70 egp
+                    div( class="cif justify-between gap-2 py-2  relative ")
+                        span(class="") Cash On Deliver Fees:
+                        span(class="") 20 egp
+                    div( class="cif justify-between gap-2 py-2 px-2 rounded-md relative bg-secondary/30")
+                        span(class="") total order:
+                        span(class="") 7020 egp
+
+
+
+
+
+
+
+
+
+

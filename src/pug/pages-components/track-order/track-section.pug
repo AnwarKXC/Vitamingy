@@ -1,0 +1,114 @@
+ul(class=" cif justify-between text-center text-2xl maxlg:text-xl font-medium progress-timeline my-[50px] content-steps")
+    li(class="w-full first active  relative") shipping
+    li(class="w-full second active relative") payment
+    li(class="w-full third active relative") done
+div(class="")
+    div(class="flex container ")
+        div(class="grow h-fit cent px-[5%] mx-[5%] rounded-md bg-secondary my-6 py-6 text-white")
+            div(class="space-y-2")
+                div(class="text-2xl") Thanks For Choosing vitamingy
+                div(class="cent") 
+                    span Your Order Number:# 
+                    span 1667
+        //- div(class="flex gap-4  p-2 flex-col divide-y-[1px] rounded-md  border shadow")
+        //-     h3 order items
+        //-     -for(let i=0;i<3;i++)
+        //-         div(class="flex maxvarysm:flex-col maxvarysm:items-center gap-2 py-2")
+        //-             div(class="w-[100px]")
+        //-                 img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="min-w-[100px] aspect-square" data-src="../assets/17-img-6.png")
+        //-             div(class="grow px-2")
+        //-                 h2(class="text-base text-black capitalize font-bold") vitamine vitamine vitamine vitamine vitamine vitamine
+
+
+div(class="mb-10")
+    div(class="container ")
+        div(class=" h-fit  rounded-md   py-6 ")
+            div(class="space-y-2")
+                div(class="text-2xl") Order Tracking
+
+
+
+        div(class="h-fit cent gap-4 my-6 px-[5%] lg:w-[50%]")
+            input(class="rounded-md w-full px-4" readonly  type="url",id="url" name="street" required)
+         
+            button(  onclick="copyToClipboard()" class="py-1 px-3 text-xl h-full rounded-md bg-primary text-white") copy
+
+
+
+div(class="flex gap-[5%] maxlg:gap-4 container maxlg:flex-col capitalize " x-data="{data:'user',image:false,edit:false, refund:false,refund:false}")
+    side(class=" w-full     " )
+        div(class="flex flex-col w-full px-[16px] border shadow ")
+            div( class="cif flex-wrap px-4 justify-between gap-2 py-2  relative border-b-2 border-secondary font-semibold")
+
+                    div( class="flex flex-col gap-2 py-2  relative ")
+                        p(class="") Shipment 1 Of 1
+                        p(class="text-red-500") cancel
+                        p(class="text-green-500 hidden") pending
+                    div( class="flex flex-col  gap-2 py-2  relative ")
+                        p(class="") Shipping By :
+                            span(class="mx-1 text-primary") vitamingy Shipping 
+                        p(class="") Tracking: 
+                            span(class="mx-1 text-primary") #1661
+
+            div(class="pb-10 pt-16 border-b-2 border-secondary")
+                div(class="stepper-wrapper grid grid-cols-4 text-center  mt-4 ")
+                    div(class="stepper-item1 cif flex-col relative flex-1 ")
+                        div(class="step-name1 cent w-full track-active text-uppercase", )
+                            i(class="fas fa-clock  text-primary text-[65px] maxlg:text-5xl")
+                    div(class="cif flex-col relative flex-1")
+                        div(class="step-name1  text-uppercase")
+                            i(class="fas fa-check-circle text-primary text-[65px] maxlg:text-5xl")
+                    div(class="cif flex-col relative flex-1")
+                        div(class="step-name1  text-uppercase")
+                            i(class="fas fa-truck text-primary text-[65px] maxlg:text-5xl")
+                    div(class="cif flex-col relative flex-1")
+                        div(class="step-name1  text-uppercase")
+                            i(class="fas fa-clipboard-check text-primary text-[65px] maxlg:text-5xl")
+
+                div(class="stepper-wrapper mb-4")
+                    //completed class is responsible for the active class 
+                    div(class="stepper-item first completed")
+                        div(class="step-counter   text-white bg-success ")
+                            i(class="fas fa-check-circle")
+                        div(class="step-name maxvarysm:text-sm text-uppercase") Pending
+                    div(class="stepper-item completed")
+                        div(class="step-counter   text-white bg-success  ")
+                            i(class="fas fa-check-circle")
+                        div(class="step-name maxvarysm:text-sm text-uppercase") Confirmed
+                    div(class="stepper-item ")
+                        div(class="step-counter  ")
+                        div(class="step-name maxvarysm:text-sm text-uppercase") Shipping
+                    div(class="stepper-item ")
+                        div(class="step-counter  ")
+                        div(class="step-name maxvarysm:text-sm text-uppercase") Delivered
+
+            div(class="flex maxlg:flex-col gap-4 pb-4 mt-6")
+                div(class="flex  flex-col divide-y-[1px] rounded-md grow border shadow")
+                    -for(let i=0;i<5;i++)
+                        div(class="flex maxvarysm:flex-col maxvarysm:items-center gap-2 py-2")
+                            div(class="w-[100px]")
+                                img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="min-w-[100px] aspect-square" data-src="../assets/17-img-6.png")
+                            div(class="grow px-2")
+                                h2(class="text-base text-black capitalize font-bold") vitamine vitamine vitamine vitamine vitamine vitamine
+                                div(class="text-sm  capitalize gap-1 flex items-center")
+                                    span(class="") 1
+                                    span(class="text-[10px] font-bold ") x
+                                    span(class="") 50.00 
+
+
+
+                div(class="flex w-[30%] maxlg:w-full  p-4 h-fit sticky top-[125px] flex-col rounded-md gap-2  border shadow  divide-y-[1px] font-medium "  )
+
+
+                    div( class="cif justify-between gap-2 py-2  relative ")
+                        span(class="") items 
+                        span(class="") 5
+                    div(class="cif justify-between gap-2 py-2  relative " )
+                        span(class="")  + shipping:
+                        span(class="") 70 egp
+                    div( class="cif justify-between gap-2 py-2  relative ")
+                        span(class="") Cash On Deliver Fees:
+                        span(class="") 20 egp
+                    div( class="cif justify-between gap-2 py-2 px-2 rounded-md relative bg-secondary/30")
+                        span(class="") total order:
+                        span(class="") 7020 egp

@@ -1,0 +1,71 @@
+//compare pop up to compare products
+div(class="fixed z-50 inset-0  bg-black/90 hidden"  x-show="compare" :class="{ 'cent flex' : compare==true }")
+    div(class="w-[90%]  relative  p-[10px] bg-white border-[14px] border-secondary" @click.away="compare=false")
+        div(class="w-full h-[671px] overflow-y-auto")
+
+            div(class=" bg-white")
+                div(class="cent w-full bg-primary p-[10px]")
+
+                    h1(class="text-white text-center text-sm font-extrabold uppercase") Compare products
+                
+                div(class="my-10 p-[10px] overflow-x-auto capitalize")
+                    div(class="flex w-full")
+                        div(class="w-[185px] bg-[#f2f2f2] text-[#333] font-bold divide-y-[1px] divide-[#e7e7e7] uppercase")
+                            div(class="h-[41px]  ")
+                            div(class="h-[209px]")
+                            div(class="p-[10px] text-sm") Title
+                            div(class="p-[10px] text-sm") price
+                            div(class="p-[10px] text-sm h-[69px]") Add to cart
+                            div(class="p-[10px] flex items-center text-sm  h-[126px]")
+                                div(class="") description
+                            div(class="p-[10px] text-sm") sku
+                            div(class="p-[10px] text-sm") availability
+
+                        -for(let i=0;i<3;i++ )
+                            div(class="w-[256px] bg-[#F7F7F7] text-[#747473] divide-[#e7e7e7] divide-y-[1px]" x-show="product" x-data="{product:true,cart:false}")
+                                div(class="h-[41px] cent text-[13px] gap-1")
+                                    div(class="text-[#747373]") Remove
+                                    //- i(class="fa-solid fa-x text-red-600 text-[8px]")
+                                    div(class="cursor-pointer text-[8px]  text-red-500 hover:text-[#fff] hover:bg-red-500 w-[15px] h-[15px] cent aspect-square rounded-full   font-extrabold"  @click="product=false" ) 
+                                        div x
+                                div(class="h-[209px] p-[10px]")
+                                    div(class="w-[154px] mx-auto aspect-square p-1.5 border border-[#e7e7e7] bg-white")
+                                        img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="w-full h-full" alt="" src="https://new-biolife.b-cdn.net/wp-content/uploads/2021/09/177-154x154.jpg")
+                                div(class="p-[10px] text-sm text-center") Imported Fresh Cabbage
+                                div(class="p-[10px] text-sm text-center") 99.00
+                                div(class="p-[10px] text-sm h-[69px] text-center") 
+                                    button(class="uppercase cursor-pointer my-[10px] px-[20px] py-[5px] bg-secondary text-[#FFF]" x-show="!cart" @click="cart=true") Add to cart
+                                    button(class="uppercase cursor-pointer my-[10px] px-[20px] py-[5px] bg-secondary text-[#FFF]" x-show="cart" @click="cart=false") Added
+                                
+                                div(class="p-[10px] text-[13px]  text-sm h-[126px] text-center overflow-hidden")
+                                    div(class="my-auto line-clamp-4 ") Pomegranates are a good source of vitamins A, C, E, and many other minerals, the product is a healthy beverage for all family members. nd many other minerals, the product is a healthy beverage for all family members.
+                                div(class="p-[10px] text-sm text-center") OG32589
+                                div(class="p-[10px] text-sm text-center text-green-600") In stock
+
+                    
+                            div(class="w-[256px] bg-[#fff] text-[#747473] divide-[#e7e7e7] divide-y-[1px]" x-show="product" x-data="{product:true,cart:false}")
+                                div(class="h-[41px] cent text-[13px] gap-1")
+                                    div(class="text-[#747373]") Remove
+                                    //- i(class="fa-solid fa-x text-red-600 text-[8px]")
+                                    div(class="cursor-pointer text-[8px]  text-red-500 hover:text-[#fff] hover:bg-red-500 w-[15px] h-[15px] cent aspect-square rounded-full   font-extrabold"   @click="product=false" ) 
+                                        div x
+                                div(class="h-[209px] p-[10px]")
+                                    div(class="w-[154px] mx-auto aspect-square p-1.5 border border-[#e7e7e7] bg-white")
+                                        img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" class="w-full h-full" src="https://new-biolife.b-cdn.net/wp-content/uploads/2021/09/177-154x154.jpg")
+                                div(class="p-[10px] text-sm text-center") Imported Fresh Cabbage
+                                div(class="p-[10px] text-sm text-center") 99.00
+                                div(class="p-[10px] text-sm h-[69px] text-center") 
+                                    button(class="uppercase cursor-pointer my-[10px] px-[20px] py-[5px] bg-secondary text-[#FFF]" x-show="!cart" @click="cart=true") Add to cart
+                                    button(class="uppercase cursor-pointer my-[10px] px-[20px] py-[5px] bg-secondary text-[#FFF]" x-show="cart") Added
+                                
+                                div(class="p-[10px] text-[13px]  text-sm h-[126px] text-center")
+                                    div(class="my-auto line-clamp-4 ") Pomegranates are a good source of vitamins A, C, E, and many other minerals, the product is a healthy beverage for all family members. nd many other minerals, the product is a healthy beverage for all family members.
+                                    
+                                div(class="p-[10px] text-sm text-center") OG32589
+                                div(class="p-[10px] text-sm text-center text-green-600") In stock
+
+
+                
+        div(class="absolute bottom-0 flex justify-end inset-x-0 bg-[#e6e5e5] p-[10px]")
+            div(class="cursor-pointer text-[23px]  text-[#767676] hover:text-[#333] w-[30px] h-[30px] cent aspect-square rounded-full border-green-600 hover:border  font-extrabold"  @click="compare=false" ) 
+                div x

@@ -1,0 +1,140 @@
+
+<div class="flex maxlg:flex-col gap-[5%] container pt-[60px] maxlg:pt-5 capitalize ">
+  <main class="grow space-y-4 divide-y-[1px] font-medium">
+    <div class=" w-full p-2 sm:p-0" x-show="cart" x-data="{open:false,cart:true}" @mouseover="open=true" @mouseover.away="open=false"> 
+      <div class="py-5 maxsm:flex-col  relative flex flex-warp gap-5">
+        <div class="   relative flex  flex-warp gap-x-5">
+          <div class="h-fit w-[30%] min-w-[150px] aspect-square bg-[#F7F7F7]  rounded-md  relative"><a class=" max-w-xs min-w-[150px]  w-full aspect-square bg-[#F7F7F7]  rounded-md" href=""><img class="max-w-xs min-w-[150px] rounded-md duration-300 aspect-square w-full   hover:scale-110  ease-in-out  smoothing-smooth" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-1.png" alt=""/></a></div>
+          <div class="flex flex-col justify-between md:my-3 h-auto grow">
+            <div class="flex-grow flex-col items-start flex h-auto justify-between">
+              <h3 class="text-xl font-medium ">Mango</h3>
+              <div>Pomegranates are a good source of vitamins A, C, E, and many other minerals</div>
+              <div class="cif gap-4"> 
+                <div>select qty </div>
+                <div class="cent" x-data="{quantity:1}">
+                  <button @click="quantity &gt; 1 ? quantity--: quantity ">-</button>
+                  <input class="border-none text-center  " type="number" x-model="quantity" id="quantity" name="quantity" min="1" max="999"/>
+                  <button @click="quantity &lt; 999 ? quantity++: quantity ">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex sm:flex-col maxsm:flex-row-reverse justify-between md:my-3 h-auto min-w-max">
+          <div class="flex gap-3 justify-end">
+            <div class="cursor-pointer  shadow aspect-square h-[40px]  rounded-xl p-4  top-[40px]  cent  ltr:right-2 rtl:left-2 " x-data="{heart:false}" @click="heart=!heart;wishlist=true" :class="{ ' bg-white text-primary' : heart  , 'bg-white text-secondary     ' :!heart}"><i class="fa-solid fa-heart text-lg"></i></div>
+            <div class="cursor-pointer  aspect-square h-[40px]  rounded-xl p-4  top-[160px]   cent    shadow  ltr:right-2 rtl:left-2  bg-white text-red-600 " @click="cart=false"><i class="fa-solid fa-trash text-lg"></i></div>
+          </div>
+          <div class="flex gap-3">
+            <h4 class=" font-bold text-lg cent  gap-2 text-start">$15.00 <small class="line-through text-zinc-400 font-normal text-lg"> $19.99</small></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" w-full p-2 sm:p-0" x-show="cart" x-data="{open:false,cart:true}" @mouseover="open=true" @mouseover.away="open=false"> 
+      <div class="py-5 maxsm:flex-col  relative flex flex-warp gap-5">
+        <div class="   relative flex  flex-warp gap-x-5">
+          <div class="h-fit w-[30%] min-w-[150px] aspect-square bg-[#F7F7F7]  rounded-md  relative"><a class=" max-w-xs min-w-[150px]  w-full aspect-square bg-[#F7F7F7]  rounded-md" href=""><img class="max-w-xs min-w-[150px] rounded-md duration-300 aspect-square w-full   hover:scale-110  ease-in-out  smoothing-smooth" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-1.png" alt=""/></a></div>
+          <div class="flex flex-col justify-between md:my-3 h-auto grow">
+            <div class="flex-grow flex-col items-start flex h-auto justify-between">
+              <h3 class="text-xl font-medium ">Mango</h3>
+              <div>Pomegranates are a good source of vitamins A, C, E, and many other minerals</div>
+              <div class="cif gap-4"> 
+                <div>select qty </div>
+                <div class="cent" x-data="{quantity:1}">
+                  <button @click="quantity &gt; 1 ? quantity--: quantity ">-</button>
+                  <input class="border-none text-center  " type="number" x-model="quantity" id="quantity" name="quantity" min="1" max="999"/>
+                  <button @click="quantity &lt; 999 ? quantity++: quantity ">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex sm:flex-col maxsm:flex-row-reverse justify-between md:my-3 h-auto min-w-max">
+          <div class="flex gap-3 justify-end">
+            <div class="cursor-pointer  shadow aspect-square h-[40px]  rounded-xl p-4  top-[40px]  cent  ltr:right-2 rtl:left-2 " x-data="{heart:false}" @click="heart=!heart;wishlist=true" :class="{ ' bg-white text-primary' : heart  , 'bg-white text-secondary     ' :!heart}"><i class="fa-solid fa-heart text-lg"></i></div>
+            <div class="cursor-pointer  aspect-square h-[40px]  rounded-xl p-4  top-[160px]   cent    shadow  ltr:right-2 rtl:left-2  bg-white text-red-600 " @click="cart=false"><i class="fa-solid fa-trash text-lg"></i></div>
+          </div>
+          <div class="flex gap-3">
+            <h4 class=" font-bold text-lg cent  gap-2 text-start">$15.00 <small class="line-through text-zinc-400 font-normal text-lg"> $19.99</small></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" w-full p-2 sm:p-0" x-show="cart" x-data="{open:false,cart:true}" @mouseover="open=true" @mouseover.away="open=false"> 
+      <div class="py-5 maxsm:flex-col  relative flex flex-warp gap-5">
+        <div class="   relative flex  flex-warp gap-x-5">
+          <div class="h-fit w-[30%] min-w-[150px] aspect-square bg-[#F7F7F7]  rounded-md  relative"><a class=" max-w-xs min-w-[150px]  w-full aspect-square bg-[#F7F7F7]  rounded-md" href=""><img class="max-w-xs min-w-[150px] rounded-md duration-300 aspect-square w-full   hover:scale-110  ease-in-out  smoothing-smooth" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-1.png" alt=""/></a></div>
+          <div class="flex flex-col justify-between md:my-3 h-auto grow">
+            <div class="flex-grow flex-col items-start flex h-auto justify-between">
+              <h3 class="text-xl font-medium ">Mango</h3>
+              <div>Pomegranates are a good source of vitamins A, C, E, and many other minerals</div>
+              <div class="cif gap-4"> 
+                <div>select qty </div>
+                <div class="cent" x-data="{quantity:1}">
+                  <button @click="quantity &gt; 1 ? quantity--: quantity ">-</button>
+                  <input class="border-none text-center  " type="number" x-model="quantity" id="quantity" name="quantity" min="1" max="999"/>
+                  <button @click="quantity &lt; 999 ? quantity++: quantity ">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex sm:flex-col maxsm:flex-row-reverse justify-between md:my-3 h-auto min-w-max">
+          <div class="flex gap-3 justify-end">
+            <div class="cursor-pointer  shadow aspect-square h-[40px]  rounded-xl p-4  top-[40px]  cent  ltr:right-2 rtl:left-2 " x-data="{heart:false}" @click="heart=!heart;wishlist=true" :class="{ ' bg-white text-primary' : heart  , 'bg-white text-secondary     ' :!heart}"><i class="fa-solid fa-heart text-lg"></i></div>
+            <div class="cursor-pointer  aspect-square h-[40px]  rounded-xl p-4  top-[160px]   cent    shadow  ltr:right-2 rtl:left-2  bg-white text-red-600 " @click="cart=false"><i class="fa-solid fa-trash text-lg"></i></div>
+          </div>
+          <div class="flex gap-3">
+            <h4 class=" font-bold text-lg cent  gap-2 text-start">$15.00 <small class="line-through text-zinc-400 font-normal text-lg"> $19.99</small></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" w-full p-2 sm:p-0" x-show="cart" x-data="{open:false,cart:true}" @mouseover="open=true" @mouseover.away="open=false"> 
+      <div class="py-5 maxsm:flex-col  relative flex flex-warp gap-5">
+        <div class="   relative flex  flex-warp gap-x-5">
+          <div class="h-fit w-[30%] min-w-[150px] aspect-square bg-[#F7F7F7]  rounded-md  relative"><a class=" max-w-xs min-w-[150px]  w-full aspect-square bg-[#F7F7F7]  rounded-md" href=""><img class="max-w-xs min-w-[150px] rounded-md duration-300 aspect-square w-full   hover:scale-110  ease-in-out  smoothing-smooth" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-1.png" alt=""/></a></div>
+          <div class="flex flex-col justify-between md:my-3 h-auto grow">
+            <div class="flex-grow flex-col items-start flex h-auto justify-between">
+              <h3 class="text-xl font-medium ">Mango</h3>
+              <div>Pomegranates are a good source of vitamins A, C, E, and many other minerals</div>
+              <div class="cif gap-4"> 
+                <div>select qty </div>
+                <div class="cent" x-data="{quantity:1}">
+                  <button @click="quantity &gt; 1 ? quantity--: quantity ">-</button>
+                  <input class="border-none text-center  " type="number" x-model="quantity" id="quantity" name="quantity" min="1" max="999"/>
+                  <button @click="quantity &lt; 999 ? quantity++: quantity ">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex sm:flex-col maxsm:flex-row-reverse justify-between md:my-3 h-auto min-w-max">
+          <div class="flex gap-3 justify-end">
+            <div class="cursor-pointer  shadow aspect-square h-[40px]  rounded-xl p-4  top-[40px]  cent  ltr:right-2 rtl:left-2 " x-data="{heart:false}" @click="heart=!heart;wishlist=true" :class="{ ' bg-white text-primary' : heart  , 'bg-white text-secondary     ' :!heart}"><i class="fa-solid fa-heart text-lg"></i></div>
+            <div class="cursor-pointer  aspect-square h-[40px]  rounded-xl p-4  top-[160px]   cent    shadow  ltr:right-2 rtl:left-2  bg-white text-red-600 " @click="cart=false"><i class="fa-solid fa-trash text-lg"></i></div>
+          </div>
+          <div class="flex gap-3">
+            <h4 class=" font-bold text-lg cent  gap-2 text-start">$15.00 <small class="line-through text-zinc-400 font-normal text-lg"> $19.99</small></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <aside class="maxlg:order-1 rounded-md shadow-lg  px-6 py-6 real lg:h-fit aside  flex flex-col gap-8 maxlg:gap-4 maxlg:w-full w-[30%] min-w-[315px] lg:sticky top-[130px] maxlg:pb-[4%]  ">
+    <h2 class="text-primary-700 font-bold text-lg lg:text-xl">Payment Summary</h2>
+    <div class="space-y-3  font-medium">
+      <div class="flex items-center justify-between pb-2">
+        <dt>Subtotal</dt>
+        <dd><span class="inline-flex items-center currency text-primary-700">111,000 Egp</span></dd>
+      </div>
+      <div class="flex items-center justify-between border-secondary pb-6 border-b-[1px]">
+        <dt>Shipping fees</dt>
+        <dd><span class="inline-flex items-center currency text-primary-700">11 Egp</span></dd>
+      </div>
+      <div class="cif py-4 justify-between"> <span>TOTAL</span><span class="text-primary">111,011 Egp</span></div><a href="./shipping.html">
+        <button class="py-2 px-6 bg-primary rounded-lg text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase w-full" type="button">proceed to check out</button></a>
+    </div>
+  </aside>
+</div>

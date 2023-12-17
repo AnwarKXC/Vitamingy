@@ -1,0 +1,195 @@
+
+<div class="flex  gap-[5%] container pt-[60px] maxlg:pt-5 capitalize maxlg:flex-col-reverse">
+  <aside class="maxlg:order-1 real lg:h-fit aside bg-secondary-100 flex flex-col gap-8 maxlg:gap-4 maxlg:w-full w-[25%] min-w-[215px] lg:sticky top-[90px] maxlg:pb-[4%] lg:divide-y-[1px]">
+    <form class="   " action="">
+      <div class="w-full  text-sm flex  border  rounded-full shadow ">
+        <label class="sr-only" for="aside_search"> Search </label>
+        <input class=" py-2 rtl:order-last border-none rounded-l-full  px-2 outline-[#FE6601] outline-0.5 " type="text" name="aside_search" placeholder="Search..."/>
+        <button class="py-2 px-3 rounded-full border border-white aspect-square hover:border-primary font-semibold  " type="submit"> <i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+      <div class="lg:hidden w-full mt-3">
+        <div>
+          <select class="border bg-secondary-100 border-gray-300 shadow  font-medium text-sm rounded-full block w-full p-2.5  outline-none" id="Categories" name="Categories" required="required">
+            <option selected="selected" hidden="hidden">Categories</option>
+            <option>Cosmetic</option>
+            <option>Cosmetic</option>
+            <option>Cosmetic</option>
+            <option>Cosmetic</option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <div class="py-4 maxlg:hidden">
+      <div class="flex justify-between items-center">
+        <div class="flex gap-1 items-center font-bold text-base"> <span>Categories</span></div>
+      </div>
+      <div>
+        <div class=" mt-4 grid gap-2 text-sm divide-y-[1px]"><a class="w-full cif justify-between py-1 px-2 text-secondary hover:text-primary " href=""><span>Cosmetic</span><span>(2)</span></a><a class="w-full cif justify-between py-1 px-2 text-secondary hover:text-primary " href=""><span>Cosmetic</span><span>(2)</span></a><a class="w-full cif justify-between py-1 px-2 text-secondary hover:text-primary " href=""><span>Cosmetic</span><span>(2)</span></a><a class="w-full cif justify-between py-1 px-2 text-secondary hover:text-primary " href=""><span>Cosmetic</span><span>(2)</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="py-4 maxlg:hidden">
+      <div class="flex justify-between items-center">
+        <div class="flex gap-1 items-center font-bold text-base"> <span>Recent Posts</span></div>
+      </div>
+      <div>
+        <div class=" mt-4 grid gap-2 text-sm divide-y-[1px]"><a class="w-full cif flex-col gap-1 py-1 px-2 text-secondary hover:text-primary " href=""><span class="font-medium">Human Molecular Genetics and Genomics — Important Advances</span>
+            <div class="w-full cif gap-1 text-secondary/60 text-xs "><i class="fa-solid fa-calendar-days"></i><span>September 30, 2021</span></div></a><a class="w-full cif flex-col gap-1 py-1 px-2 text-secondary hover:text-primary " href=""><span class="font-medium">Human Molecular Genetics and Genomics — Important Advances</span>
+            <div class="w-full cif gap-1 text-secondary/60 text-xs "><i class="fa-solid fa-calendar-days"></i><span>September 30, 2021</span></div></a><a class="w-full cif flex-col gap-1 py-1 px-2 text-secondary hover:text-primary " href=""><span class="font-medium">Human Molecular Genetics and Genomics — Important Advances</span>
+            <div class="w-full cif gap-1 text-secondary/60 text-xs "><i class="fa-solid fa-calendar-days"></i><span>September 30, 2021</span></div></a><a class="w-full cif flex-col gap-1 py-1 px-2 text-secondary hover:text-primary " href=""><span class="font-medium">Human Molecular Genetics and Genomics — Important Advances</span>
+            <div class="w-full cif gap-1 text-secondary/60 text-xs "><i class="fa-solid fa-calendar-days"></i><span>September 30, 2021</span></div></a>
+        </div>
+      </div>
+    </div>
+    <div class="py-4 maxlg:hidden">
+      <div class="flex justify-between items-center">
+        <div class="flex gap-1 items-center font-bold text-base"> <span>Product tags</span></div>
+      </div>
+      <div>
+        <div class=" mt-4 flex flex-wrap items-center gap-2 text-sm"><a class="w-fit py-1 px-2 text-secondary hover:text-primary rounded-full border-2 border-secondary hover:border-primary" href=""><span>organic(1)</span></a><a class="w-fit py-1 px-2 text-secondary hover:text-primary rounded-full border-2 border-secondary hover:border-primary" href=""><span>vegetables(3)</span></a><a class="w-fit py-1 px-2 text-secondary hover:text-primary rounded-full border-2 border-secondary hover:border-primary" href=""><span>organic(1)</span></a><a class="w-fit py-1 px-2 text-secondary hover:text-primary rounded-full border-2 border-secondary hover:border-primary" href=""><span>vegetables(3)</span></a><a class="w-fit py-1 px-2 text-secondary hover:text-primary rounded-full border-2 border-secondary hover:border-primary" href=""><span>organic(1)</span></a><a class="w-fit py-1 px-2 text-secondary hover:text-primary rounded-full border-2 border-secondary hover:border-primary" href=""><span>vegetables(3)</span></a><a class="w-fit py-1 px-2 text-secondary hover:text-primary rounded-full border-2 border-secondary hover:border-primary" href=""><span>organic(1)</span></a><a class="w-fit py-1 px-2 text-secondary hover:text-primary rounded-full border-2 border-secondary hover:border-primary" href=""><span>vegetables(3)</span></a>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="grow">
+    <div class="grid grid-cols-2 maxmd:grid-cols-1  gap-6 w-full mt-4" x-show="window">
+      <!--blog-card-->
+      <div class="sm:min-w-[200px] w-full  rounded-md shadow " x-data="{open:false}" @mouseover="open=true" @mouseover.away="open=false"> 
+        <div class="pb-5  overflow-hidden relative">
+          <div class="sm:min-w-[200px] w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md relative "><a class=" w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md" href="blog-details.html"><img class="rounded-t-md duration-300 aspect-[2/1] w-full overflow-hidden  hover:scale-110  ease-in-out  smoothing-smooth" data-src="../assets/17-img-19.jpeg" alt=""/></a>
+            <div class="cursor-pointer absolute w-fit p-1    rounded-md  bottom-[12px]  cent  ltr:left-3 rtl:right-3 bg-secondary text-white">organic</div>
+          </div>
+          <div class="px-2 cent my-3 text-center">
+            <h3 class="text-xl maxxl:text-lg maxlg:text-base font-semibold">10 Foods To Help You Detox Naturally Today</h3>
+          </div>
+        </div>
+      </div>
+      <!--blog-card-->
+      <div class="sm:min-w-[200px] w-full  rounded-md shadow " x-data="{open:false}" @mouseover="open=true" @mouseover.away="open=false"> 
+        <div class="pb-5  overflow-hidden relative">
+          <div class="sm:min-w-[200px] w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md relative "><a class=" w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md" href="blog-details.html"><img class="rounded-t-md duration-300 aspect-[2/1] w-full overflow-hidden  hover:scale-110  ease-in-out  smoothing-smooth" data-src="../assets/17-img-19.jpeg" alt=""/></a>
+            <div class="cursor-pointer absolute w-fit p-1    rounded-md  bottom-[12px]  cent  ltr:left-3 rtl:right-3 bg-secondary text-white">organic</div>
+          </div>
+          <div class="px-2 cent my-3 text-center">
+            <h3 class="text-xl maxxl:text-lg maxlg:text-base font-semibold">10 Foods To Help You Detox Naturally Today</h3>
+          </div>
+        </div>
+      </div>
+      <!--blog-card-->
+      <div class="sm:min-w-[200px] w-full  rounded-md shadow " x-data="{open:false}" @mouseover="open=true" @mouseover.away="open=false"> 
+        <div class="pb-5  overflow-hidden relative">
+          <div class="sm:min-w-[200px] w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md relative "><a class=" w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md" href="blog-details.html"><img class="rounded-t-md duration-300 aspect-[2/1] w-full overflow-hidden  hover:scale-110  ease-in-out  smoothing-smooth" data-src="../assets/17-img-19.jpeg" alt=""/></a>
+            <div class="cursor-pointer absolute w-fit p-1    rounded-md  bottom-[12px]  cent  ltr:left-3 rtl:right-3 bg-secondary text-white">organic</div>
+          </div>
+          <div class="px-2 cent my-3 text-center">
+            <h3 class="text-xl maxxl:text-lg maxlg:text-base font-semibold">10 Foods To Help You Detox Naturally Today</h3>
+          </div>
+        </div>
+      </div>
+      <!--blog-card-->
+      <div class="sm:min-w-[200px] w-full  rounded-md shadow " x-data="{open:false}" @mouseover="open=true" @mouseover.away="open=false"> 
+        <div class="pb-5  overflow-hidden relative">
+          <div class="sm:min-w-[200px] w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md relative "><a class=" w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md" href="blog-details.html"><img class="rounded-t-md duration-300 aspect-[2/1] w-full overflow-hidden  hover:scale-110  ease-in-out  smoothing-smooth" data-src="../assets/17-img-19.jpeg" alt=""/></a>
+            <div class="cursor-pointer absolute w-fit p-1    rounded-md  bottom-[12px]  cent  ltr:left-3 rtl:right-3 bg-secondary text-white">organic</div>
+          </div>
+          <div class="px-2 cent my-3 text-center">
+            <h3 class="text-xl maxxl:text-lg maxlg:text-base font-semibold">10 Foods To Help You Detox Naturally Today</h3>
+          </div>
+        </div>
+      </div>
+      <!--blog-card-->
+      <div class="sm:min-w-[200px] w-full  rounded-md shadow " x-data="{open:false}" @mouseover="open=true" @mouseover.away="open=false"> 
+        <div class="pb-5  overflow-hidden relative">
+          <div class="sm:min-w-[200px] w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md relative "><a class=" w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md" href="blog-details.html"><img class="rounded-t-md duration-300 aspect-[2/1] w-full overflow-hidden  hover:scale-110  ease-in-out  smoothing-smooth" data-src="../assets/17-img-19.jpeg" alt=""/></a>
+            <div class="cursor-pointer absolute w-fit p-1    rounded-md  bottom-[12px]  cent  ltr:left-3 rtl:right-3 bg-secondary text-white">organic</div>
+          </div>
+          <div class="px-2 cent my-3 text-center">
+            <h3 class="text-xl maxxl:text-lg maxlg:text-base font-semibold">10 Foods To Help You Detox Naturally Today</h3>
+          </div>
+        </div>
+      </div>
+      <!--blog-card-->
+      <div class="sm:min-w-[200px] w-full  rounded-md shadow " x-data="{open:false}" @mouseover="open=true" @mouseover.away="open=false"> 
+        <div class="pb-5  overflow-hidden relative">
+          <div class="sm:min-w-[200px] w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md relative "><a class=" w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md" href="blog-details.html"><img class="rounded-t-md duration-300 aspect-[2/1] w-full overflow-hidden  hover:scale-110  ease-in-out  smoothing-smooth" data-src="../assets/17-img-19.jpeg" alt=""/></a>
+            <div class="cursor-pointer absolute w-fit p-1    rounded-md  bottom-[12px]  cent  ltr:left-3 rtl:right-3 bg-secondary text-white">organic</div>
+          </div>
+          <div class="px-2 cent my-3 text-center">
+            <h3 class="text-xl maxxl:text-lg maxlg:text-base font-semibold">10 Foods To Help You Detox Naturally Today</h3>
+          </div>
+        </div>
+      </div>
+      <!--blog-card-->
+      <div class="sm:min-w-[200px] w-full  rounded-md shadow " x-data="{open:false}" @mouseover="open=true" @mouseover.away="open=false"> 
+        <div class="pb-5  overflow-hidden relative">
+          <div class="sm:min-w-[200px] w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md relative "><a class=" w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md" href="blog-details.html"><img class="rounded-t-md duration-300 aspect-[2/1] w-full overflow-hidden  hover:scale-110  ease-in-out  smoothing-smooth" data-src="../assets/17-img-19.jpeg" alt=""/></a>
+            <div class="cursor-pointer absolute w-fit p-1    rounded-md  bottom-[12px]  cent  ltr:left-3 rtl:right-3 bg-secondary text-white">organic</div>
+          </div>
+          <div class="px-2 cent my-3 text-center">
+            <h3 class="text-xl maxxl:text-lg maxlg:text-base font-semibold">10 Foods To Help You Detox Naturally Today</h3>
+          </div>
+        </div>
+      </div>
+      <!--blog-card-->
+      <div class="sm:min-w-[200px] w-full  rounded-md shadow " x-data="{open:false}" @mouseover="open=true" @mouseover.away="open=false"> 
+        <div class="pb-5  overflow-hidden relative">
+          <div class="sm:min-w-[200px] w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md relative "><a class=" w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md" href="blog-details.html"><img class="rounded-t-md duration-300 aspect-[2/1] w-full overflow-hidden  hover:scale-110  ease-in-out  smoothing-smooth" data-src="../assets/17-img-19.jpeg" alt=""/></a>
+            <div class="cursor-pointer absolute w-fit p-1    rounded-md  bottom-[12px]  cent  ltr:left-3 rtl:right-3 bg-secondary text-white">organic</div>
+          </div>
+          <div class="px-2 cent my-3 text-center">
+            <h3 class="text-xl maxxl:text-lg maxlg:text-base font-semibold">10 Foods To Help You Detox Naturally Today</h3>
+          </div>
+        </div>
+      </div>
+      <!--blog-card-->
+      <div class="sm:min-w-[200px] w-full  rounded-md shadow " x-data="{open:false}" @mouseover="open=true" @mouseover.away="open=false"> 
+        <div class="pb-5  overflow-hidden relative">
+          <div class="sm:min-w-[200px] w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md relative "><a class=" w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md" href="blog-details.html"><img class="rounded-t-md duration-300 aspect-[2/1] w-full overflow-hidden  hover:scale-110  ease-in-out  smoothing-smooth" data-src="../assets/17-img-19.jpeg" alt=""/></a>
+            <div class="cursor-pointer absolute w-fit p-1    rounded-md  bottom-[12px]  cent  ltr:left-3 rtl:right-3 bg-secondary text-white">organic</div>
+          </div>
+          <div class="px-2 cent my-3 text-center">
+            <h3 class="text-xl maxxl:text-lg maxlg:text-base font-semibold">10 Foods To Help You Detox Naturally Today</h3>
+          </div>
+        </div>
+      </div>
+      <!--blog-card-->
+      <div class="sm:min-w-[200px] w-full  rounded-md shadow " x-data="{open:false}" @mouseover="open=true" @mouseover.away="open=false"> 
+        <div class="pb-5  overflow-hidden relative">
+          <div class="sm:min-w-[200px] w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md relative "><a class=" w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md" href="blog-details.html"><img class="rounded-t-md duration-300 aspect-[2/1] w-full overflow-hidden  hover:scale-110  ease-in-out  smoothing-smooth" data-src="../assets/17-img-19.jpeg" alt=""/></a>
+            <div class="cursor-pointer absolute w-fit p-1    rounded-md  bottom-[12px]  cent  ltr:left-3 rtl:right-3 bg-secondary text-white">organic</div>
+          </div>
+          <div class="px-2 cent my-3 text-center">
+            <h3 class="text-xl maxxl:text-lg maxlg:text-base font-semibold">10 Foods To Help You Detox Naturally Today</h3>
+          </div>
+        </div>
+      </div>
+      <!--blog-card-->
+      <div class="sm:min-w-[200px] w-full  rounded-md shadow " x-data="{open:false}" @mouseover="open=true" @mouseover.away="open=false"> 
+        <div class="pb-5  overflow-hidden relative">
+          <div class="sm:min-w-[200px] w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md relative "><a class=" w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md" href="blog-details.html"><img class="rounded-t-md duration-300 aspect-[2/1] w-full overflow-hidden  hover:scale-110  ease-in-out  smoothing-smooth" data-src="../assets/17-img-19.jpeg" alt=""/></a>
+            <div class="cursor-pointer absolute w-fit p-1    rounded-md  bottom-[12px]  cent  ltr:left-3 rtl:right-3 bg-secondary text-white">organic</div>
+          </div>
+          <div class="px-2 cent my-3 text-center">
+            <h3 class="text-xl maxxl:text-lg maxlg:text-base font-semibold">10 Foods To Help You Detox Naturally Today</h3>
+          </div>
+        </div>
+      </div>
+      <!--blog-card-->
+      <div class="sm:min-w-[200px] w-full  rounded-md shadow " x-data="{open:false}" @mouseover="open=true" @mouseover.away="open=false"> 
+        <div class="pb-5  overflow-hidden relative">
+          <div class="sm:min-w-[200px] w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md relative "><a class=" w-full aspect-[2/1] bg-[#F7F7F7] overflow-hidden rounded-t-md" href="blog-details.html"><img class="rounded-t-md duration-300 aspect-[2/1] w-full overflow-hidden  hover:scale-110  ease-in-out  smoothing-smooth" data-src="../assets/17-img-19.jpeg" alt=""/></a>
+            <div class="cursor-pointer absolute w-fit p-1    rounded-md  bottom-[12px]  cent  ltr:left-3 rtl:right-3 bg-secondary text-white">organic</div>
+          </div>
+          <div class="px-2 cent my-3 text-center">
+            <h3 class="text-xl maxxl:text-lg maxlg:text-base font-semibold">10 Foods To Help You Detox Naturally Today</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- pagination-->
+    <div class="grid justify-center mt-16">
+      <nav class="isolate inline-flex gap-[10px] maxsm:gap-3 -space-x-px rounded-md shadow-sm" aria-label="Pagination"><a class="relative inline-flex items-center justify-center rounded-md px-4 aspect-square w-9 text-primary bg-white hover:bg-primary hover:text-white focus:z-20 focus:outline-offset-0" href="#" style="box-shadow: 0px 3px 20px #1e294d26"><span class="sr-only">Previous</span><i class="fa fa-angle-right text-4" aria-hidden="true" :class="{'fa-solid fa-angle-right' : dir == 'rtl','fa-solid fa-angle-left' : dir == 'ltr'}"></i></a><a class="relative rounded-md inline-flex items-center justify-center aspect-square !w-9 text-4 font-bold active-pagination text-white bg-primary hover:text-white hover:bg-primary z-10 focus:z-20" href="#" aria-current="page" style="box-shadow: 0px 3px 20px #1e294d26">1</a><a class="relative rounded-md inline-flex items-center px-4 justify-center aspect-square w-9 text-4 font-bold text-secondary hover:bg-primary bg-white hover:text-white focus:z-20 focus:outline-offset-0" href="#" style="box-shadow: 0px 3px 20px #1e294d26">2</a><a class="relative rounded-md hidden items-center justify-center px-4 aspect-square w-9 text-4 font-bold text-secondary hover:bg-primary bg-white hover:text-white focus:z-20 focus:outline-offset-0 md:inline-flex" href="#" style="box-shadow: 0px 3px 20px #1e294d26">3</a><a class="relative rounded-md hidden items-center justify-center px-4 aspect-square w-9 text-4 font-bold text-secondary hover:bg-primary bg-white hover:text-white focus:z-20 focus:outline-offset-0 md:inline-flex" href="#" style="box-shadow: 0px 3px 20px #1e294d26">4</a><span class="relative inline-flex items-center px-4 justify-center aspect-square w-9 text-4 font-bold text-secondary focus:outline-offset-0">...</span><a class="relative rounded-md inline-flex items-center justify-center px-4 aspect-square w-9 text-4 font-bold text-secondary bg-white hover:bg-primary hover:text-white focus:z-20 focus:outline-offset-0" href="#" style="box-shadow: 0px 3px 20px #1e294d26">10</a><a class="relative rounded-md inline-flex items-center justify-center aspect-square w-9 px-4 text-primary bg-white hover:bg-primary hover:text-white focus:z-20 focus:outline-offset-0" href="#" style="box-shadow: 0px 3px 20px #1e294d26"><span class="sr-only">Next</span><i class="fa fa-angle-left text-4" aria-hidden="true" :class="{'fa-solid fa-angle-left' : dir == 'rtl','fa-solid fa-angle-right' : dir == 'ltr'}"></i></a></nav>
+    </div>
+    <!-- end of pagination-->
+  </main>
+</div>

@@ -1,0 +1,73 @@
+
+<div class="flex gap-[5%] container maxsm:flex-col capitalize" x-data="{image:false}">
+  <side class="lg:w-[340px] sm:w-[222px] w-full  ">
+    <div class="flex flex-col w-full px-[16px] maxlg:pt-6  mt-6 shadow rounded-md lg:mt-24  relative">
+      <div class="cent">
+        <div class="rounded-full border-[4px] z-[30] border-primary aspect-square w-[40%] min-w-[100px] maxsm:text-center  lg:absolute top-[0px]  lg:-translate-y-20"><img class="w-full aspect-square rounded-full" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/img-user.jpg" @click="image=true"/></div>
+      </div>
+      <div class="flex flex-col gap-2 py-2  relative border-b-2  border-secondary lg:mt-24"><a class="text-start" href="./profile.html">User Name </a><span>vitamingy@gmail.com </span></div>
+      <h3 class="mt-4 font-medium text-xl">setting</h3>
+      <div class="flex flex-col gap-2 py-2  relative divide-y-[1px] border-b-2  border-secondary px-2">
+        <div class="cif gap-2 py-2  relative " x-data="{language:false}">
+          <div class="cif gap-2   relative "><span class="fa fa-globe info"> </span><span>country</span></div>
+          <div class="cent gap-2  hover:text-black relative" @click="language=true" @click.away="language=false"><span class="cursor-pointer">egypt</span><i class="fa-solid fa-sort-down text-xs mb-1"></i>
+            <div class="absolute w-32 leading-8 p-4 ltr:left-0 rtl:right-0 text-zinc-500 top-[20px] border rounded-md z-50 bg-white  hidden" :class="{'!block':language}" x-show="language">
+              <div>
+                <button>egypt</button>
+              </div>
+              <div>
+                <button>libia</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cif gap-4 py-2  relative " x-data="{language:false}" @mouseover.away="language=false">
+          <div class="cif gap-2   relative "><span class="fa-solid fa-language"> </span><span>language </span></div>
+          <div class="cent gap-2  hover:text-black relative " @click="language=true" @click.away="language=false"><span class="cursor-pointer" x-text="lang"> </span><i class="fa-solid fa-sort-down text-xs mb-1"></i>
+            <div class="absolute w-32 leading-8 p-4 ltr:left-0 rtl:right-0 text-zinc-500 top-[20px] border rounded-md z-50 bg-white  hidden" :class="{'!block':language}" x-show="language">
+              <div>
+                <button @click="setToRTL()">Arabic</button>
+              </div>
+              <div>
+                <button @click="setToLTR()">English</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 py-1 mt-3 relative divide-y-[1px]"><a class="cif gap-2 py-2  relative " href="./wishlist.html"><span class="fa fa-heart info"> </span><span>favorite</span></a><a class="cif gap-2 py-2  relative " href="./orders.html"><span class="fa-solid fa-truck"> </span><span>orders</span></a><a class="cif gap-2 py-2  relative " href="./refunds.html"><span class="fa-solid fa-truck"> </span><span>refunds</span></a><a class="cif gap-2 py-2  relative " href="./bag.html"><span class="fa fa-shopping-basket info"> </span><span>bag</span></a><a class="cif gap-2 py-2  relative " href="./contact-us.html"><span class="fa fa-info-circle info"> </span><span>help</span></a></div>
+      <button class="cif gap-2 py-2  relative "><i class="fa-solid fa-right-from-bracket"></i><span class="font-bold text-[1rem]">log out</span></button>
+    </div>
+  </side>
+  <main class="grow rounded-md  lg:mt-24 mt-6">
+    <div class=" py-9 px-[16px] bg-white"> 
+      <h3 class="font-bold text-[2rem]  mb-6">orders</h3><a class="flex  mt-4 gap-6 py-1 px-2 relative border rounded-md" href="./order-details.html">
+        <div class="sm:h-[150px] h-[120px]  aspect-square"><img class="w-full h-full" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/box2.png"/></div>
+        <div class=" sm:space-y-4 space-y-2  text-base font-medium mt-4 py-1  relative ">
+          <div class="flex"> <span>order:</span><span>#33333</span></div>
+          <div> 3,575 EGP</div>
+          <div> cancelled</div>
+        </div></a><a class="flex  mt-4 gap-6 py-1 px-2 relative border rounded-md" href="./order-details.html">
+        <div class="sm:h-[150px] h-[120px]  aspect-square"><img class="w-full h-full" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/box2.png"/></div>
+        <div class=" sm:space-y-4 space-y-2  text-base font-medium mt-4 py-1  relative ">
+          <div class="flex"> <span>order:</span><span>#33333</span></div>
+          <div> 3,575 EGP</div>
+          <div> cancelled</div>
+        </div></a><a class="flex  mt-4 gap-6 py-1 px-2 relative border rounded-md" href="./order-details.html">
+        <div class="sm:h-[150px] h-[120px]  aspect-square"><img class="w-full h-full" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/box2.png"/></div>
+        <div class=" sm:space-y-4 space-y-2  text-base font-medium mt-4 py-1  relative ">
+          <div class="flex"> <span>order:</span><span>#33333</span></div>
+          <div> 3,575 EGP</div>
+          <div> cancelled</div>
+        </div></a>
+    </div>
+  </main>
+  <form class="fixed inset-0  bg-secondary/30 z-[50] hidden " :class="{'cent' : image}" x-show="image">
+    <div class=" w-[25%] py-8 px-[1%] min-w-[300px] shadow bg-white rounded-md z-[50]" x-show="image" @click.away="image=false">
+      <h3 class="mb-6 text-center font-medium text-xl">choose image</h3>
+      <div class="cent mt-8">
+        <button class="py-2 px-6 text-center bg-secondary rounded-full text-white  w-fit font-medium text-sm tracking-wider  uppercase" type="submit">submit</button>
+      </div>
+    </div>
+  </form>
+</div>

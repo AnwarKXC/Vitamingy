@@ -1,0 +1,49 @@
+
+<div class="mt-6">
+  <div class="bg-white container overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500 min-w-max">
+      <thead> 
+        <tr class="border-b   uppercase text-center  text-base maxlg:text-sm  whitespace-nowrap font-medium">
+          <td class=" p-3  w-[50px] " scope="row"><span class="real_content"> </span></td>
+          <td class=" p-3  w-[104px] " scope="row"><span class="real_content"> </span></td>
+          <td class=" p-3   " scope="row"><span class="real_content">PRODUCT NAME</span></td>
+          <td class=" p-3  w-[10%] " scope="row"><span class="real_content">UNIT PRICE</span></td>
+          <td class=" p-3  w-[10%] " scope="row"><span class="real_content">STOCK STATUS</span></td>
+          <td class=" p-3   w-[15%]" scope="row"><span class="real_content"> </span></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b  text-lg maxlg:text-sm" x-show="tr" x-data="{tr:true}">
+          <td class=" p-3   text-3xl" scope="row"><span class="cursor-pointer  font-bold real_content" @click="tr=false">x</span></td>
+          <td class=" p-3   " scope="row"><img class="aspect-square w-[80px]" data-src="../assets/watermillion.jpeg"/></td>
+          <td class=" p-3   " scope="row"><span class="real_content">watermelon</span></td>
+          <td class=" p-3  text-center " scope="row"><span class="real_content">24-50 $</span></td>
+          <td class=" p-3  text-center " scope="row"><span class="real_content">In Stock</span></td>
+          <td class=" p-3   " scope="row">
+            <button class="py-2 px-6 bg-primary rounded-full text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase w-full" type="button" @click="wishlist=true">ADD TO CART</button>
+          </td>
+        </tr>
+        <tr class="border-b  text-lg maxlg:text-sm" x-show="tr" x-data="{tr:true}">
+          <td class=" p-3   text-3xl" scope="row"><span class="cursor-pointer  font-bold real_content" @click="tr=false">x</span></td>
+          <td class=" p-3   " scope="row"><img class="aspect-square w-[80px]" data-src="../assets/watermillion.jpeg"/></td>
+          <td class=" p-3   " scope="row"><span class="real_content">watermelon</span></td>
+          <td class=" p-3  text-center " scope="row"><span class="real_content">24-50 $</span></td>
+          <td class=" p-3  text-center " scope="row"><span class="real_content">In Stock</span></td>
+          <td class=" p-3   " scope="row">
+            <button class="py-2 px-6 bg-primary rounded-full text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase w-full" type="button" @click="wishlist=true">ADD TO CART</button>
+          </td>
+        </tr>
+        <tr class="border-b  text-lg maxlg:text-sm" x-show="tr" x-data="{tr:true}">
+          <td class=" p-3   text-3xl" scope="row"><span class="cursor-pointer  font-bold real_content" @click="tr=false">x</span></td>
+          <td class=" p-3   " scope="row"><img class="aspect-square w-[80px]" data-src="../assets/watermillion.jpeg"/></td>
+          <td class=" p-3   " scope="row"><span class="real_content">watermelon</span></td>
+          <td class=" p-3  text-center " scope="row"><span class="real_content">24-50 $</span></td>
+          <td class=" p-3  text-center " scope="row"><span class="real_content">In Stock</span></td>
+          <td class=" p-3   " scope="row">
+            <button class="py-2 px-6 bg-primary rounded-full text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase w-full" type="button" @click="wishlist=true">ADD TO CART</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

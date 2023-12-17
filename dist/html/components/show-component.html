@@ -1,0 +1,33 @@
+
+<!--show pop up for card details-->
+<div class="w-full bg-black  bg-opacity-80  z-50  fixed inset-0 text-black hidden" x-show="showDetails" :class="{ 'cent flex' : showDetails }">
+  <div class="  mt-20 w-[950px] mx-auto bg-white  aspect-video p-8  pb-12 relative" @click.away="showDetails=false">
+    <div class=" flex gap-5 w-full"> 
+      <div class=" absolute right-3 top-2 z-50 text-xl font-bold text-red-700 cursor-pointer" @click="showDetails=false"><i class="fa-solid fa-x"></i></div>
+      <div class=" w-full bg-zinc-100 h-full cent "><img class="w-full aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-1.png" alt=""/></div>
+      <div class=" w-full  h-full ">
+        <div class="flex-grow flex-col items-start flex gap-2 pb-5">
+          <h3 class="text-2xl font-bold">Mango</h3>
+          <h4 class="font-bold text-lg cent gap-2 text-start">$15.00 <small class="line-through text-zinc-400 font-normal text-sm"> $19.99</small></h4>
+        </div>
+        <hr/>
+        <div class="flex-grow flex-col items-start flex gap-2 pt-5">
+          <p class="text-zinc-600">Pomegranates are a good source of vitamins A, C, E, and many other minerals, the product is a healthy beverage for all family members.</p>
+          <form class="w-full flex flex-col gap-5 pb-5" action="submit">
+            <div> <span class="font-medium text-zinc-700">Availability :  </span><span class="text-secondary"> &nbsp; in stock</span></div>
+            <div>
+              <input class="border-none opacity-75" type="number" id="quantity" name="quantity" min="1" max="999" value="1"/>
+            </div>
+            <button class="py-2 px-6 bg-primary rounded-full text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase w-full" type="submit">ADD TO CART</button>
+          </form>
+        </div>
+        <hr/>
+        <div class="flex-grow flex-col items-start flex gap-1 pt-5">
+          <div> <span class="font-medium text-zinc-700">SKU :  </span><span>OG54589</span></div>
+          <div> <span class="font-medium text-zinc-700">Category : </span><a href="">Fresh Fruits </a></div>
+          <div> <span class="font-medium text-zinc-700">Tag : </span><a href="">Fresh Fuits</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

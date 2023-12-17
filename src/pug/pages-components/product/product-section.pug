@@ -1,0 +1,211 @@
+div(class="container md:pt-16 pt-8  text-secondary")
+    div(class="flex gap-6 flex-wrap")
+        div(class="w-[37%] maxlg:w-[50%] aspect-[543/452] maxmd:w-full")
+            div(class="flex aspect-[543/452] w-full gap-[20px] maxmd:flex-col-reverse" x-data="{overlayProduct:false,zoomed: false, zoomX: 0, zoomY: 0}")
+                div(class=" relative   w-[14.73%] maxlg:w-[25%] maxmd:w-full md:h-full")
+                    div(class="swiper swiper_thumbnail w-full md:h-full")
+                        div(class="swiper-wrapper w-full h-full")
+
+                            -for(let i=0; i<4;i++)
+                                div(class="swiper-slide  w-full h-full aspect-square cursor-pointer border p-[2px] rounded-md")
+                                    img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="lazy  aspect-square w-full rounded-md real_content",src="../assets/17-img-17.jpeg", alt="product", loading="lazy")
+                                    
+                div( class="img-zoom-result fixed top-[30%] right-[25%] rounded-md  maxlg:hidden z-[40]" id="Result" )
+                div(class="swiper swiper_main grow h-fit relative aspect-square maxmd:w-full")
+                    div(class="swiper-wrapper aspect-square")
+                        -for(let i=0; i<4;i++)
+                            div(class="swiper-slide w-full cursor-pointer conner"    )
+                                img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="rounded-md duration-1000 aspect-square w-full overflow-hidden ease-in-out smoothing-smooth img-zoom" , src="../assets/17-img-17.jpeg", alt="product", loading="lazy", )
+
+                
+                    div( class="fa-solid fa-expand text-xl absolute bottom-3.5 right-3.5 z-[500] bg-secondary-100 rounded-md maxlg:hidden cursor-pointer active:scale-110" @click=" overlayProduct = true ")
+                div(class="fixed inset-0 h-screen bg-black z-[500] hidden" :class="{'!block': overlayProduct==true }" id="overlay-product" x-show="overlayProduct")
+                    div(class="relative w-full h-screen")
+                        div( @click="overlayProduct=false" class=" z-50 cursor-pointer absolute top-4 maxlg:top-[5%] right-4 maxlg:right-[5%] w-[29px] h-[29px] rounded-full flex justify-center items-center  text-white ") 
+                            i(class="fa-solid fa-xmark text-xl  ")
+                        div(x-data="{expand:true}"  class="z-50 cursor-pointer absolute top-4 maxlg:top-[5%] right-12 maxlg:right-[10%] w-[29px] h-[29px] rounded-full flex justify-center items-center  text-white ") 
+                            button(class="fa-solid fa-expand text-xl  "  @click="openFullscreen();expand=false" x-show="expand" )
+                            button(class="fa-solid fa-compress text-xl hidden " :class="{'!block':!expand}" @click="closeFullscreen();expand=true " x-show="!expand")
+                        div(class="w-full h-full px-[35px] maxlg:px-4  flex justify-center items-center maxlg:pt-[30%] ")
+                            div(class="swiper swiper-overlayProduct w-[100%] ")
+                                div(class="swiper-wrapper")
+                                    -for(let i = 0 ;i<4 ; i++)
+                                        div(class="swiper-slide cent px-[27%]  maxlg:px-4 w-full  ")
+                                            div(class="aspect-square w-full  " )
+                                                img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="lazy w-full aspect-square real_content" loading="lazy" data-src="../assets/17-img-17.jpeg", alt="", )
+
+
+                                div#prev2(class="swiper-button-prev fa-solid  fa-arrow-right text-primary  text-sm  flex  bg-secondary-600 shadow rounded-lg", :class="{'fa-solid fa-arrow-right' : dir == 'rtl','fa-solid fa-arrow-left' : dir == 'ltr'}")
+                                div#next2(class="swiper-button-next fa-solid  fa-arrow-left text-primary  text-sm  flex  bg-secondary-600 shadow rounded-lg", :class="{'fa-solid fa-arrow-left' : dir == 'rtl','fa-solid fa-arrow-right' : dir == 'ltr'}")  
+        div(class="w-[35%] capitalize maxmd:w-[60%] grow")
+            div(class=" w-full  h-full ")
+                div.flex-grow.flex-col.items-start.flex.gap-2.pb-5
+                    h3.text-2xl.font-bold Mango
+                    h4.font-bold.text-lg.cent.gap-2.text-start $15.00 
+                        small.line-through.text-zinc-400.font-normal.text-sm  $19.99
+                hr 
+                div.flex-grow.flex-col.items-start.flex.gap-2.py-3
+                    p.text-zinc-600 Pomegranates are a good source of vitamins A, C, E, and many other minerals, the product is a healthy beverage for all family members.
+                    
+
+                hr
+                div.flex-grow.flex-col.items-start.flex.gap-1.py-3
+                    div 
+                        span.font-medium.text-secondary SKU :  
+                        span OG54589
+                    div 
+                        span.font-medium.text-secondary Category : 
+                        a(href="" class="") Fresh Fruits 
+                    div 
+                        span.font-medium.text-secondary Tag : 
+                        a(href="" class="") Fresh Fuits
+                hr
+                div.flex-grow.flex-col.items-start.flex.gap-1.py-3
+                    div 
+                        span.font-medium.text-primary 3-day shipping 
+
+                    div 
+                        span.font-medium.text-secondary Free pickup today
+
+
+                //- hr
+                //- div.flex-grow.flex-col.items-start.flex.gap-2.py-3.text-sm
+                //-     div.cif.gap-1
+                //-         span.font-medium.text-secondary 				
+                //-             <i class="fa-regular fa-eye "></i> 
+                //-         span.font-medium.text-secondary  2213 views 
+                //-         span this product.
+                //-     div.cif.gap-1
+                //-         span.font-medium.text-secondary 				
+                //-             <i class="fa-solid fa-truck-fast"></i>
+                //-         div()
+                //-             span Estimate delivery times: 
+                //-             span.font-medium.text-secondary  12-26 days
+                //-             span  (International).
+
+                //-     div.cif.gap-1
+                //-         span.font-medium.text-secondary 				
+                //-             <i class="fa-solid fa-hand-holding-dollar"></i>
+                //-         div()
+                //-             span Return within
+                //-             span.font-medium.text-secondary  30 days
+                //-             span  of purchase. Taxes are non-refundable.
+
+        div(class="bg-[#f3f3f3]  py-4 grow h-fit " x-data="{add:true}" )
+            div(class="mx-auto w-[85%]")
+                form(action="submit" class="w-full flex flex-col gap-5 pb-5")
+                    div 
+                        span.font-medium.text-secondary Availability :  
+                        span.text-secondary  &nbsp; in stock
+                    div
+                        input(type="number" id="quantity" name="quantity" min="1" max="999" value="1" class="border-none opacity-75")
+                    
+                    button(type="button" @click="wishlist=true" class="py-2 px-6 bg-primary rounded-full text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase w-full") ADD TO CART
+                hr
+                form(action="submit" class="w-full flex  gap-5 pb-5 text-sm mt-3" x-data="")
+                    div.cif.gap-1.cursor-pointer(x-show="add" @click="wishlist=true;add=false") 
+                        span.font-medium.text-secondary + 
+                        span.text-secondary  add to wishlist
+                    div.cif.gap-1.hidden.cursor-pointer(x-show="!add" :class="{'!block':!add}" @click="add=true") 
+                        span.font-medium.text-secondary - 
+                        span.text-secondary  added
+
+                    
+                    div.cif.gap-1.cursor-pointer( @click="compare=true")  
+                        span.font-medium.text-secondary + 
+                        span.text-secondary  compare
+                hr
+                div.flex.gap-8.py-4
+                    a(href="http://", target="_blank", rel="noopener noreferrer") 
+                        <i class="fab hover:text-primary text-base fa-facebook-f"></i>
+                    a(href="http://", target="_blank", rel="noopener noreferrer") 
+                        <i class="fab hover:text-primary text-base fa-twitter"></i>
+                    a(href="http://", target="_blank", rel="noopener noreferrer") 
+                        <i class="fab hover:text-primary text-base fa-instagram"></i>
+                hr
+                div(class="grid grid-flow-col-dense w-full gap-[5px] py-4")
+                    div(class="w-[30px]  cent ")
+                        img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="w-[30px]" data-src="../assets/visa.png")
+                    div(class="w-[30px]   cent ")
+                        img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="w-[30px]" data-src="../assets/tamara(2).png")
+                    div(class="w-[30px]   cent ")
+                        img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="w-[30px]" data-src="../assets/mada.png")
+                    div(class="w-[30px]   cent ")
+                        img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="w-[30px]" data-src="../assets/apple_pay.png")
+                    div(class="w-[30px]   cent ")
+                        img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="w-[30px]" data-src="../assets/mastercard.png")
+
+
+
+
+    div(class="w-full maxlg:px-4 " x-data="{ tab : 'Overview', overlayProduct:false }") 
+        div(class="overflow-x-auto   mt-6 mb-[27px]")
+            div(class="flex gap-[5%] w-full relative   md:text-xl text-lg  font-normal leading-tight min-w-max")
+                div(class=" min-w-max flex-col cent  md:py-4 py-2  relative" :class="{'product_active_tab' : tab == 'Overview'}", @click="tab = 'Overview'")
+                    
+                    div(class="cursor-pointer text-center real_content" )  Description
+                    
+                    span(class=" h-[3px] bg-primary  mx-auto w-full bottom-0 absolute" x-show="tab=='Overview'")
+
+                div(class="min-w-max flex-col cent  md:py-4 py-2   relative" :class="{'product_active_tab' : tab == 'Details'}", @click="tab = 'Details'")
+                    
+                    div(class="cursor-pointer text-center real_content min-w-max" )  Additional information
+
+                    
+                    span(class=" h-[3px] bg-primary  mx-auto w-full bottom-0 absolute" x-show="tab=='Details'")
+
+
+
+        hr(class="w-[97%] mx-auto my-6 h-[1px]")
+        div(class=" mt-6  " x-show="tab=='Overview'")
+            
+            div(class="real_content")
+                span(class=" text-sm font-normal leading-tight") <b class="text-lg">Tulips </b> are vibrant flowers that bring a burst of color to any setting. With their cup-shaped blooms and long, slender stems, they are a symbol of perfect love and new beginnings. Originating from Central Asia, tulips have captivated people&apos;s hearts for centuries. Whether in gardens, bouquets, or potted plants, tulips add a touch of elegance and beauty. 
+
+        div(class="mt-10 "  x-show="tab=='Details'")
+
+            div(class="relative overflow-x-auto  ")
+                table(class="w-full text-sm text-left text-gray-500")
+                    tbody
+                        tr(class="border-b border-white")
+                            td(scope="row", class="w-[30%]  p-3  text-base maxlg:text-xs font-normal whitespace-nowrap bg-gray-200 ")
+                                span(class="real_content") flower type
+                                                
+                            td(scope="row", class=" p-3  text-base maxlg:text-xs font-semibold bg-zinc-100" )
+                                span(class="real_content") tulip
+                                                
+
+                        tr(class="border-b border-white")
+                            td(scope="row", class=" p-3  text-base maxlg:text-xs font-normal whitespace-nowrap bg-gray-200 ")
+                                span(class="real_content") Pet type
+                                                
+                            td(scope="row", class=" p-3  text-base maxlg:text-xs font-semibold bg-zinc-100" )
+                                span(class="real_content") golden retriever
+                                                
+                        tr(class="border-b border-white")
+                            td(scope="row", class=" p-3  text-base maxlg:text-xs font-normal whitespace-nowrap bg-gray-200 ")
+                                span(class="real_content") flower number
+                                                
+                            td(scope="row", class=" p-3  text-base maxlg:text-xs font-semibold bg-zinc-100" )
+                                span(class="real_content") 30
+                                                
+
+                        tr(class="border-b border-white")
+                            td(scope="row", class=" p-3  text-base maxlg:text-xs font-normal whitespace-nowrap bg-gray-200 ")
+                                span(class="real_content") chocolate type
+                                                
+                            td(scope="row", class=" p-3  text-base maxlg:text-xs font-semibold bg-zinc-100" )
+                                span(class="real_content") galaxy
+
+    hr(class="w-[97%] mx-auto lg:my-12 my-6  h-[1px]")
+    div(class="lg:mt-10 w-full "  )
+        div(class="lg:mb-8 mb-4  cent flex-col gap-2")
+            <i class="fa-solid fa-pills lg:text-2xl text-lg"></i>
+            h3(class="lg:text-base text-sm text-center") Related Products subtitle
+            h3(class=" text-2xl  font-bold text-center") Related products
+        div(class="w-[100%]")        
+            div(class=" swiper swiper-product")
+                div(class="swiper-wrapper  ")
+                    -for(let i = 0 ;i<8 ; i++)
+                        div(class="swiper-slide w-full relative " )
+                            include ../../components/productCard

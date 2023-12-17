@@ -1,0 +1,69 @@
+div(class="flex maxlg:flex-col gap-[5%] container pt-[60px] maxlg:pt-5 capitalize ")
+
+
+    main(class="grow space-y-4 divide-y-[1px] font-medium" )
+
+
+        -for(let i=0;i<4;i++)
+            div(  x-show="cart" x-data="{open:false,cart:true}" @mouseover="open=true" @mouseover.away="open=false" class=" w-full p-2 sm:p-0") 
+                div(class="py-5 maxsm:flex-col  relative flex flex-warp gap-5" )
+                    div(class="   relative flex  flex-warp gap-x-5" )
+                        div( class="h-fit w-[30%] min-w-[150px] aspect-square bg-[#F7F7F7]  rounded-md  relative" )
+                            a( href="" class=" max-w-xs min-w-[150px]  w-full aspect-square bg-[#F7F7F7]  rounded-md" )
+                                img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" data-src="../assets/17-img-1.png", alt="" , class="max-w-xs min-w-[150px] rounded-md duration-300 aspect-square w-full   hover:scale-110  ease-in-out  smoothing-smooth")
+                        div(class="flex flex-col justify-between md:my-3 h-auto grow")
+                            div.flex-grow.flex-col.items-start.flex.h-auto.justify-between
+                                h3(class="text-xl font-medium ") Mango
+                                div(class="") Pomegranates are a good source of vitamins A, C, E, and many other minerals
+
+                                .cif.gap-4 
+                                    div(class="") select qty 
+                                    div.cent(x-data="{quantity:1}")
+                                        
+                                        button(@click="quantity > 1 ? quantity--: quantity ") -
+                                        input(type="number" x-model="quantity" id="quantity" name="quantity" min="1" max="999" class="border-none text-center  ")
+                                        button(@click="quantity < 999 ? quantity++: quantity ") +
+                    div(class="flex sm:flex-col maxsm:flex-row-reverse justify-between md:my-3 h-auto min-w-max")
+                        div.flex.gap-3.justify-end
+                            div( class="cursor-pointer  shadow aspect-square h-[40px]  rounded-xl p-4  top-[40px]  cent  ltr:right-2 rtl:left-2 "  x-data="{heart:false}" @click="heart=!heart;wishlist=true"  :class="{ ' bg-white text-primary' : heart  , 'bg-white text-secondary     ' :!heart}"       )
+                                <i class="fa-solid fa-heart text-lg"></i>
+
+                            div( @click="cart=false" class="cursor-pointer  aspect-square h-[40px]  rounded-xl p-4  top-[160px]   cent    shadow  ltr:right-2 rtl:left-2  bg-white text-red-600 "  )
+                                <i class="fa-solid fa-trash text-lg"></i>
+                        div.flex.gap-3
+                            h4(class=" font-bold text-lg cent  gap-2 text-start") $15.00 
+                                small.line-through.text-zinc-400.font-normal.text-lg  $19.99
+            //- div(class="grid grid-cols-6 py-2 gap-6 w-full mt-4" x-data="{window:true}" x-show="window")
+            //-     a(href="./product.html" class="cif gap-3 col-span-2 maxlg:col-span-3") 
+                    
+            //-         div(class="")
+            //-             img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="aspect-square w-[70px]" data-src="../assets/watermillion.jpeg")
+            //-         div(class="text-primary") Fresh Bell Peppers
+            //-     div(class="cent maxlg:hidden") 95.00$
+            //-     div(class="cent") 
+            //-         input(type="number" id="quantity" name="quantity" min="1" max="999" value="1" class="border opacity-75 !w-[80px]")
+            //-     div(class="cent ")  95.00$
+            //-     button(class="fa-solid  fa-trash-can" @click="window=false")
+
+    aside(class="maxlg:order-1 rounded-md shadow-lg  px-6 py-6 real lg:h-fit aside  flex flex-col gap-8 maxlg:gap-4 maxlg:w-full w-[30%] min-w-[315px] lg:sticky top-[130px] maxlg:pb-[4%]  ")
+        h2(class="text-primary-700 font-bold text-lg lg:text-xl") Payment Summary
+        div(class="space-y-3  font-medium")
+            div(class="flex items-center justify-between pb-2")
+                dt(class="")
+                    | Subtotal
+                dd
+                    span(  class="inline-flex items-center currency text-primary-700")
+                        | 111,000 Egp
+            div(class="flex items-center justify-between border-secondary pb-6 border-b-[1px]")
+                dt(class="")
+                    | Shipping fees
+                dd
+                    span(  class="inline-flex items-center currency text-primary-700")
+                        | 11 Egp
+            div(class="cif py-4 justify-between") 
+                span TOTAL
+                span(class="text-primary") 111,011 Egp
+            a(href="./shipping.html")
+                button(type="button"  class="py-2 px-6 bg-primary rounded-lg text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase w-full") proceed to check out
+                                  
+

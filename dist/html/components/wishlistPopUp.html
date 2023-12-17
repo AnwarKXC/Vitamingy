@@ -1,0 +1,17 @@
+
+<div class="fixed top-[80px] ltr:right-7 z-[5000] w-[300px] hidden" x-show.transition="wishlist" x-init="() =&gt; { setTimeout(() =&gt; wishlist = false, 1); timeout = setTimeout(() =&gt; wishlist = false, 1000); }" :class="{'!block' : wishlist}">
+  <div class="bg-white shadow rounded">
+    <div class=" p-2 flex justify-between ">
+      <h5 class="capitalize text-sm">notice!</h5>
+      <h5 class="text-base font-semibold cursor-pointer" @click="wishlist=false">x</h5>
+    </div>
+    <div class="flex gap-2 p-2  border-zinc-300 border-t-[1px]">
+      <div class="w-[70px]"><img class="min-w-[70px] aspect-square" src="../.../../../../dist/assets/17-img-6.png"/></div>
+      <div class="grow">
+        <h2 class="text-sm text-yellow-400 capitalize font-bold">exported </h2>
+        <h2 class="text-sm  capitalize">product added!</h2>
+        <div class="flex justify-end mt-4 text-sm"> <a class="underline" href="">browse wishlist</a></div>
+      </div>
+    </div>
+  </div>
+</div>

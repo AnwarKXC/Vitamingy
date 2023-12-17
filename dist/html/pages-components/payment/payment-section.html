@@ -1,0 +1,131 @@
+
+<ul class=" cif justify-between text-center text-2xl maxlg:text-xl font-medium progress-timeline my-[50px] content-steps">
+  <li class="w-full first active  relative">shipping</li>
+  <li class="w-full second active relative">payment</li>
+  <li class="w-full third relative">done</li>
+</ul>
+<div class="flex gap-[5%] maxlg:gap-4 container maxlg:flex-col capitalize " x-data="{data:'user',image:false,edit:false, newAddress:false}">
+  <side class="lg:w-[340px] w-full     ">
+    <div class="flex flex-col w-full px-[16px] border shadow">
+      <div class="cif justify-between gap-2 py-3  relative border-b border-secondary"><span class="text-xl font-bold">SHOPPING CART</span><a class="font-medium underline" href="./bag.html">back to bag</a></div>
+      <div class="flex flex-col divide-y-[1px] w-full  border-b border-secondary">
+        <div class="flex gap-2 py-2">
+          <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" data-src="../assets/17-img-6.png"/></div>
+          <div class="grow">
+            <h2 class="text-sm text-black capitalize font-bold">vitamine</h2>
+            <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+          </div>
+        </div>
+        <div class="flex gap-2 py-2">
+          <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" data-src="../assets/17-img-6.png"/></div>
+          <div class="grow">
+            <h2 class="text-sm text-black capitalize font-bold">vitamine</h2>
+            <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+          </div>
+        </div>
+        <div class="flex gap-2 py-2">
+          <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" data-src="../assets/17-img-6.png"/></div>
+          <div class="grow">
+            <h2 class="text-sm text-black capitalize font-bold">vitamine</h2>
+            <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+          </div>
+        </div>
+        <div class="flex gap-2 py-2">
+          <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" data-src="../assets/17-img-6.png"/></div>
+          <div class="grow">
+            <h2 class="text-sm text-black capitalize font-bold">vitamine</h2>
+            <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+          </div>
+        </div>
+        <div class="flex gap-2 py-2">
+          <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" data-src="../assets/17-img-6.png"/></div>
+          <div class="grow">
+            <h2 class="text-sm text-black capitalize font-bold">vitamine</h2>
+            <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 py-1 mt-3 relative divide-y-[1px] font-medium" x-data="{coupon:false}">
+        <button class="cent bg-secondary py-2 rounded-md text-white relative " @click="coupon=!coupon"><span>add coupon</span></button>
+        <form class=" justify-between gap-2 py-2  relative hidden" x-show="coupon" :class="{'cif':coupon}">
+          <input class="rounded-md w-full px-4" placeholder="coupon..." type="text" id="coupon" name="coupon" required="required"/>
+          <button class="cent bg-secondary text-white text-xs py-2 rounded-md relative px-1"><span>submit</span></button>
+        </form>
+        <div class="cif justify-between gap-2 py-2  relative "><span>items </span><span>5</span></div>
+        <div class="cif justify-between gap-2 py-2  relative "><span> + shipping:</span><span>70 egp</span></div>
+        <div class="cif justify-between gap-2 py-2  relative "><span>Cash On Deliver Fees:</span><span>20 egp</span></div>
+        <div class="cif justify-between gap-2 py-2  relative bg-secondary/30"><span>total order:</span><span>7020 egp</span></div>
+      </div>
+    </div>
+  </side>
+  <main class="grow">
+    <div class=" pb-6 pt-2 px-[16px] bg-white border shadow" x-show="data=='user'"> 
+      <div class="flex flex-col gap-2 py-2  relative ">
+        <div class="flex flex-col gap-2 py-1  relative font-medium">
+          <h3 class="font-bold text-lg ">Shipping Address:</h3>
+          <div class="cif flex-wrap gap-[2px]  text-lg maxlg:text-sm relative "><span>Al Beheira</span><span>- </span><span>Abou Al Matamer </span><span>- </span><span>Street:</span><span>12312</span><span>- </span><span>Building:</span><span> 12313</span><span>- </span><span>Floor Number:</span><span> 12313</span><span>- </span><span> Flat Number:</span><span> 12313</span><span>- </span><span> Details:</span><span>12313</span></div>
+          <div class="cif flex-wrap gap-[2px]  text-lg maxlg:text-sm relative "><span>Shipping By :</span><span class="text-primary"> vitamingy Shipping </span></div>
+          <div class="cif flex-wrap gap-[2px]  text-lg maxlg:text-sm relative "><span>The order will arrive in:</span><span class="text-primary">2 Days</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="payment mt-4 pt-4 font-bold text-lg border-t-2 border-secondary ">
+      <p>payment Method </p>
+      <p>how would you like to pay ?  </p>
+    </div>
+    <form class=" " x-data="{option:'',check:''}">
+      <div class="delivery-option w-full py-2 mt-8 px-[16px] rounded-md bg-white border">
+        <div class="cif flex-wrap justify-between paymentCard paymentCard p-4 rounded-md mb-2 border w-full" @click="check='Debit';option='Debit'" :class="{'payment-background':option=='Debit'}">
+          <div class="input">
+            <label class="radio inline-block relative pl-[30px] cursor-pointer align-middle">
+              <input type="radio" required="" x-bind:checked="check=='Debit'" name="payment_type" value="myFatoorahCard"/>Credit or Debit Card<span class="payment-span  h-[20px] w-[20px] rounded-full border-[3px] border-secondary block absolute left-0 top-2 "></span>
+            </label>
+            <p class="caption">Pay with Your Debit Or Credit Card  </p>
+          </div>
+          <div class="flex gap-2"><img class="h-[20px]" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="d" src="https://olbac.com/assets/website/images/footer/Visa_logo.jpg.png"/><img class="h-[20px]" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="d" src="https://olbac.com/assets/website/images/footer/Maestro_logo.jpg.png"/></div>
+        </div>
+        <div class="cif flex-wrap justify-between paymentCard p-4 rounded-md mb-2 border w-full" @click="check='MEZA';option='MEZA'" :class="{'payment-background':option=='MEZA'}">
+          <div class="input">
+            <label class="radio inline-block relative pl-[30px] cursor-pointer align-middle">
+              <input type="radio" required="" x-bind:checked="check=='MEZA'" name="payment_type" value="myFatoorahMeza"/>MEZA Card<span class="payment-span  h-[20px] w-[20px] rounded-full border-[3px] border-secondary block absolute left-0 top-2 "></span>
+            </label>
+            <p class="caption">Pay with Your MEZA  Card </p>
+          </div>
+          <div><img class="h-[30px]" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="d" src="https://olbac.com/assets/website/images/meza.jpg"/></div>
+        </div>
+        <div class="cif flex-wrap justify-between paymentCard p-4 rounded-md mb-2 border w-full" @click="check='Wallet';option='Wallet'" :class="{'payment-background':option=='Wallet'}">
+          <div class="input">
+            <label class="radio inline-block relative pl-[30px] cursor-pointer align-middle">
+              <input type="radio" required="" x-bind:checked="check=='Wallet'" name="payment_type" value="myFatoorahWallet"/>Wallet<span class="payment-span  h-[20px] w-[20px] rounded-full border-[3px] border-secondary block absolute left-0 top-2 "></span>
+            </label>
+            <p class="caption "> Pay with Your Wallet (Vodafone - Etisalat - Orange - WE)  </p>
+          </div>
+          <div>
+            <div class="flex gap-2 wallet"><img class="h-[30px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="d" src="https://olbac.com/assets/website/images/payment/v-cash.png"/><img class="h-[30px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="d" src="https://olbac.com/assets/website/images/payment/o-cash.png"/><img class="h-[30px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="d" src="https://olbac.com/assets/website/images/payment/w-cash.png"/><img class="h-[30px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="d" src="https://olbac.com/assets/website/images/payment/e-cash.jpeg"/></div>
+          </div>
+        </div>
+        <div class="cif flex-wrap justify-between paymentCard p-4 rounded-md mb-2 border w-full" @click="check='Fawry';option='Fawry'" :class="{'payment-background':option=='Fawry'}">
+          <div class="input">
+            <label class="radio inline-block relative pl-[30px] cursor-pointer align-middle">
+              <input type="radio" required="" x-bind:checked="check=='Fawry'" name="payment_type" value="fawry"/>Fawry Pay<span class="payment-span  h-[20px] w-[20px] rounded-full border-[3px] border-secondary block absolute left-0 top-2 "></span>
+            </label>
+            <p class="caption"> Pay with Fawry  </p>
+          </div>
+          <div><img class="h-[30px] " onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="d" src="https://olbac.com/assets/website/images/fawry.png"/></div>
+        </div>
+        <div class="cif flex-wrap justify-between paymentCard p-4 rounded-md mb-2 border w-full " @click="check='cash';option='cash'" :class="{'payment-background':option=='cash'}">
+          <div class="input">
+            <label class="radio inline-block relative pl-[30px] cursor-pointer align-middle">
+              <input type="radio" required="" x-bind:checked="check=='cash'" name="payment_type" value="cash"/>Cash On Delivery<span class="payment-span  h-[20px] w-[20px] rounded-full border-[3px] border-secondary block absolute left-0 top-2 "></span>
+            </label>
+            <p class="caption">pay in cash</p>
+          </div>
+          <div><img class="h-[30px] " onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="d" src="https://olbac.com/assets/website/images/order/cash_en.png"/></div>
+        </div>
+      </div>
+      <div class="cif w-full mt-8">
+        <button class="py-2 px-6 text-center bg-secondary rounded-md text-white  w-full font-medium text-lg tracking-wider  uppercase" type="submit">continue with pay</button>
+      </div>
+    </form>
+  </main>
+</div>

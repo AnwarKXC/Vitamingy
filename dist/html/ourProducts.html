@@ -1,0 +1,851 @@
+<section class="container py-20">
+   <h2 class="fontprim text-3xl md:text-6xl text-center">Our Products</h2>
+   <ul class="cent gap-4 md:gap-8 font-bold text-sm md:text-2xl text-zinc-400 py-3">
+      <li
+         class="cursor-pointer hover:text-primary"
+         :class="{ 'text-primary': isTextprimary }"
+         @click="isTextprimary = !isTextprimary"
+         x-data="{ isTextprimary: false }">
+         Oranges
+      </li>
+      <li
+         class="cursor-pointer hover:text-primary"
+         :class="{ 'text-primary': isTextprimary }"
+         @click="isTextprimary = !isTextprimary"
+         x-data="{ isTextprimary: false }">
+         Fresh Meat
+      </li>
+      <li
+         class="cursor-pointer hover:text-primary"
+         :class="{ 'text-primary': isTextprimary }"
+         @click="isTextprimary = !isTextprimary"
+         x-data="{ isTextprimary: false }">
+         Vegetables
+      </li>
+      <li
+         class="cursor-pointer hover:text-primary"
+         :class="{ 'text-primary': isTextprimary }"
+         @click="isTextprimary = !isTextprimary"
+         x-data="{ isTextprimary: false }">
+         Fastfood
+      </li>
+   </ul>
+   <div class="flex flex-wrap gap-6 justify-center">
+      <div
+         class="sm:w-[265px] w-full p-2 sm:p-0"
+         x-data="{open:true ,compare:false,details:false}"
+         @mouseover="open=true"
+         @mouseover.away="open=false">
+         <div class="py-5 overflow-hidden relative">
+            <div class="sm:w-[265px] w-full aspect-square bg-[#F7F7F7] overflow-hidden">
+               <a class="w-full aspect-square bg-[#F7F7F7] overflow-hidden" href=""
+                  ><img
+                     class="duration-300 aspect-square w-full overflow-hidden hover:scale-110 ease-in-out smoothing-smooth"
+                     src="..//assets/17-img-1.png"
+                     alt=""
+               /></a>
+               <div
+                  class="absolute px-2 py-0.5 text-sm text-white font-semibold rounded-lg bg-primary top-10 right-2"
+                  x-show="!open">
+                  -4%
+               </div>
+               <div
+                  class="absolute text-sm px-2 py-0.5 text-white font-semibold rounded-lg bg-red-600 top-10 right-14"
+                  x-show="!open">
+                  HOT
+               </div>
+               <div
+                  class="cursor-pointer absolute w-10 h-10 rounded-full leading-8 p-4 top-[40px] cent hover:text-white hover:bg-primary cent hover:border border-primary bg-white ltr:right-2 rtl:left-2"
+                  x-show="open"
+                  x-transition:enter=" transform transition-transform ease-in duration-300"
+                  x-transition:leave="ltr:translate-x-16 rtl:-translate-x-16 duration-500">
+                  <i class="fa-solid fa-heart"></i>
+               </div>
+               <div
+                  class="cursor-pointer absolute w-10 h-10 rounded-full leading-8 p-4 top-[100px] cent hover:text-white hover:bg-primary cent hover:border border-primary bg-white ltr:right-2 rtl:left-2"
+                  @click="details=true"
+                  x-show="open"
+                  x-transition:enter=" transform transition-transform ease-in duration-300 "
+                  x-transition:leave="ltr:translate-x-16 rtl:-translate-x-16 duration-500 delay-300">
+                  <i class="fa-regular fa-eye"></i>
+               </div>
+               <div
+                  class="w-full bg-black bg-opacity-80 z-50 fixed inset-0 text-black"
+                  x-show="details ">
+                  <div class="mt-20 w-[950px] mx-auto bg-white aspect-video p-8 pb-12 relative">
+                     <div class="flex gap-5 w-full">
+                        <div
+                           class="absolute right-3 top-2 z-50 text-xl font-bold text-red-700 cursor-pointer"
+                           @click="details=false">
+                           <i class="fa-solid fa-x"></i>
+                        </div>
+                        <div class="w-full bg-zinc-100 h-full cent">
+                           <img class="w-full aspect-square" src="../assets/17-img-1.png" alt="" />
+                        </div>
+                        <div class="w-full h-full">
+                           <div class="flex-grow flex-col items-start flex gap-2 pb-5">
+                              <h3 class="text-2xl font-bold">Mango</h3>
+                              <h4 class="font-bold text-lg cent gap-2 text-start">
+                                 $15.00
+                                 <small class="line-through text-zinc-400 font-normal text-sm">
+                                    $19.99</small
+                                 >
+                              </h4>
+                           </div>
+                           <hr />
+                           <div class="flex-grow flex-col items-start flex gap-2 pt-5">
+                              <p class="text-zinc-600">
+                                 Pomegranates are a good source of vitamins A, C, E, and many other
+                                 minerals, the product is a healthy beverage for all family members.
+                              </p>
+                              <form class="w-full flex flex-col gap-5 pb-5" action="submit">
+                                 <div>
+                                    <span class="font-medium text-zinc-700">Availability : </span
+                                    ><span class="text-blue-500"> &nbsp; in stock</span>
+                                 </div>
+                                 <div>
+                                    <input
+                                       class="border-none opacity-75"
+                                       type="number"
+                                       id="quantity"
+                                       name="quantity"
+                                       min="1"
+                                       max="999"
+                                       value="1" />
+                                 </div>
+                                 <button
+                                    class="py-2 px-6 bg-primary rounded-full text-white font-medium text-sm tracking-wider border-primary hover:bg-white border-2 hover:text-primary uppercase w-full"
+                                    type="submit">
+                                    ADD TO CART
+                                 </button>
+                              </form>
+                           </div>
+                           <hr />
+                           <div class="flex-grow flex-col items-start flex gap-1 pt-5">
+                              <div>
+                                 <span class="font-medium text-zinc-700">SKU : </span
+                                 ><span>OG54589</span>
+                              </div>
+                              <div>
+                                 <span class="font-medium text-zinc-700">Category : </span
+                                 ><a href="">Fresh Fruits </a>
+                              </div>
+                              <div>
+                                 <span class="font-medium text-zinc-700">Tag : </span
+                                 ><a href="">Fresh Fuits</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div
+                  class="absolute w-10 h-10 rounded-full leading-8 p-4 top-[160px] cent hover:text-white hover:bg-primary cent hover:border border-primary bg-white ltr:right-2 rtl:left-2"
+                  @click="compare=true"
+                  x-show="open"
+                  x-transition:enter="  transform transition-transform ease-in duration-300"
+                  x-transition:leave="ltr:translate-x-16 rtl:-translate-x-16 duration-300 delay-500">
+                  <i class="fa-solid fa-code-compare"></i>
+               </div>
+               <div class="fixed z-50 inset-0 cent bg-black/90" x-show="compare">
+                  <div
+                     class="w-[90%] h-[691px] relative overflow-auto p-2 bg-white border-[14px] border-[#4F4F4F]">
+                     <div class="bg-white">
+                        <div class="cent w-full bg-[#4f4f4f] p-[10px]">
+                           <h1 class="text-white text-center text-sm font-extrabold uppercase">
+                              Compare products
+                           </h1>
+                        </div>
+                        <div class="mt-10 p-[10px] uppercase">
+                           <div class="flex w-full">
+                              <div class="w-[185px] bg-[#f2f2f2]">
+                                 <div class="h-[41px]"></div>
+                                 <div class="h-[209px]"></div>
+                                 <div class="p-[10px] text-sm">Title</div>
+                                 <div class="p-[10px] text-sm">price</div>
+                                 <div class="p-[10px] text-sm h-[69px]">Add to cart</div>
+                                 <div class="p-[10px] text-sm h-[126px]">description</div>
+                                 <div class="p-[10px] text-sm">sku</div>
+                                 <div class="p-[10px] text-sm">availability</div>
+                                 <div class="p-[10px] text-sm">weight</div>
+                                 <div class="p-[10px] text-sm">Dimensions</div>
+                              </div>
+                              <div class="w-[256px] bg-[#F7F7F7] text-[#747473]">
+                                 <div class="h-[41px] cent text-[13px] gap-1">
+                                    <div class="text-[#747373]">Remove</div>
+                                    <i class="fa-solid fa-x text-red-600 text-[8px]"></i>
+                                 </div>
+                                 <div class="h-[209px] p-[10px]">
+                                    <div class="w-[154px] mx-auto aspect-square">
+                                       <img
+                                          class="w-full h-full"
+                                          src="https://new-biolife.b-cdn.net/wp-content/uploads/2021/09/177-154x154.jpg" />
+                                    </div>
+                                 </div>
+                                 <div class="p-[10px] text-sm text-center">
+                                    Imported Fresh Cabbage
+                                 </div>
+                                 <div class="p-[10px] text-sm text-center">99.00</div>
+                                 <div class="p-[10px] text-sm h-[69px] text-center">
+                                    <button
+                                       class="cursor-pointer my-[10px] px-[20px] py-[5px] bg-[#4F4F4F] text-[#FFF]">
+                                       Add to cart
+                                    </button>
+                                 </div>
+                                 <div
+                                    class="p-[10px] text-[13px] my-[13px] text-sm h-[126px] text-center">
+                                    Pomegranates are a good source of vitamins A, C, E, and many
+                                    other minerals, the product is a healthy beverage for all family
+                                    members.
+                                 </div>
+                                 <div class="p-[10px] text-sm text-center">OG32589</div>
+                                 <div class="p-[10px] text-sm text-center">In stock</div>
+                                 <div class="p-[10px] text-sm text-center">-</div>
+                                 <div class="p-[10px] text-sm text-center">n/a</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="absolute bottom-0 flex justify-end inset-x-0 bg-[#747373]">
+                        <div class="fa-solid fa-x text-[23px] p-2"></div>
+                     </div>
+                  </div>
+               </div>
+               <div
+                  class="cursor-pointer absolute w-12 h-12 rounded-full leading-8 p-4 text-zinc-500] bottom-8 bg-sec text-white hover:text-sec hover:bg-white cent hover:border border-sec ltr:right-2 rtl:left-2"
+                  x-show="open"
+                  x-transition.duration.300ms="x-transition.duration.300ms"
+                  x-transition:enter.scale.0="x-transition:enter.scale.0"
+                  x-transition:leave.scale.0="x-transition:leave.scale.0">
+                  <i class="fa-solid fa-cart-shopping"></i>
+               </div>
+            </div>
+            <div class="md:flex justify-between my-3">
+               <div class="flex-grow flex-col items-start flex">
+                  <h3>Mango</h3>
+                  <h4 class="font-bold text-lg cent gap-2 text-start">
+                     $15.00
+                     <small class="line-through text-zinc-400 font-normal text-sm"> $19.99</small>
+                  </h4>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div
+         class="sm:w-[265px] w-full p-2 sm:p-0"
+         x-data="{open:true ,compare:false,details:false}"
+         @mouseover="open=true"
+         @mouseover.away="open=false">
+         <div class="py-5 overflow-hidden relative">
+            <div class="sm:w-[265px] w-full aspect-square bg-[#F7F7F7] overflow-hidden">
+               <a class="w-full aspect-square bg-[#F7F7F7] overflow-hidden" href=""
+                  ><img
+                     class="duration-300 aspect-square w-full overflow-hidden hover:scale-110 ease-in-out smoothing-smooth"
+                     src="..//assets/17-img-1.png"
+                     alt=""
+               /></a>
+               <div
+                  class="absolute px-2 py-0.5 text-sm text-white font-semibold rounded-lg bg-primary top-10 right-2"
+                  x-show="!open">
+                  -4%
+               </div>
+               <div
+                  class="absolute text-sm px-2 py-0.5 text-white font-semibold rounded-lg bg-red-600 top-10 right-14"
+                  x-show="!open">
+                  HOT
+               </div>
+               <div
+                  class="cursor-pointer absolute w-10 h-10 rounded-full leading-8 p-4 top-[40px] cent hover:text-white hover:bg-primary cent hover:border border-primary bg-white ltr:right-2 rtl:left-2"
+                  x-show="open"
+                  x-transition:enter=" transform transition-transform ease-in duration-300"
+                  x-transition:leave="ltr:translate-x-16 rtl:-translate-x-16 duration-500">
+                  <i class="fa-solid fa-heart"></i>
+               </div>
+               <div
+                  class="cursor-pointer absolute w-10 h-10 rounded-full leading-8 p-4 top-[100px] cent hover:text-white hover:bg-primary cent hover:border border-primary bg-white ltr:right-2 rtl:left-2"
+                  @click="details=true"
+                  x-show="open"
+                  x-transition:enter=" transform transition-transform ease-in duration-300 "
+                  x-transition:leave="ltr:translate-x-16 rtl:-translate-x-16 duration-500 delay-300">
+                  <i class="fa-regular fa-eye"></i>
+               </div>
+               <div
+                  class="w-full bg-black bg-opacity-80 z-50 fixed inset-0 text-black"
+                  x-show="details ">
+                  <div class="mt-20 w-[950px] mx-auto bg-white aspect-video p-8 pb-12 relative">
+                     <div class="flex gap-5 w-full">
+                        <div
+                           class="absolute right-3 top-2 z-50 text-xl font-bold text-red-700 cursor-pointer"
+                           @click="details=false">
+                           <i class="fa-solid fa-x"></i>
+                        </div>
+                        <div class="w-full bg-zinc-100 h-full cent">
+                           <img class="w-full aspect-square" src="../assets/17-img-1.png" alt="" />
+                        </div>
+                        <div class="w-full h-full">
+                           <div class="flex-grow flex-col items-start flex gap-2 pb-5">
+                              <h3 class="text-2xl font-bold">Mango</h3>
+                              <h4 class="font-bold text-lg cent gap-2 text-start">
+                                 $15.00
+                                 <small class="line-through text-zinc-400 font-normal text-sm">
+                                    $19.99</small
+                                 >
+                              </h4>
+                           </div>
+                           <hr />
+                           <div class="flex-grow flex-col items-start flex gap-2 pt-5">
+                              <p class="text-zinc-600">
+                                 Pomegranates are a good source of vitamins A, C, E, and many other
+                                 minerals, the product is a healthy beverage for all family members.
+                              </p>
+                              <form class="w-full flex flex-col gap-5 pb-5" action="submit">
+                                 <div>
+                                    <span class="font-medium text-zinc-700">Availability : </span
+                                    ><span class="text-blue-500"> &nbsp; in stock</span>
+                                 </div>
+                                 <div>
+                                    <input
+                                       class="border-none opacity-75"
+                                       type="number"
+                                       id="quantity"
+                                       name="quantity"
+                                       min="1"
+                                       max="999"
+                                       value="1" />
+                                 </div>
+                                 <button
+                                    class="py-2 px-6 bg-primary rounded-full text-white font-medium text-sm tracking-wider border-primary hover:bg-white border-2 hover:text-primary uppercase w-full"
+                                    type="submit">
+                                    ADD TO CART
+                                 </button>
+                              </form>
+                           </div>
+                           <hr />
+                           <div class="flex-grow flex-col items-start flex gap-1 pt-5">
+                              <div>
+                                 <span class="font-medium text-zinc-700">SKU : </span
+                                 ><span>OG54589</span>
+                              </div>
+                              <div>
+                                 <span class="font-medium text-zinc-700">Category : </span
+                                 ><a href="">Fresh Fruits </a>
+                              </div>
+                              <div>
+                                 <span class="font-medium text-zinc-700">Tag : </span
+                                 ><a href="">Fresh Fuits</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div
+                  class="absolute w-10 h-10 rounded-full leading-8 p-4 top-[160px] cent hover:text-white hover:bg-primary cent hover:border border-primary bg-white ltr:right-2 rtl:left-2"
+                  @click="compare=true"
+                  x-show="open"
+                  x-transition:enter="  transform transition-transform ease-in duration-300"
+                  x-transition:leave="ltr:translate-x-16 rtl:-translate-x-16 duration-300 delay-500">
+                  <i class="fa-solid fa-code-compare"></i>
+               </div>
+               <div class="fixed z-50 inset-0 cent bg-black/90" x-show="compare">
+                  <div
+                     class="w-[90%] h-[691px] relative overflow-auto p-2 bg-white border-[14px] border-[#4F4F4F]">
+                     <div class="bg-white">
+                        <div class="cent w-full bg-[#4f4f4f] p-[10px]">
+                           <h1 class="text-white text-center text-sm font-extrabold uppercase">
+                              Compare products
+                           </h1>
+                        </div>
+                        <div class="mt-10 p-[10px] uppercase">
+                           <div class="flex w-full">
+                              <div class="w-[185px] bg-[#f2f2f2]">
+                                 <div class="h-[41px]"></div>
+                                 <div class="h-[209px]"></div>
+                                 <div class="p-[10px] text-sm">Title</div>
+                                 <div class="p-[10px] text-sm">price</div>
+                                 <div class="p-[10px] text-sm h-[69px]">Add to cart</div>
+                                 <div class="p-[10px] text-sm h-[126px]">description</div>
+                                 <div class="p-[10px] text-sm">sku</div>
+                                 <div class="p-[10px] text-sm">availability</div>
+                                 <div class="p-[10px] text-sm">weight</div>
+                                 <div class="p-[10px] text-sm">Dimensions</div>
+                              </div>
+                              <div class="w-[256px] bg-[#F7F7F7] text-[#747473]">
+                                 <div class="h-[41px] cent text-[13px] gap-1">
+                                    <div class="text-[#747373]">Remove</div>
+                                    <i class="fa-solid fa-x text-red-600 text-[8px]"></i>
+                                 </div>
+                                 <div class="h-[209px] p-[10px]">
+                                    <div class="w-[154px] mx-auto aspect-square">
+                                       <img
+                                          class="w-full h-full"
+                                          src="https://new-biolife.b-cdn.net/wp-content/uploads/2021/09/177-154x154.jpg" />
+                                    </div>
+                                 </div>
+                                 <div class="p-[10px] text-sm text-center">
+                                    Imported Fresh Cabbage
+                                 </div>
+                                 <div class="p-[10px] text-sm text-center">99.00</div>
+                                 <div class="p-[10px] text-sm h-[69px] text-center">
+                                    <button
+                                       class="cursor-pointer my-[10px] px-[20px] py-[5px] bg-[#4F4F4F] text-[#FFF]">
+                                       Add to cart
+                                    </button>
+                                 </div>
+                                 <div
+                                    class="p-[10px] text-[13px] my-[13px] text-sm h-[126px] text-center">
+                                    Pomegranates are a good source of vitamins A, C, E, and many
+                                    other minerals, the product is a healthy beverage for all family
+                                    members.
+                                 </div>
+                                 <div class="p-[10px] text-sm text-center">OG32589</div>
+                                 <div class="p-[10px] text-sm text-center">In stock</div>
+                                 <div class="p-[10px] text-sm text-center">-</div>
+                                 <div class="p-[10px] text-sm text-center">n/a</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="absolute bottom-0 flex justify-end inset-x-0 bg-[#747373]">
+                        <div class="fa-solid fa-x text-[23px] p-2"></div>
+                     </div>
+                  </div>
+               </div>
+               <div
+                  class="cursor-pointer absolute w-12 h-12 rounded-full leading-8 p-4 text-zinc-500] bottom-8 bg-sec text-white hover:text-sec hover:bg-white cent hover:border border-sec ltr:right-2 rtl:left-2"
+                  x-show="open"
+                  x-transition.duration.300ms="x-transition.duration.300ms"
+                  x-transition:enter.scale.0="x-transition:enter.scale.0"
+                  x-transition:leave.scale.0="x-transition:leave.scale.0">
+                  <i class="fa-solid fa-cart-shopping"></i>
+               </div>
+            </div>
+            <div class="md:flex justify-between my-3">
+               <div class="flex-grow flex-col items-start flex">
+                  <h3>Mango</h3>
+                  <h4 class="font-bold text-lg cent gap-2 text-start">
+                     $15.00
+                     <small class="line-through text-zinc-400 font-normal text-sm"> $19.99</small>
+                  </h4>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div
+         class="sm:w-[265px] w-full p-2 sm:p-0"
+         x-data="{open:true ,compare:false,details:false}"
+         @mouseover="open=true"
+         @mouseover.away="open=false">
+         <div class="py-5 overflow-hidden relative">
+            <div class="sm:w-[265px] w-full aspect-square bg-[#F7F7F7] overflow-hidden">
+               <a class="w-full aspect-square bg-[#F7F7F7] overflow-hidden" href=""
+                  ><img
+                     class="duration-300 aspect-square w-full overflow-hidden hover:scale-110 ease-in-out smoothing-smooth"
+                     src="..//assets/17-img-1.png"
+                     alt=""
+               /></a>
+               <div
+                  class="absolute px-2 py-0.5 text-sm text-white font-semibold rounded-lg bg-primary top-10 right-2"
+                  x-show="!open">
+                  -4%
+               </div>
+               <div
+                  class="absolute text-sm px-2 py-0.5 text-white font-semibold rounded-lg bg-red-600 top-10 right-14"
+                  x-show="!open">
+                  HOT
+               </div>
+               <div
+                  class="cursor-pointer absolute w-10 h-10 rounded-full leading-8 p-4 top-[40px] cent hover:text-white hover:bg-primary cent hover:border border-primary bg-white ltr:right-2 rtl:left-2"
+                  x-show="open"
+                  x-transition:enter=" transform transition-transform ease-in duration-300"
+                  x-transition:leave="ltr:translate-x-16 rtl:-translate-x-16 duration-500">
+                  <i class="fa-solid fa-heart"></i>
+               </div>
+               <div
+                  class="cursor-pointer absolute w-10 h-10 rounded-full leading-8 p-4 top-[100px] cent hover:text-white hover:bg-primary cent hover:border border-primary bg-white ltr:right-2 rtl:left-2"
+                  @click="details=true"
+                  x-show="open"
+                  x-transition:enter=" transform transition-transform ease-in duration-300 "
+                  x-transition:leave="ltr:translate-x-16 rtl:-translate-x-16 duration-500 delay-300">
+                  <i class="fa-regular fa-eye"></i>
+               </div>
+               <div
+                  class="w-full bg-black bg-opacity-80 z-50 fixed inset-0 text-black"
+                  x-show="details ">
+                  <div class="mt-20 w-[950px] mx-auto bg-white aspect-video p-8 pb-12 relative">
+                     <div class="flex gap-5 w-full">
+                        <div
+                           class="absolute right-3 top-2 z-50 text-xl font-bold text-red-700 cursor-pointer"
+                           @click="details=false">
+                           <i class="fa-solid fa-x"></i>
+                        </div>
+                        <div class="w-full bg-zinc-100 h-full cent">
+                           <img class="w-full aspect-square" src="../assets/17-img-1.png" alt="" />
+                        </div>
+                        <div class="w-full h-full">
+                           <div class="flex-grow flex-col items-start flex gap-2 pb-5">
+                              <h3 class="text-2xl font-bold">Mango</h3>
+                              <h4 class="font-bold text-lg cent gap-2 text-start">
+                                 $15.00
+                                 <small class="line-through text-zinc-400 font-normal text-sm">
+                                    $19.99</small
+                                 >
+                              </h4>
+                           </div>
+                           <hr />
+                           <div class="flex-grow flex-col items-start flex gap-2 pt-5">
+                              <p class="text-zinc-600">
+                                 Pomegranates are a good source of vitamins A, C, E, and many other
+                                 minerals, the product is a healthy beverage for all family members.
+                              </p>
+                              <form class="w-full flex flex-col gap-5 pb-5" action="submit">
+                                 <div>
+                                    <span class="font-medium text-zinc-700">Availability : </span
+                                    ><span class="text-blue-500"> &nbsp; in stock</span>
+                                 </div>
+                                 <div>
+                                    <input
+                                       class="border-none opacity-75"
+                                       type="number"
+                                       id="quantity"
+                                       name="quantity"
+                                       min="1"
+                                       max="999"
+                                       value="1" />
+                                 </div>
+                                 <button
+                                    class="py-2 px-6 bg-primary rounded-full text-white font-medium text-sm tracking-wider border-primary hover:bg-white border-2 hover:text-primary uppercase w-full"
+                                    type="submit">
+                                    ADD TO CART
+                                 </button>
+                              </form>
+                           </div>
+                           <hr />
+                           <div class="flex-grow flex-col items-start flex gap-1 pt-5">
+                              <div>
+                                 <span class="font-medium text-zinc-700">SKU : </span
+                                 ><span>OG54589</span>
+                              </div>
+                              <div>
+                                 <span class="font-medium text-zinc-700">Category : </span
+                                 ><a href="">Fresh Fruits </a>
+                              </div>
+                              <div>
+                                 <span class="font-medium text-zinc-700">Tag : </span
+                                 ><a href="">Fresh Fuits</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div
+                  class="absolute w-10 h-10 rounded-full leading-8 p-4 top-[160px] cent hover:text-white hover:bg-primary cent hover:border border-primary bg-white ltr:right-2 rtl:left-2"
+                  @click="compare=true"
+                  x-show="open"
+                  x-transition:enter="  transform transition-transform ease-in duration-300"
+                  x-transition:leave="ltr:translate-x-16 rtl:-translate-x-16 duration-300 delay-500">
+                  <i class="fa-solid fa-code-compare"></i>
+               </div>
+               <div class="fixed z-50 inset-0 cent bg-black/90" x-show="compare">
+                  <div
+                     class="w-[90%] h-[691px] relative overflow-auto p-2 bg-white border-[14px] border-[#4F4F4F]">
+                     <div class="bg-white">
+                        <div class="cent w-full bg-[#4f4f4f] p-[10px]">
+                           <h1 class="text-white text-center text-sm font-extrabold uppercase">
+                              Compare products
+                           </h1>
+                        </div>
+                        <div class="mt-10 p-[10px] uppercase">
+                           <div class="flex w-full">
+                              <div class="w-[185px] bg-[#f2f2f2]">
+                                 <div class="h-[41px]"></div>
+                                 <div class="h-[209px]"></div>
+                                 <div class="p-[10px] text-sm">Title</div>
+                                 <div class="p-[10px] text-sm">price</div>
+                                 <div class="p-[10px] text-sm h-[69px]">Add to cart</div>
+                                 <div class="p-[10px] text-sm h-[126px]">description</div>
+                                 <div class="p-[10px] text-sm">sku</div>
+                                 <div class="p-[10px] text-sm">availability</div>
+                                 <div class="p-[10px] text-sm">weight</div>
+                                 <div class="p-[10px] text-sm">Dimensions</div>
+                              </div>
+                              <div class="w-[256px] bg-[#F7F7F7] text-[#747473]">
+                                 <div class="h-[41px] cent text-[13px] gap-1">
+                                    <div class="text-[#747373]">Remove</div>
+                                    <i class="fa-solid fa-x text-red-600 text-[8px]"></i>
+                                 </div>
+                                 <div class="h-[209px] p-[10px]">
+                                    <div class="w-[154px] mx-auto aspect-square">
+                                       <img
+                                          class="w-full h-full"
+                                          src="https://new-biolife.b-cdn.net/wp-content/uploads/2021/09/177-154x154.jpg" />
+                                    </div>
+                                 </div>
+                                 <div class="p-[10px] text-sm text-center">
+                                    Imported Fresh Cabbage
+                                 </div>
+                                 <div class="p-[10px] text-sm text-center">99.00</div>
+                                 <div class="p-[10px] text-sm h-[69px] text-center">
+                                    <button
+                                       class="cursor-pointer my-[10px] px-[20px] py-[5px] bg-[#4F4F4F] text-[#FFF]">
+                                       Add to cart
+                                    </button>
+                                 </div>
+                                 <div
+                                    class="p-[10px] text-[13px] my-[13px] text-sm h-[126px] text-center">
+                                    Pomegranates are a good source of vitamins A, C, E, and many
+                                    other minerals, the product is a healthy beverage for all family
+                                    members.
+                                 </div>
+                                 <div class="p-[10px] text-sm text-center">OG32589</div>
+                                 <div class="p-[10px] text-sm text-center">In stock</div>
+                                 <div class="p-[10px] text-sm text-center">-</div>
+                                 <div class="p-[10px] text-sm text-center">n/a</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="absolute bottom-0 flex justify-end inset-x-0 bg-[#747373]">
+                        <div class="fa-solid fa-x text-[23px] p-2"></div>
+                     </div>
+                  </div>
+               </div>
+               <div
+                  class="cursor-pointer absolute w-12 h-12 rounded-full leading-8 p-4 text-zinc-500] bottom-8 bg-sec text-white hover:text-sec hover:bg-white cent hover:border border-sec ltr:right-2 rtl:left-2"
+                  x-show="open"
+                  x-transition.duration.300ms="x-transition.duration.300ms"
+                  x-transition:enter.scale.0="x-transition:enter.scale.0"
+                  x-transition:leave.scale.0="x-transition:leave.scale.0">
+                  <i class="fa-solid fa-cart-shopping"></i>
+               </div>
+            </div>
+            <div class="md:flex justify-between my-3">
+               <div class="flex-grow flex-col items-start flex">
+                  <h3>Mango</h3>
+                  <h4 class="font-bold text-lg cent gap-2 text-start">
+                     $15.00
+                     <small class="line-through text-zinc-400 font-normal text-sm"> $19.99</small>
+                  </h4>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div
+         class="sm:w-[265px] w-full p-2 sm:p-0"
+         x-data="{open:true ,compare:false,details:false}"
+         @mouseover="open=true"
+         @mouseover.away="open=false">
+         <div class="py-5 overflow-hidden relative">
+            <div class="sm:w-[265px] w-full aspect-square bg-[#F7F7F7] overflow-hidden">
+               <a class="w-full aspect-square bg-[#F7F7F7] overflow-hidden" href=""
+                  ><img
+                     class="duration-300 aspect-square w-full overflow-hidden hover:scale-110 ease-in-out smoothing-smooth"
+                     src="..//assets/17-img-1.png"
+                     alt=""
+               /></a>
+               <div
+                  class="absolute px-2 py-0.5 text-sm text-white font-semibold rounded-lg bg-primary top-10 right-2"
+                  x-show="!open">
+                  -4%
+               </div>
+               <div
+                  class="absolute text-sm px-2 py-0.5 text-white font-semibold rounded-lg bg-red-600 top-10 right-14"
+                  x-show="!open">
+                  HOT
+               </div>
+               <div
+                  class="cursor-pointer absolute w-10 h-10 rounded-full leading-8 p-4 top-[40px] cent hover:text-white hover:bg-primary cent hover:border border-primary bg-white ltr:right-2 rtl:left-2"
+                  x-show="open"
+                  x-transition:enter=" transform transition-transform ease-in duration-300"
+                  x-transition:leave="ltr:translate-x-16 rtl:-translate-x-16 duration-500">
+                  <i class="fa-solid fa-heart"></i>
+               </div>
+               <div
+                  class="cursor-pointer absolute w-10 h-10 rounded-full leading-8 p-4 top-[100px] cent hover:text-white hover:bg-primary cent hover:border border-primary bg-white ltr:right-2 rtl:left-2"
+                  @click="details=true"
+                  x-show="open"
+                  x-transition:enter=" transform transition-transform ease-in duration-300 "
+                  x-transition:leave="ltr:translate-x-16 rtl:-translate-x-16 duration-500 delay-300">
+                  <i class="fa-regular fa-eye"></i>
+               </div>
+               <div
+                  class="w-full bg-black bg-opacity-80 z-50 fixed inset-0 text-black"
+                  x-show="details ">
+                  <div class="mt-20 w-[950px] mx-auto bg-white aspect-video p-8 pb-12 relative">
+                     <div class="flex gap-5 w-full">
+                        <div
+                           class="absolute right-3 top-2 z-50 text-xl font-bold text-red-700 cursor-pointer"
+                           @click="details=false">
+                           <i class="fa-solid fa-x"></i>
+                        </div>
+                        <div class="w-full bg-zinc-100 h-full cent">
+                           <img class="w-full aspect-square" src="../assets/17-img-1.png" alt="" />
+                        </div>
+                        <div class="w-full h-full">
+                           <div class="flex-grow flex-col items-start flex gap-2 pb-5">
+                              <h3 class="text-2xl font-bold">Mango</h3>
+                              <h4 class="font-bold text-lg cent gap-2 text-start">
+                                 $15.00
+                                 <small class="line-through text-zinc-400 font-normal text-sm">
+                                    $19.99</small
+                                 >
+                              </h4>
+                           </div>
+                           <hr />
+                           <div class="flex-grow flex-col items-start flex gap-2 pt-5">
+                              <p class="text-zinc-600">
+                                 Pomegranates are a good source of vitamins A, C, E, and many other
+                                 minerals, the product is a healthy beverage for all family members.
+                              </p>
+                              <form class="w-full flex flex-col gap-5 pb-5" action="submit">
+                                 <div>
+                                    <span class="font-medium text-zinc-700">Availability : </span
+                                    ><span class="text-blue-500"> &nbsp; in stock</span>
+                                 </div>
+                                 <div>
+                                    <input
+                                       class="border-none opacity-75"
+                                       type="number"
+                                       id="quantity"
+                                       name="quantity"
+                                       min="1"
+                                       max="999"
+                                       value="1" />
+                                 </div>
+                                 <button
+                                    class="py-2 px-6 bg-primary rounded-full text-white font-medium text-sm tracking-wider border-primary hover:bg-white border-2 hover:text-primary uppercase w-full"
+                                    type="submit">
+                                    ADD TO CART
+                                 </button>
+                              </form>
+                           </div>
+                           <hr />
+                           <div class="flex-grow flex-col items-start flex gap-1 pt-5">
+                              <div>
+                                 <span class="font-medium text-zinc-700">SKU : </span
+                                 ><span>OG54589</span>
+                              </div>
+                              <div>
+                                 <span class="font-medium text-zinc-700">Category : </span
+                                 ><a href="">Fresh Fruits </a>
+                              </div>
+                              <div>
+                                 <span class="font-medium text-zinc-700">Tag : </span
+                                 ><a href="">Fresh Fuits</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div
+                  class="absolute w-10 h-10 rounded-full leading-8 p-4 top-[160px] cent hover:text-white hover:bg-primary cent hover:border border-primary bg-white ltr:right-2 rtl:left-2"
+                  @click="compare=true"
+                  x-show="open"
+                  x-transition:enter="  transform transition-transform ease-in duration-300"
+                  x-transition:leave="ltr:translate-x-16 rtl:-translate-x-16 duration-300 delay-500">
+                  <i class="fa-solid fa-code-compare"></i>
+               </div>
+               <div class="fixed z-50 inset-0 cent bg-black/90" x-show="compare">
+                  <div
+                     class="w-[90%] h-[691px] relative overflow-auto p-2 bg-white border-[14px] border-[#4F4F4F]">
+                     <div class="bg-white">
+                        <div class="cent w-full bg-[#4f4f4f] p-[10px]">
+                           <h1 class="text-white text-center text-sm font-extrabold uppercase">
+                              Compare products
+                           </h1>
+                        </div>
+                        <div class="mt-10 p-[10px] uppercase">
+                           <div class="flex w-full">
+                              <div class="w-[185px] bg-[#f2f2f2]">
+                                 <div class="h-[41px]"></div>
+                                 <div class="h-[209px]"></div>
+                                 <div class="p-[10px] text-sm">Title</div>
+                                 <div class="p-[10px] text-sm">price</div>
+                                 <div class="p-[10px] text-sm h-[69px]">Add to cart</div>
+                                 <div class="p-[10px] text-sm h-[126px]">description</div>
+                                 <div class="p-[10px] text-sm">sku</div>
+                                 <div class="p-[10px] text-sm">availability</div>
+                                 <div class="p-[10px] text-sm">weight</div>
+                                 <div class="p-[10px] text-sm">Dimensions</div>
+                              </div>
+                              <div class="w-[256px] bg-[#F7F7F7] text-[#747473]">
+                                 <div class="h-[41px] cent text-[13px] gap-1">
+                                    <div class="text-[#747373]">Remove</div>
+                                    <i class="fa-solid fa-x text-red-600 text-[8px]"></i>
+                                 </div>
+                                 <div class="h-[209px] p-[10px]">
+                                    <div class="w-[154px] mx-auto aspect-square">
+                                       <img
+                                          class="w-full h-full"
+                                          src="https://new-biolife.b-cdn.net/wp-content/uploads/2021/09/177-154x154.jpg" />
+                                    </div>
+                                 </div>
+                                 <div class="p-[10px] text-sm text-center">
+                                    Imported Fresh Cabbage
+                                 </div>
+                                 <div class="p-[10px] text-sm text-center">99.00</div>
+                                 <div class="p-[10px] text-sm h-[69px] text-center">
+                                    <button
+                                       class="cursor-pointer my-[10px] px-[20px] py-[5px] bg-[#4F4F4F] text-[#FFF]">
+                                       Add to cart
+                                    </button>
+                                 </div>
+                                 <div
+                                    class="p-[10px] text-[13px] my-[13px] text-sm h-[126px] text-center">
+                                    Pomegranates are a good source of vitamins A, C, E, and many
+                                    other minerals, the product is a healthy beverage for all family
+                                    members.
+                                 </div>
+                                 <div class="p-[10px] text-sm text-center">OG32589</div>
+                                 <div class="p-[10px] text-sm text-center">In stock</div>
+                                 <div class="p-[10px] text-sm text-center">-</div>
+                                 <div class="p-[10px] text-sm text-center">n/a</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="absolute bottom-0 flex justify-end inset-x-0 bg-[#747373]">
+                        <div class="fa-solid fa-x text-[23px] p-2"></div>
+                     </div>
+                  </div>
+               </div>
+               <div
+                  class="cursor-pointer absolute w-12 h-12 rounded-full leading-8 p-4 text-zinc-500] bottom-8 bg-sec text-white hover:text-sec hover:bg-white cent hover:border border-sec ltr:right-2 rtl:left-2"
+                  x-show="open"
+                  x-transition.duration.300ms="x-transition.duration.300ms"
+                  x-transition:enter.scale.0="x-transition:enter.scale.0"
+                  x-transition:leave.scale.0="x-transition:leave.scale.0">
+                  <i class="fa-solid fa-cart-shopping"></i>
+               </div>
+            </div>
+            <div class="md:flex justify-between my-3">
+               <div class="flex-grow flex-col items-start flex">
+                  <h3>Mango</h3>
+                  <h4 class="font-bold text-lg cent gap-2 text-start">
+                     $15.00
+                     <small class="line-through text-zinc-400 font-normal text-sm"> $19.99</small>
+                  </h4>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="lg:h-[300px] lg:overflow-hidden my-10 lg:flex justify-center items-center gap-10">
+      <div class="lg:w-1/2 relative my-4 w-full">
+         <img class="aspect-[2/1] lg:h-[300px] w-full" src="..//assets/17-img-18.png" alt="" />
+         <h3
+            class="fontprim absolute lg:text-6xl text-4xl top-16 text-white w-72 text-center ml-10 max-w-md">
+            100% Organic Vegetables
+         </h3>
+      </div>
+      <div class="lg:w-1/2 relative my-4 w-full">
+         <img class="aspect-[2/1] lg:h-[300px] w-full" src="..//assets/17-img-19.jpeg" alt="" />
+         <h3
+            class="fontprim absolute lg:text-6xl text-4xl top-16 text-white w-72 text-center ml-10 max-w-md">
+            Sale Off 50% All Products
+         </h3>
+      </div>
+   </div>
+</section>

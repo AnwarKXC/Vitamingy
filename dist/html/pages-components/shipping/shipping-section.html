@@ -1,0 +1,162 @@
+
+<ul class=" cif justify-between text-center text-2xl maxlg:text-xl font-medium progress-timeline my-[50px] content-steps">
+  <li class="w-full first active  relative">shipping</li>
+  <li class="w-full second  relative">payment</li>
+  <li class="w-full third relative">done</li>
+</ul>
+<div class="flex gap-[5%] maxlg:gap-4 container maxlg:flex-col capitalize " x-data="{data:'user',image:false,edit:false, newAddress:false}">
+  <main class="grow">
+    <h3 class="font-bold text-[2rem] maxlg:text-[1.4rem] mb-6">Ship To My Address</h3>
+    <div class=" py-9 px-[16px] bg-white shadow" x-show="data=='user'"> 
+      <div class="flex flex-col gap-2 py-2  relative ">
+        <div class="flex gap-2 py-1  relative font-medium"><i class="fa-regular fa-circle-dot text-base mt-[2px]"></i>
+          <div class="cif flex-wrap gap-[2px]  text-lg maxlg:text-sm relative "><span>Al Beheira</span><span>- </span><span>Abou Al Matamer </span><span>- </span><span>Street:</span><span>12312</span><span>- </span><span>Building:</span><span> 12313</span><span>- </span><span>Floor Number:</span><span> 12313</span><span>- </span><span> Flat Number:</span><span> 12313</span><span>- </span><span> Details:</span><span>12313</span></div>
+        </div>
+        <div class="cif gap-2 py-2  relative cursor-pointer" @click="edit=true"><span class="fa-solid fa-edit"> </span><span>edit address</span></div>
+        <form class="fixed inset-0 px-4 bg-secondary/30 z-[50] hidden " :class="{'cent' : edit}" x-show="edit">
+          <div class="space-y-3 lg:w-[25%]  lg:py-8 py-4  px-[16px]  min-w-[300px] shadow bg-white rounded-md z-[50]" x-show="edit" @click.away="edit=false">
+            <h3 class="lg:mb-6 mb-2  text-center font-medium text-xl capitalize">edit Address</h3>
+            <div class="flex flex-col ">  
+              <label class="mb-2">city:   </label>
+              <select class="border py-1 text-lg w-full rounded-md  px-4" name="">
+                <option selected="selected">mansoura</option>
+                <option>hai </option>
+                <option>hai </option>
+              </select>
+            </div>
+            <div class="flex flex-col ">  
+              <label class="mb-2">area:   </label>
+              <select class="border py-1 text-lg w-full rounded-md  px-4" name="">
+                <option selected="selected">aga</option>
+                <option>hai </option>
+                <option>hai </option>
+              </select>
+            </div>
+            <div>
+              <label class="mb-2">building: </label>
+              <input class="rounded-md w-full px-4" value="123312" type="text" id="street" name="street" required="required"/>
+            </div>
+            <div>
+              <label class="mb-2">street: </label>
+              <input class="rounded-md w-full px-4" value="123312" type="text" id="street" name="street" required="required"/>
+            </div>
+            <div class="cif gap-2">
+              <div>
+                <label class="mb-2">Floor Number:</label>
+                <input class="rounded-md w-full px-4" value="123312" type="text" id="street" name="street" required="required"/>
+              </div>
+              <div>
+                <label class="mb-2">Flat Number:</label>
+                <input class="rounded-md w-full px-4" value="123312" type="text" id="street" name="street" required="required"/>
+              </div>
+            </div>
+            <div>
+              <label class="mb-2">Details:</label>
+              <textarea class="rounded-md w-full px-4" rows="3" type="text" id="street" name="street" required="required">123123123</textarea>
+            </div>
+            <div class="cent mt-8">
+              <button class="py-2 px-6 text-center bg-secondary rounded-full text-white  w-fit font-medium text-sm tracking-wider  uppercase" type="submit">save</button>
+            </div>
+          </div>
+        </form>
+        <div class="cif justify-end mt-8">
+          <button class="py-2 px-6 text-center bg-secondary rounded-full text-white  w-fit font-medium text-sm tracking-wider  uppercase" @click="newAddress=true">new address</button>
+        </div>
+        <form class="fixed inset-0 px-4 bg-secondary/30 z-[50] hidden " :class="{'cent' : newAddress }" x-show=" newAddress">
+          <div class="space-y-3 lg:w-[25%]  lg:py-8 py-4  px-[16px]  min-w-[300px] shadow bg-white rounded-md z-[50]" x-show="newAddress" @click.away=" newAddress=false">
+            <h3 class="lg:mb-6 mb-2  text-center font-medium text-xl capitalize">Add New Address</h3>
+            <div class="flex flex-col ">  
+              <label class="mb-2">city:   </label>
+              <select class="border py-1 text-lg w-full rounded-md  px-4" name="">
+                <option selected="selected" hidden="hidden"> </option>
+                <option>hai </option>
+                <option>hai </option>
+              </select>
+            </div>
+            <div class="flex flex-col ">  
+              <label class="mb-2">area:   </label>
+              <select class="border py-1 text-lg w-full rounded-md  px-4" name="">
+                <option selected="selected" hidden="hidden"> </option>
+                <option>hai </option>
+                <option>hai </option>
+              </select>
+            </div>
+            <div>
+              <label class="mb-2">building: </label>
+              <input class="rounded-md w-full px-4" type="text" id="street" name="street" required="required"/>
+            </div>
+            <div>
+              <label class="mb-2">street: </label>
+              <input class="rounded-md w-full px-4" type="text" id="street" name="street" required="required"/>
+            </div>
+            <div class="cif gap-2">
+              <div>
+                <label class="mb-2">Floor Number:</label>
+                <input class="rounded-md w-full px-4" type="text" id="street" name="street" required="required"/>
+              </div>
+              <div>
+                <label class="mb-2">Flat Number:</label>
+                <input class="rounded-md w-full px-4" type="text" id="street" name="street" required="required"/>
+              </div>
+            </div>
+            <div>
+              <label class="mb-2">Details:</label>
+              <textarea class="rounded-md w-full px-4" rows="3" type="text" id="street" name="street" required="required"></textarea>
+            </div>
+            <div class="cent mt-8">
+              <button class="py-2 px-6 text-center bg-secondary rounded-full text-white  w-fit font-medium text-sm tracking-wider  uppercase" type="submit">save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <side class="lg:w-[340px] w-full     ">
+    <div class="flex flex-col w-full px-[16px] shadow">
+      <div class="cif justify-between gap-2 py-3  relative border-b border-secondary"><span class="text-xl font-bold">SHOPPING CART</span><a class="font-medium underline" href="./bag.html">back to bag</a></div>
+      <div class="flex flex-col divide-y-[1px] w-full  border-b border-secondary">
+        <div class="flex gap-2 py-2">
+          <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" data-src="../assets/17-img-6.png"/></div>
+          <div class="grow">
+            <h2 class="text-sm text-black capitalize font-bold">vitamine</h2>
+            <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+          </div>
+        </div>
+        <div class="flex gap-2 py-2">
+          <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" data-src="../assets/17-img-6.png"/></div>
+          <div class="grow">
+            <h2 class="text-sm text-black capitalize font-bold">vitamine</h2>
+            <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+          </div>
+        </div>
+        <div class="flex gap-2 py-2">
+          <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" data-src="../assets/17-img-6.png"/></div>
+          <div class="grow">
+            <h2 class="text-sm text-black capitalize font-bold">vitamine</h2>
+            <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+          </div>
+        </div>
+        <div class="flex gap-2 py-2">
+          <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" data-src="../assets/17-img-6.png"/></div>
+          <div class="grow">
+            <h2 class="text-sm text-black capitalize font-bold">vitamine</h2>
+            <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+          </div>
+        </div>
+        <div class="flex gap-2 py-2">
+          <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" data-src="../assets/17-img-6.png"/></div>
+          <div class="grow">
+            <h2 class="text-sm text-black capitalize font-bold">vitamine</h2>
+            <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 py-1 mt-3 relative divide-y-[1px] font-medium">
+        <div class="cif justify-between gap-2 py-2  relative "><span>items </span><span>5</span></div>
+        <button class="cif justify-between gap-2 py-2  relative " @click="data='order'"><span> + shipping:</span><span>70 egp</span></button>
+        <div class="cif justify-between gap-2 py-2  relative "><span>total</span><span>7000 egp</span></div>
+      </div>
+    </div><a class="cif w-full mt-8" href="./payment.html">
+      <button class="py-2 px-6 text-center bg-secondary rounded-md text-white  w-full font-medium text-lg tracking-wider  uppercase">continue with pay</button></a>
+  </side>
+</div>

@@ -1,0 +1,168 @@
+
+<!--navbar-->
+<div class="sticky lg:top-10 top-0 bg-white z-40 shadow-md  maxlg:py-2">
+  <button class="fixed  top-72 !hidden bg-primary w-10 h-10 cent text-white font-bold z-50 " x-on:click="toggleDirLang()">RTL</button>
+  <button class="fixed top-72 !hidden bg-primary w-10 h-10 cent text-white font-bold z-50 " x-on:click="toggleDirLang()">LTR</button>
+  <div class="fixed rtl:left-5 ltr:right-5 bottom-0 p-4 pb-10 z-20 w-20 " x-data="{ isToggled: false, activeIcon: 1,toggle1:true,toggle2:false }" x-init="initIconLoop"><a href="">
+      <div class="relative text-2xl hover:bg-secondary-100 hover:bg-gray-400 bg-primary  text-white w-14 h-14 cent rounded-full rtl:mr-2 ltr:ml-2 mb-2 z-[222222]" x-show="toggle2" :class="{'!flex':toggle2}" style="box-shadow: 0px 0px 20px #23418f1a;display:none"><i class="fa-brands fa-facebook-messenger"></i></div></a><a href="">
+      <div class=" relative text-2xl hover:bg-secondary-100 hover:bg-gray-400 bg-primary  text-white  w-14 h-14 cent rounded-full rtl:mr-2 ltr:ml-2 mb-2 z-[222222]" x-show="toggle2" :class="{'!flex':toggle2}" style="box-shadow: 0px 0px 20px #23418f1a;display:none"><i class="fa-brands fa-whatsapp text-2xl"></i></div></a><a href="">
+      <div class=" relative text-xl hover:bg-secondary-100 hover:bg-gray-400 bg-primary  text-white w-14 h-14 cent rounded-full rtl:mr-2 ltr:ml-2 mb-2 z-[222222]" x-show="toggle2" :class="{'!flex':toggle2}" style="box-shadow: 0px 0px 20px #23418f1a;display:none"><i class="fa-solid fa-phone-flip text-lg"></i></div></a>
+    <div class="rounded-full text-2xl  hover:bg-gray-400 bg-primary  text-white   w-[60px] h-[60px] rtl:mr-1 ltr:ml-1 cent z-[222222] cursor-pointer" @click="toggle2=!toggle2" x-show="toggle1" style="box-shadow: 0px 0px 20px #23418f1a"><i class="fa-solid fa-message" x-show="activeIcon === 1 &amp;&amp; !toggle2 "></i><i class="fa-brands fa-whatsapp hidden" :class="{'!block': activeIcon === 2 &amp;&amp; !toggle2}" x-show="activeIcon === 2 &amp;&amp; !toggle2"></i><i class="fa-brands fa-facebook-messenger hidden" x-show="activeIcon === 3 &amp;&amp; !toggle2" :class="{'!block': activeIcon === 3 &amp;&amp; !toggle2}"></i><i class="fa-solid fa-phone-flip hidden" x-show="activeIcon === 4 &amp;&amp; !toggle2" :class="{'!block': activeIcon === 4 &amp;&amp; !toggle2}"></i><i class="fa-solid fa-x hidden" :class="{'!block': toggle2}" x-show="toggle2"></i></div>
+    <div class="relative   hover:bg-gray-400 bg-primary  text-white  w-7 h-7 cent rounded-full rtl:mr-5 ltr:ml-5 mt-2 z-[222222] cursor-pointer" onclick="scrollToTop()" style="box-shadow: 0px 0px 20px #23418f1a"><i class="fa-solid fa-arrow-up-long"></i></div>
+  </div><script>function initIconLoop() {setInterval(() => {this.activeIcon = (this.activeIcon % 4) + 1; }, 3000);}</script>
+  <div class=" container flex-col gap-2 sm:flex-row flex justify-between items-center" id="LOGO" x-data="{&quot;search&quot;:false}">
+    <div class=" flex justify-between  items-center lg:w-[20%] w-full"><a href="./index.html"> <img class="  w-[50px] lg:w-[60px]" onerror="this.onerror=null;this.src='../assets/logo.jpg';" src="../assets/logo.jpg" alt=""/></a>
+      <form class=" text-sm lg:hidden  border border-2 rounded-full " action="submit">
+        <input class=" py-2 rtl:order-last border-none rounded-l-full lg:px-10 px-2 outline-[#FE6601] outline-0.5 " type="text" name="" placeholder="Search for products..."/>
+        <button class="py-2 px-2 rounded-r-full  ltr:border-l rtl:border-r font-semibold " type="submit">
+           <i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <button class=" lg:hidden  text-2xl  " x-on:click="sidebar=true"><i class="fa-solid fa-bars  "></i></button>
+    </div>
+    <nav class="maxlg:px-[5%] maxlg:fixed maxlg:w-full inset-x-0 bottom-0 h-[70px] bg-white z-30" x-data="{megaMenu:false}" @mouseover.away="megaMenu=false">
+      <ul class=" flex items-center justify-center maxlg:justify-between lg:gap-12 font-bold text-secondary tracking-wide h-full text-[15px] uppercase"><a href="./"> 
+          <li class="cent flex-col gap-[2px] hover:text-primary ">
+             <i class="fa-solid fa-house text-xl lg:hidden"></i><span class="maxlg:text-[10px]">HOME </span></li></a>
+        <div class=" relative" @mouseover="megaMenu=true"> 
+          <button class="cent flex-col gap-[2px] hover:text-primary " aria-label="shop">
+             <i class="fa-solid fa-bag-shopping text-xl lg:hidden hover:text-primary"></i><span class="maxlg:text-[10px]">SHOP </span></button>
+          <div class="fixed left-0 right-0 bg-primary-300 w-full z-10 pb-8 hidden top-[110px] shadow  rounded-b-md bg-white" :class="{'!block': megaMenu}" x-show="megaMenu">
+            <div class="container mx-auto ">
+              <div class="CategoryMenu mb-4 mt-12">
+                <div class="flex flex-col justify-between">
+                  <div class="CategoryMenu__categories grid grid-cols-5">
+                    <div class="SubCategory">
+                      <h3 class="hover:text-primary font-bold mb-2 whitespace-nowrap"><a class="text-lg" href="./filter.html" previewlistener="true">products</a></h3>
+                      <ul class="mt-2 text-sm">
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">skin care</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Dryers</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Medical Equipment</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Shavers</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Styling Equipment</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">
+                             
+                            Sports</a></li>
+                      </ul>
+                    </div>
+                    <div class="SubCategory">
+                      <h3 class="hover:text-primary font-bold mb-2 whitespace-nowrap"><a class="text-lg" href="./filter.html" previewlistener="true">vitamine</a></h3>
+                      <ul class="mt-2 text-sm">
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">skin care</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Dryers</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Medical Equipment</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Shavers</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Styling Equipment</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">
+                             
+                            Sports</a></li>
+                      </ul>
+                    </div>
+                    <div class="SubCategory">
+                      <h3 class="hover:text-primary font-bold mb-2 whitespace-nowrap"><a class="text-lg" href="./filter.html" previewlistener="true">Dental Care</a></h3>
+                      <ul class="mt-2 text-sm">
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">skin care</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Dryers</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Medical Equipment</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Shavers</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Styling Equipment</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">
+                             
+                            Sports</a></li>
+                      </ul>
+                    </div>
+                    <div class="SubCategory">
+                      <h3 class="hover:text-primary font-bold mb-2 whitespace-nowrap"><a class="text-lg" href="./filter.html" previewlistener="true">Skin Care</a></h3>
+                      <ul class="mt-2 text-sm">
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">skin care</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Dryers</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Medical Equipment</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Shavers</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">Hair Styling Equipment</a></li>
+                        <li class="hover:text-primary mb-2"><a href="./filter.html" previewlistener="true">
+                             
+                            Sports</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="  pb-6  ">
+                    <h3 class="text-xl font-bold">Great Deals</h3>
+                    <div class="mt-2">Save up to 30% off and Enjoy best products offers and qualities</div>
+                  </div>
+                </div>
+              </div><a class="text-primary-500 font-bold flex items-center mt-2 text-lg" href="./filter.html" previewlistener="true">Shop All products</a>
+            </div>
+          </div>
+        </div><a class="hidden lg:block" href="./blog.html"> 
+          <li class="cent gap-1 hover:text-primary "><span class="maxlg:text-[10px]">BLOG </span></li></a><a class="hidden lg:block" href="./about.html"> 
+          <li class="cent gap-1 hover:text-primary "><span class="maxlg:text-[10px]">about us</span></li></a><a class="hidden lg:block" href="./contact-us.html"> 
+          <li class="cent gap-1 hover:text-primary "><span class="maxlg:text-[10px]">contact us</span></li></a>
+        <li class="cent gap-1 relative maxlg:hidden" x-data="{isOpen:false} " @mouseover="isOpen=true" @mouseover.away="isOpen=false">
+          <button class="hover:text-primary cent gap-1 cursor-pointer"><span>PAGES </span><i class="fa-solid fa-caret-down text-xs"></i></button>
+          <div class="absolute w-44 top-6 border p-4 z-50 bg-white right-0 hidden" :class="{'!block': isOpen}" x-show="isOpen">
+            <div class="flex items-start flex-col gap-2 font-normal text-start capitalize"> <a class=" hover:text-primary ltr:hover:translate-x-4 rtl:hover:-translate-x-4 duration-300" href="./about.html">about us</a><a class=" hover:text-primary w-full ltr:hover:translate-x-4 rtl:hover:-translate-x-4 duration-300" href="./contact-us.html">contact us</a><a class=" hover:text-primary ltr:hover:translate-x-4 rtl:hover:-translate-x-4 duration-300" href="./my-account.html">My account </a></div>
+          </div>
+        </li><a class="lg:hidden" href="./contact-us.html"> 
+          <li class="cent flex-col gap-[2px] hover:text-primary "><i class="fa-solid fa-user   text-xl lg:hidden"></i><span class="maxlg:text-[10px]">myAccount</span></li></a><a class="lg:hidden" href="./wishlist.html"> 
+          <li class="cent flex-col gap-[2px] hover:text-primary "><i class="fa-solid fa-heart text-xl lg:hidden"></i><span class="maxlg:text-[10px]"> favorite</span></li></a><a class="lg:hidden" href="./bag.html"> 
+          <li class="cent flex-col gap-[2px] hover:text-primary "><i class="fa-solid fa-bag-shopping text-xl lg:hidden"></i><span class="maxlg:text-[10px]">cart</span></li></a>
+      </ul>
+    </nav>
+    <div class="lg:flex hidden justify-center items-center gap-4 " x-data="{logIn:false}"><a class="hover:text-primary  cent gap-1" href="./my-account.html">
+         <i class="fa-regular fa-user mt-1"></i><span class="text-sm tracking-wider font-normal">Login/Register</span></a>
+      <div class=" gap-1 relative maxlg:hidden   hidden" :class="{'cent':logIn}" x-show="logIn" x-data="{isOpen:false} " @mouseover="isOpen=true" @mouseover.away="isOpen=false">
+        <div class="hover:text-primary cent gap-1 cursor-pointer"><i class="fa-regular fa-user mt-1"></i><span>user name </span></div>
+        <div class="absolute w-44 top-6 border p-4 z-50 bg-white right-0 hidden" :class="{'!block': isOpen}" x-show="isOpen">
+          <div class="flex items-start flex-col gap-2 font-normal text-start capitalize"> <a class=" hover:text-primary ltr:hover:translate-x-4 rtl:hover:-translate-x-4 duration-300" href="./profile.html">Dashboard</a>
+            <button class=" hover:text-primary ltr:hover:translate-x-4 rtl:hover:-translate-x-4 duration-300">Log out</button>
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute top-1 rtl:left-0 font-extrabold ltr:right-0 w-[25px] bg-primary rounded-full aspect-square cent text-white text-sm">15</div><a href="./wishlist.html">
+           <i class="fa-regular fa-heart text-3xl  hover:text-primary p-2"></i></a>
+      </div>
+      <div class="relative" x-data="{cart:false}" @mouseover="cart=true" @mouseover.away="cart=false">
+        <div class="absolute top-1 rtl:left-0 font-extrabold ltr:right-0 w-[25px] z-50 bg-primary rounded-full aspect-square cent text-white text-sm">15</div><a class="relative " href="./bag.html"><i class="fa-solid fa-bag-shopping text-3xl hover:text-primary p-2"></i></a>
+        <div class="absolute w-96  top-12 border p-5 z-50 bg-white ltr:right-0 rtl:left-0 border-t-[3px] border-t-primary hidden" :class="{'!block': cart}" x-show="cart">
+          <div class="h-[400px] divide-y-2 overflow-y-auto"><a class="flex gap-2 p-2" href="./product.html">
+              <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" src="../assets/17-img-6.png"/></div>
+              <div class="grow">
+                <h2 class="text-sm text-black capitalize font-bold">exported </h2>
+                <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+              </div></a><a class="flex gap-2 p-2" href="./product.html">
+              <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" src="../assets/17-img-6.png"/></div>
+              <div class="grow">
+                <h2 class="text-sm text-black capitalize font-bold">exported </h2>
+                <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+              </div></a><a class="flex gap-2 p-2" href="./product.html">
+              <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" src="../assets/17-img-6.png"/></div>
+              <div class="grow">
+                <h2 class="text-sm text-black capitalize font-bold">exported </h2>
+                <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+              </div></a><a class="flex gap-2 p-2" href="./product.html">
+              <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" src="../assets/17-img-6.png"/></div>
+              <div class="grow">
+                <h2 class="text-sm text-black capitalize font-bold">exported </h2>
+                <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+              </div></a><a class="flex gap-2 p-2" href="./product.html">
+              <div class="w-[70px]"><img class="min-w-[70px] aspect-square" onerror="this.onerror=null;this.src='../assets/logo.jpg';" alt="" src="../assets/17-img-6.png"/></div>
+              <div class="grow">
+                <h2 class="text-sm text-black capitalize font-bold">exported </h2>
+                <div class="text-sm  capitalize gap-1 flex items-center"><span>1</span><span class="text-[10px] font-bold ">x</span><span>50.00 </span></div>
+              </div></a>
+          </div>
+          <div class="w-full h-0 border-zinc-300 border-t-[1px] my-4"> </div>
+          <div class="flex justify-between items-center">
+            <p class="font-semibold">SUBTOTAL:</p>
+            <p class="font-semibold">50.00</p>
+          </div>
+          <div class="cent gap-5 mt-2"><a class="py-2 px-6 bg-primary rounded-full text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary" href="./bag.html">VIEW CART</a><a class="py-2 px-6 bg-zinc-400 rounded-full text-white  font-medium text-sm tracking-wider  border-zinc-400 hover:bg-white border-2 hover:text-zinc-400" href="./shipping.html">CHECKOUT</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="lg:hidden sm:cent gap-5 text-2xl hidden"><i class="fa-solid fa-circle-user  hover:text-primary"></i>
+<i class="fa-solid fa-heart hover:text-primary"></i>
+<i class="fa-solid fa-bag-shopping  hover:text-primary"></i>
+    </div>
+  </div>
+</div>

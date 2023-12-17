@@ -1,0 +1,33 @@
+section.py-10.container
+	div(class="md:flex-row flex-col items-start justify-center flex gap-16 py-10 ")
+		div(class=" w-full")
+			form(action="submit" class="flex flex-col justify-center gap-4")
+				h2(class="text-center md:text-start font-semibold text-2xl pb-5 ") Login
+				div.flex.flex-col.gap-1
+					label(for="username") Username or email address 
+						span.text-red-700 *
+					input(class="rounded-3xl w-full " type="text", name="username" required)
+				div.flex.flex-col.gap-1
+					label(for="password") Password 
+						span.text-red-700 *
+					div.cent 
+						input(class="rounded-3xl w-full" type="password",id="password" name="password" required)
+						<i id="eye"  class="fa-regular fa-eye -ml-8 cursor-pointer hover:text-primary"  x-on:click="toggleDirLang()" ></i>
+						//- <i id="eye"  class="fa-regular fa-eye -ml-8 cursor-pointer hover:text-primary"  onclick="togglePassword()"></i>
+				div.flex.justify-between.items-center 
+					div
+						input(type="checkbox", name="agree")
+						label(for="agree" class="hover:texttop")  Remember me 
+					a(href="" class="text-secondary  hover:text-primary") Lost your password?
+				button(type="submit" class="py-2 px-6 bg-primary rounded-full text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase") Login
+		div(class=" w-full")
+			form(action="submit" class="flex flex-col justify-center gap-4" )
+				h2(class="text-center md:text-start font-semibold text-2xl pb-5 ") SignUp
+				div.flex.flex-col.gap-1
+					label(for="email") Email address
+						span.text-red-700 *
+					input( class="rounded-3xl w-full" type="email", name="email" required)
+				div A link to set a new password will be sent to your email address.
+				div Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our 
+					a(href="") privacy policy.
+				button(type="submit" class="py-2 px-6 bg-primary rounded-full text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase") SignUp

@@ -1,0 +1,66 @@
+
+<div class="flex maxlg:flex-col gap-[5%] container pt-[60px] maxlg:pt-5 capitalize ">
+  <main class="grow space-y-4 divide-y-[1px] font-medium">
+    <div class="grid grid-cols-5 maxlg:hidden gap-6 w-full mt-4 text-xs">
+      <div class="col-span-2 "> <span class="ltr:ml-[110px]">product name</span></div>
+      <div class="cent"> PRICE</div>
+      <div class="cent"> QUANTITY</div>
+      <div class="cent"> SUBTOTAL</div>
+    </div>
+    <div class="grid grid-cols-5 py-2 gap-6 w-full mt-4" x-data="{window:true}" x-show="window">
+      <div class="cif gap-3 col-span-2 maxlg:col-span-3"> 
+        <button class="fa-solid  fa-trash-can" @click="window=false"></button>
+        <div><img class="aspect-square w-[70px]" data-src="../assets/watermillion.jpeg"/></div>
+        <div class="text-primary">Fresh Bell Peppers</div>
+      </div>
+      <div class="cent maxlg:hidden">95.00$</div>
+      <div class="cent"> 
+        <input class="border opacity-75 !w-[80px]" type="number" id="quantity" name="quantity" min="1" max="999" value="1"/>
+      </div>
+      <div class="cent"> 95.00$</div>
+    </div>
+    <div class="grid grid-cols-5 py-2 gap-6 w-full mt-4" x-data="{window:true}" x-show="window">
+      <div class="cif gap-3 col-span-2 maxlg:col-span-3"> 
+        <button class="fa-solid  fa-trash-can" @click="window=false"></button>
+        <div><img class="aspect-square w-[70px]" data-src="../assets/watermillion.jpeg"/></div>
+        <div class="text-primary">Fresh Bell Peppers</div>
+      </div>
+      <div class="cent maxlg:hidden">95.00$</div>
+      <div class="cent"> 
+        <input class="border opacity-75 !w-[80px]" type="number" id="quantity" name="quantity" min="1" max="999" value="1"/>
+      </div>
+      <div class="cent"> 95.00$</div>
+    </div>
+    <div class="grid grid-cols-5 py-2 gap-6 w-full mt-4" x-data="{window:true}" x-show="window">
+      <div class="cif gap-3 col-span-2 maxlg:col-span-3"> 
+        <button class="fa-solid  fa-trash-can" @click="window=false"></button>
+        <div><img class="aspect-square w-[70px]" data-src="../assets/watermillion.jpeg"/></div>
+        <div class="text-primary">Fresh Bell Peppers</div>
+      </div>
+      <div class="cent maxlg:hidden">95.00$</div>
+      <div class="cent"> 
+        <input class="border opacity-75 !w-[80px]" type="number" id="quantity" name="quantity" min="1" max="999" value="1"/>
+      </div>
+      <div class="cent"> 95.00$</div>
+    </div>
+    <div class="grid grid-cols-5 py-2 gap-6 w-full mt-4" x-data="{window:true}" x-show="window">
+      <div class="cif gap-3 col-span-2 maxlg:col-span-3"> 
+        <button class="fa-solid  fa-trash-can" @click="window=false"></button>
+        <div><img class="aspect-square w-[70px]" data-src="../assets/watermillion.jpeg"/></div>
+        <div class="text-primary">Fresh Bell Peppers</div>
+      </div>
+      <div class="cent maxlg:hidden">95.00$</div>
+      <div class="cent"> 
+        <input class="border opacity-75 !w-[80px]" type="number" id="quantity" name="quantity" min="1" max="999" value="1"/>
+      </div>
+      <div class="cent"> 95.00$</div>
+    </div>
+  </main>
+  <aside class="maxlg:order-1   real lg:h-fit aside bg-secondary-100 flex flex-col gap-8 maxlg:gap-4 maxlg:w-full w-[25%] min-w-[215px] lg:sticky top-[90px] maxlg:pb-[4%] lg:divide-y-[1px]">
+    <div class="space-y-3 divide-y-[1px] font-medium">
+      <div class="py-3">Cart totals</div>
+      <div class="cif py-4 justify-between"> <span>TOTAL</span><span>285 $</span></div><a href="">
+        <button class="py-2 px-6 bg-primary rounded-full text-white  font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase w-full" type="button">proceed to check out</button></a>
+    </div>
+  </aside>
+</div>

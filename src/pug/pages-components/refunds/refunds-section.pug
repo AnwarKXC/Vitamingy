@@ -1,0 +1,104 @@
+div(class="flex gap-[5%] container maxsm:flex-col capitalize" x-data="{image:false}")
+    //- div(class="inset-0 fixed z-40 bg-black/10 ")
+    side(class="lg:w-[340px] sm:w-[222px] w-full  " )
+        div(class="flex flex-col w-full px-[16px] maxlg:pt-6  mt-6 shadow rounded-md lg:mt-24  relative")
+            div(class="cent")
+                div(class="rounded-full border-[4px] z-[30] border-primary aspect-square w-[40%] min-w-[100px] maxsm:text-center  lg:absolute top-[0px]  lg:-translate-y-20" )
+                    img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="w-full aspect-square rounded-full" data-src="../assets/img-user.jpg" @click="image=true")
+
+            div(class="flex flex-col gap-2 py-2  relative border-b-2  border-secondary lg:mt-24" )
+                a(href="./profile.html" class="text-start") User Name 
+                span(class="") vitamingy@gmail.com 
+            h3(class="mt-4 font-medium text-xl") setting
+            div(class="flex flex-col gap-2 py-2  relative divide-y-[1px] border-b-2  border-secondary px-2")
+                div(class="cif gap-2 py-2  relative " x-data="{language:false}")
+                    div(class="cif gap-2   relative ")
+                        span(class="fa fa-globe info") 
+                        span(class="") country
+                    
+                    div(class="cent gap-2  hover:text-black relative"  @click="language=true" @click.away="language=false")
+                        span(class="cursor-pointer" ) egypt
+                        <i class="fa-solid fa-sort-down text-xs mb-1"></i>
+                        div(class="absolute w-32 leading-8 p-4 ltr:left-0 rtl:right-0 text-zinc-500 top-[20px] border rounded-md z-50 bg-white  hidden" :class="{'!block':language}" x-show="language")
+                            div
+                                button() egypt
+                            div
+                                button() libia
+                div(class="cif gap-4 py-2  relative " x-data="{language:false}" @mouseover.away="language=false")
+                    div(class="cif gap-2   relative ")
+                        span(class="fa-solid fa-language") 
+                        span(class="") language 
+                    div(class="cent gap-2  hover:text-black relative "  @click="language=true" @click.away="language=false")
+                        span(class="cursor-pointer" x-text="lang") 
+                        <i class="fa-solid fa-sort-down text-xs mb-1"></i>
+                        div(class="absolute w-32 leading-8 p-4 ltr:left-0 rtl:right-0 text-zinc-500 top-[20px] border rounded-md z-50 bg-white  hidden" :class="{'!block':language}" x-show="language")
+                            div
+                                button(@click="setToRTL()") Arabic
+                            div
+                                button(@click="setToLTR()") English
+            div(class="flex flex-col gap-2 py-1 mt-3 relative divide-y-[1px]")
+                a(href="./wishlist.html" class="cif gap-2 py-2  relative ")
+                    span(class="fa fa-heart info") 
+                    span(class="") favorite
+                a(href="./orders.html" class="cif gap-2 py-2  relative " )
+                    span(class="fa-solid fa-truck") 
+                    span(class="") orders
+                a(href="./refunds.html" class="cif gap-2 py-2  relative " )
+                    span(class="fa-solid fa-truck") 
+                    span(class="") refunds
+                a(href="./bag.html" class="cif gap-2 py-2  relative ")
+                    span(class="fa fa-shopping-basket info") 
+                    span(class="") bag
+                a(href="./contact-us.html" class="cif gap-2 py-2  relative ")
+                    span(class="fa fa-info-circle info") 
+                    span(class="") help
+            button(class="cif gap-2 py-2  relative " )
+                i( class="fa-solid fa-right-from-bracket")
+                span(class="font-bold text-[1rem]") log out
+
+
+            //- button(class="cif gap-2 py-2  relative " @click="toggleDirLang()")
+            //-     i( class="fa-solid fa-globe text-sm")
+            //-     span(class="" x-text="lang")
+   
+    main(class="grow rounded-md  lg:mt-24 mt-6" )
+
+
+        div(class=" py-9 px-[16px] bg-white " ) 
+            h3(class="font-bold text-[2rem]  mb-6") refunds
+            -for(let i=0;i<3;i++)
+                a(href="./refund-details.html" class="flex  mt-4 gap-6 py-1 px-2 relative border rounded-md")
+                    div(class=" sm:h-[150px] h-[120px]  aspect-square" )
+                        img( onerror="this.onerror=null;this.src='../assets/logo.jpg';" class="w-full h-full" data-src="../assets/box2.png")
+                    div(class=" sm:space-y-4 space-y-2  text-base font-medium mt-4 py-1  relative ")
+                        div(class="flex") 
+                            span Refund Code:
+                            span #33333
+                        div(class="flex text-sm") 
+                            span status:
+                            span cancelled
+                        div(class="flex text-sm") 
+
+                            span 2023-12-13 14:45 PM
+
+            //- div(class="cif   py-1  relative")
+            //-     span(class="w-[40%]") email
+            //-     span(class="") vitamingy@gmail.com
+            //- div(class="cif   py-1  relative")
+            //-     span(class="w-[40%]") phone
+            //-     span(class="") 015015150551
+
+    form(class="fixed inset-0  bg-secondary/30 z-[50] hidden " :class="{'cent' : image}" x-show="image" )
+        div(class=" w-[25%] py-8 px-[1%] min-w-[300px] shadow bg-white rounded-md z-[50]"  x-show="image" @click.away="image=false")
+            h3(class="mb-6 text-center font-medium text-xl") choose image
+
+            div.cent.mt-8
+                button(type="submit" class="py-2 px-6 text-center bg-secondary rounded-full text-white  w-fit font-medium text-sm tracking-wider  uppercase") submit
+
+
+
+
+
+
+
+

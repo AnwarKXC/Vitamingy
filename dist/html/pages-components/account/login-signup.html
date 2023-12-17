@@ -1,0 +1,61 @@
+
+<section x-data="{sign:'log',init2:true,full:true,mobileC:false}" x-init="() =&gt; { setTimeout(() =&gt; full = false, 500)}" @load.window="width = (window.innerWidth &gt; 0) ? window.innerWidth : screen.width;if (width &lt;= 1023) { mobileC=true}">
+  <div class="lg:flex-row flex-col items-start justify-center flex   mb-16 relative lg:min-h-screen">
+    <div class=" lg:absolute  maxlg:h-fit top-0 maxlg:!w-full h-full  w-full bg-white z-20" :class="{ 'ltr:left-0 rtl:right-0':sign=='log' , ' ltr:right-0 rtl:left-0':sign=='sign','!w-[50%]':!full}">
+      <div class="flex flex-col  gap-4 px-[20%]  lg:py-10 py-5 h-full bg-secondary text-white " :class="{ 'lg:rounded-br-full': sign=='log' &amp;&amp; !full , 'lg:rounded-bl-full':sign=='sign' &amp;&amp; !full}">
+        <div class="cent gap-1 text-xl maxlg:text-lg font-semibold lg:mt-16"><span>Do You Have an account ?</span></div>
+        <div class="cent gap-1 text-xs"><span class="hidden" x-show="sign=='sign'" :class="{'!block':sign=='sign'}">You can create an account from here</span><span class="hidden" x-show="sign=='log'" :class="{'!block':sign=='log'}">You can log in from here</span></div>
+        <div class="cent text-primary font-bold"><span>Vitamingy</span></div>
+        <div class="cent text-secondary font-bold">
+          <button class="hidden w-fit py-2 px-6  rounded-full text-white  font-medium text-xs tracking-wider  border-white hover:bg-white border-2 hover:text-primary uppercase" type="button" x-show="sign=='log'" :class="{'!block':sign=='log'}" @click="sign='sign'">Login</button>
+          <button class="hidden w-fit py-2 px-6  rounded-full text-white  font-medium text-xs tracking-wider  border-white hover:bg-white border-2 hover:text-primary uppercase" type="button" x-show="sign=='sign'" :class="{'!block':sign=='sign'}" @click="sign='log'">Sign up</button>
+        </div>
+      </div>
+    </div>
+    <div class="py-10 w-full" x-show="sign=='sign' || !mobileC">
+      <form class="flex flex-col justify-center gap-4 px-[5%] lg:mt-20 " action="submit" x-show="sign=='sign'">
+        <h2 class="text-center  font-semibold text-2xl lg:pb-5 pb-2 ">Login</h2>
+        <div class="flex flex-col gap-1 relative mt-10"><i   class="fa-solid fa-envelope absolute ltr:left-4 top-3 cursor-pointer hover:text-primary"  ></i>
+          <input class="rounded-3xl w-full px-10" placeholder="email " type="email" name="email" required="required"/>
+        </div>
+        <div class="cent relative">
+           <i   class="fa-solid fa-lock absolute ltr:left-4 top-3 cursor-pointer hover:text-primary"  ></i>
+          <input class="rounded-3xl w-full px-10" placeholder="password" type="password" id="password" name="password" required="required"/>
+        </div>
+        <div class="flex justify-between items-center px-2"> 
+          <div>
+            <input type="checkbox" name="agree"/>
+            <label class="hover:texttop" for="agree"> Remember me </label>
+          </div><a class="text-secondary  hover:text-primary" href="">Lost your password?</a>
+        </div>
+        <div class="cent"><a class="py-2 px-6 text-center bg-primary rounded-full text-white  w-fit font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase" href="./profile.html">Login</a></div>
+      </form>
+    </div>
+    <div class=" w-full  py-10" x-show="sign=='log' || !mobileC">
+      <form class="flex flex-col justify-center gap-4 px-[5%] lg:mt-20 " action="submit" x-show="sign=='log'">
+        <h2 class="text-center  font-semibold text-2xl lg:pb-5 pb-2">Sign Up</h2>
+        <div class="cent gap-1 relative mt-10"><i   class="fa-solid fa-user absolute ltr:left-4 top-3 cursor-pointer hover:text-primary"  ></i>
+          <input class="rounded-3xl w-full px-10" placeholder="Username " type="text" name="username" required="required"/>
+        </div>
+        <div class="flex flex-col gap-1 relative"><i   class="fa-solid fa-envelope absolute ltr:left-4 top-3 cursor-pointer hover:text-primary"  ></i>
+          <input class="rounded-3xl w-full px-10" placeholder="email " type="email" name="email" required="required"/>
+        </div>
+        <div class="cent relative">
+           <i   class="fa-solid fa-lock absolute ltr:left-4 top-3 cursor-pointer hover:text-primary"  ></i>
+          <input class="rounded-3xl w-full px-10" placeholder="password" type="password" id="password" name="password" required="required"/>
+        </div>
+        <div class="cent relative">
+           <i   class="fa-solid fa-lock absolute ltr:left-4 top-3 cursor-pointer hover:text-primary"  ></i>
+          <input class="rounded-3xl w-full px-10" placeholder="confirm password" type="password" id="password" name="password" required="required"/>
+        </div>
+        <div class="flex justify-between items-center text-sm"> 
+          <div>
+            <input type="checkbox" name="agree"/>
+            <label class="hover:texttop" for="agree">accept <a href="./privacy-policy.html">privacy policy.</a></label>
+          </div>
+        </div>
+        <div class="cent"><a class="py-2 px-6 text-center bg-primary rounded-full text-white  w-fit font-medium text-sm tracking-wider  border-primary hover:bg-white border-2 hover:text-primary uppercase" href="./profile.html">Sign Up</a></div>
+      </form>
+    </div>
+  </div>
+</section>
