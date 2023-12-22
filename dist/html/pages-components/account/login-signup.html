@@ -1,14 +1,16 @@
 
 <section x-data="{sign:'log',init2:true,full:true,mobileC:false}" x-init="() =&gt; { setTimeout(() =&gt; full = false, 500)}" @load.window="width = (window.innerWidth &gt; 0) ? window.innerWidth : screen.width;if (width &lt;= 1023) { mobileC=true}">
-  <div class="lg:flex-row flex-col items-start justify-center flex   mb-16 relative lg:min-h-screen">
-    <div class=" lg:absolute  maxlg:h-fit top-0 maxlg:!w-full h-full  w-full bg-white z-20" :class="{ 'ltr:left-0 rtl:right-0':sign=='log' , ' ltr:right-0 rtl:left-0':sign=='sign','!w-[50%]':!full}">
-      <div class="flex flex-col  gap-4 px-[20%]  lg:py-10 py-5 h-full bg-secondary text-white " :class="{ 'lg:rounded-br-full': sign=='log' &amp;&amp; !full , 'lg:rounded-bl-full':sign=='sign' &amp;&amp; !full}">
-        <div class="cent gap-1 text-xl maxlg:text-lg font-semibold lg:mt-16"><span>Do You Have an account ?</span></div>
-        <div class="cent gap-1 text-xs"><span class="hidden" x-show="sign=='sign'" :class="{'!block':sign=='sign'}">You can create an account from here</span><span class="hidden" x-show="sign=='log'" :class="{'!block':sign=='log'}">You can log in from here</span></div>
-        <div class="cent text-primary font-bold"><span>Vitamingy</span></div>
-        <div class="cent text-secondary font-bold">
-          <button class="hidden w-fit py-2 px-6  rounded-full text-white  font-medium text-xs tracking-wider  border-white hover:bg-white border-2 hover:text-primary uppercase" type="button" x-show="sign=='log'" :class="{'!block':sign=='log'}" @click="sign='sign'">Login</button>
-          <button class="hidden w-fit py-2 px-6  rounded-full text-white  font-medium text-xs tracking-wider  border-white hover:bg-white border-2 hover:text-primary uppercase" type="button" x-show="sign=='sign'" :class="{'!block':sign=='sign'}" @click="sign='log'">Sign up</button>
+  <div class="lg:flex-row flex-col items-start justify-center flex overflow-hidden  mb-16 relative lg:min-h-screen">
+    <div class=" lg:absolute  maxlg:h-fit top-0 maxlg:!w-full h-full  w-screen  z-20  -translate-x-[50%] " id="Animation">
+      <div class="flex flex-col  gap-4 ltr:pl-[50%] w-full  lg:py-10 py-5 h-full bg-secondary text-white rounded-b-full " :class="{ 'ltr:pl-[50%] rtl:pr-[50%]  ': sign=='log', 'ltr:pr-[50%] rtl:pl-[50%]  ':sign=='sign' }">
+        <div class=" flex flex-col  gap-4    h-full  text-white rounded-b-full ">
+          <div class="cent gap-1 text-xl maxlg:text-lg font-semibold lg:mt-16"><span>Do You Have an account ?</span></div>
+          <div class="cent gap-1 text-xs"><span class="hidden" x-show="sign=='sign'" :class="{'!block':sign=='sign'}">You can create an account from here</span><span class="hidden" x-show="sign=='log'" :class="{'!block':sign=='log'}">You can log in from here</span></div>
+          <div class="cent text-primary font-bold"><span>Vitamingy</span></div>
+          <div class="cent text-secondary font-bold">
+            <button class="hidden w-fit py-2 px-6  rounded-full text-white  font-medium text-xs tracking-wider  border-white hover:bg-white border-2 hover:text-primary uppercase" type="button" x-show="sign=='log'" :class="{'!block':sign=='log'}" @click="sign='sign'" onclick="moveLeft()">Login</button>
+            <button class="hidden w-fit py-2 px-6  rounded-full text-white  font-medium text-xs tracking-wider  border-white hover:bg-white border-2 hover:text-primary uppercase" type="button" x-show="sign=='sign'" :class="{'!block':sign=='sign'}" @click="sign='log'" onclick="moveRight()">Sign up</button>
+          </div>
         </div>
       </div>
     </div>

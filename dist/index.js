@@ -10,6 +10,87 @@
 // 	localStorage.setItem( "dir", bodyElement.dir )
 // }
 
+let animeIdLeft = null;
+let animeIdRight = null;
+
+function moveLeft() {
+  let elem = document.getElementById("Animation");
+  let pos = 0; // Start from the left edge
+  const maxWidth = 2*window.innerWidth - elem.clientWidth; // Stop at the right edge
+
+  clearInterval(animeIdLeft);
+  animeIdLeft = setInterval(frameLeft, 10);
+
+  function frameLeft() {
+    if (pos >= maxWidth) {
+      clearInterval(animeIdLeft);
+    } else {
+      pos+= 10;
+      elem.style.left = pos + 'px';
+    }
+  }
+}
+
+function moveRight() {
+  let elem = document.getElementById("Animation");
+  let pos = 2*window.innerWidth - elem.clientWidth; // Start from the right edge
+  const minWidth = 0; // Stop at the left edge
+
+  clearInterval(animeIdRight);
+  animeIdRight = setInterval(frameRight, 10);
+
+  function frameRight() {
+    if (pos <= minWidth) {
+      clearInterval(animeIdRight);
+    } else {
+      pos-= 10;
+      elem.style.left = pos + 'px';
+    }
+  }
+}
+
+// let animeId = null;
+// function myMove() {
+//   let elem = document.getElementById("myAnimation");   
+//  let pos = 0;
+//  let maxWidth = 2*window.innerWidth - elem.clientWidth; 
+//  console.log(maxWidth)
+//   clearInterval(animeId);
+//   animeId = setInterval(frame, .5);
+//   function frame() {
+//     if (pos >= maxWidth) {
+//       console.log('wrong')
+//       clearInterval(animeId);
+//     } else {
+//       pos++; 
+//       elem.style.left = pos + 'px'; 
+//       elem.style.right = ""; 
+
+//     }
+//   }
+// }
+// function otherMove() {
+//   console.log('wrong23')
+//   let elem = document.getElementById("myAnimation");   
+//  let pos = maxWidth2;
+//  let maxWidth2 = 2*window.innerWidth - elem.clientWidth; 
+//  console.log(maxWidth2)
+//   clearInterval(animeId);
+//   animeId = setInterval(frame, .5);
+//   function frame() {
+//     if (pos >= maxWidth2) {
+//       console.log('wrong2')
+//       clearInterval(animeId);
+//     } else {
+//       pos++; 
+//       elem.style.left = pos + 'px'; 
+
+
+
+//     }
+//   }
+// }
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -152,9 +233,6 @@ console.log("skeleton")
     realElements.forEach(el => observer.observe(el));
   
   });
-
-
-
 
 
 
